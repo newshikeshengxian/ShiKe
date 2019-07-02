@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sk.store.mapper.TypeMapper">
+
+    <resultMap id="listAllTypeOneMap" type="com.sk.store.po.ProductOne">
+        <id property="poId" column="po_id"></id>
+        <result property="poName" column="po_name"></result>
+    </resultMap>
+
+    <select id="listAllTypeOne" resultMap="listAllTypeOneMap">
+       SELECT po_id,po_name FROM product_one
+    </select>
+
+</mapper>
