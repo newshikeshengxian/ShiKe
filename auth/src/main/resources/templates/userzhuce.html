@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0037)http://www.shikefood.com/register.php -->
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>::-webkit-input-placeholder{text-overflow:ellipsis;overflow:hidden;cursor:text;color:gray;opacity:1;padding:0;border:0;}</style>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>::-webkit-input-placeholder{text-overflow:ellipsis;overflow:hidden;cursor:text;color:gray;opacity:1;padding:0;border:0;}</style>
 <!--<base href="http://www.shikefood.com/">--><base href=".">
 <meta name="Generator" content="68ECSHOP v5_0">
 
@@ -12,24 +12,29 @@
 
 
 
-<link rel="shortcut icon" href="http://www.shikefood.com/favicon.ico">
-        
-<link rel="stylesheet" type="text/css" href="./用户中心_注册_files/68ecshop_common.css">
-<link type="text/css" rel="stylesheet" href="./用户中心_注册_files/passport.css">
-<link type="text/css" rel="stylesheet" href="./用户中心_注册_files/main.css">
-<script src="./用户中心_注册_files/hm.js.下载"></script><script type="text/javascript" src="./用户中心_注册_files/jquery_email.js.下载"></script>
-<script type="text/javascript" src="./用户中心_注册_files/jquery-1.9.1.min.js.下载"></script>
-<script type="text/javascript" src="./用户中心_注册_files/jquery.validate.js.下载"></script>
-<script type="text/javascript" src="./用户中心_注册_files/messages_zh.js.下载"></script>
-<script type="text/javascript" src="./用户中心_注册_files/placeholder.js.下载"></script>
-<script type="text/javascript" src="./用户中心_注册_files/jquery.json.js.下载"></script><script type="text/javascript" src="./用户中心_注册_files/transport.js.下载"></script> 
+    <link rel="shortcut icon" href="http://www.shikefood.com/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/js/68ecshop_common.css">
+<link type="text/css" rel="stylesheet" href="/js/passport.css">
+<link type="text/css" rel="stylesheet" href="/js/main.css">
+<script src="/js/hm.js"></script><script type="text/javascript" src="/js/jquery_email.js"></script>
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/messages_zh.js"></script>
+<script type="text/javascript" src="/js/placeholder.js"></script>
+<script type="text/javascript" src="/js/jquery.json.js"></script>
+<!--    <script type="text/javascript" src="/js/transport.js"></script>-->
  
-<script type="text/javascript" src="./用户中心_注册_files/common.js.下载"></script><script type="text/javascript" src="./用户中心_注册_files/register.js.下载"></script><script charset="UTF-8" src="./用户中心_注册_files/bundle.js.下载"></script><script charset="UTF-8" src="./用户中心_注册_files/iframeWidget.js.下载"></script></head><body onclick="ecshop68_onclick();" style="cursor: auto;"><iframe id="sina_anywhere_iframe" style="display: none;" src="./用户中心_注册_files/saved_resource.html"></iframe>
+<script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/register.js"></script>
+<!--    <script charset="UTF-8" src="/js/bundle.js"></script>-->
+<!--    <script charset="UTF-8" src="/js/iframeWidget.js"></script>-->
+</head><body onclick="ecshop68_onclick();" style="cursor: auto;"><iframe id="sina_anywhere_iframe" style="display: none;" src="/js/saved_resource.html"></iframe>
 <script>
 function erweima1(obj, sType) { var oDiv = document.getElementById(obj); if (sType == 'show') {oDiv.style.display = 'block';} if (sType == 'hide') {oDiv.style.display = 'none';} }
 </script>
 <div class="logo-r">
-<link rel="stylesheet" type="text/css" href="./用户中心_注册_files/68ecshop_common.css">
+<link rel="stylesheet" type="text/css" href="/js/68ecshop_common.css">
 <script language="javascript"> 
 <!--
 /*屏蔽所有的js错误*/
@@ -39,11 +44,11 @@ return true;
 window.onerror = killerrors; 
 //-->
 </script>
-<script type="text/javascript" src="./用户中心_注册_files/page.js.下载"></script>
-<script type="text/javascript" src="./用户中心_注册_files/bubbleup.js.下载"></script>
+<script type="text/javascript" src="/js/page.js"></script>
+<script type="text/javascript" src="/js/bubbleup.js"></script>
 <div class="header">
 	<div class="w1210">
-		<div class="mall-logo"> <a href="http://www.shikefood.com/"></a><a href="http://www.shikefood.com/"><img src="./用户中心_注册_files/logo.png"></a> </div>
+		<div class="mall-logo"> <a href="http://www.shikefood.com/"></a><a href="http://www.shikefood.com/"><img src="/js/logo.png"></a> </div>
 		<!--<div class="mall-logo-right"> <a href="#" target="_blank"></a> </div>-->
 		<div class="mall-search">
     <div id="search-tips" style="display:none;"></div>
@@ -81,7 +86,7 @@ window.onerror = killerrors;
 <p style="float:right; color: #61be16; margin-right: 130px;"><i class="hd-b-r-icon1"></i>满99元包邮</p> 
 <p style="float:right; margin-top: -50px;">
     <a href="http://www.yygroup.net/" target="_blank">
-        <img src="./用户中心_注册_files/yanyanglogo.jpg">
+        <img src="/js/yanyanglogo.jpg">
     </a>
 </p> 
 	</div>
@@ -293,13 +298,13 @@ window.onerror = killerrors;
               <div class="item-brands">
                 <div class="brands-inner"> 
                    
-                   <a href="http://www.shikefood.com/brand-527-c370.html" class="img-link" target="_blank" title="YUMART"> <img src="./用户中心_注册_files/1488833586109904811.jpg" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-527-c370.html" class="img-link" target="_blank" title="YUMART"> <img src="/js/1488833586109904811.jpg" width="90" height="36"> </a>
                    
-                   <a href="http://www.shikefood.com/brand-655-c370.html" class="img-link" target="_blank" title="知牧"> <img src="./用户中心_注册_files/1557711879997959522.jpg" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-655-c370.html" class="img-link" target="_blank" title="知牧"> <img src="/js/1557711879997959522.jpg" width="90" height="36"> </a>
                    
-                   <a href="http://www.shikefood.com/brand-699-c370.html" class="img-link" target="_blank" title="恒茸"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-699-c370.html" class="img-link" target="_blank" title="恒茸"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-381-c370.html" class="img-link" target="_blank" title="澳昆牧场"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-381-c370.html" class="img-link" target="_blank" title="澳昆牧场"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
                 </div>
               </div>
@@ -384,21 +389,21 @@ window.onerror = killerrors;
               <div class="item-brands">
                 <div class="brands-inner"> 
                    
-                   <a href="http://www.shikefood.com/brand-532-c372.html" class="img-link" target="_blank" title="新东阳"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-532-c372.html" class="img-link" target="_blank" title="新东阳"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-645-c372.html" class="img-link" target="_blank" title="禧年连"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-645-c372.html" class="img-link" target="_blank" title="禧年连"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-709-c372.html" class="img-link" target="_blank" title="土叭鸡"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-709-c372.html" class="img-link" target="_blank" title="土叭鸡"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-475-c372.html" class="img-link" target="_blank" title="湾仔码头"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-475-c372.html" class="img-link" target="_blank" title="湾仔码头"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-476-c372.html" class="img-link" target="_blank" title="苏阿姨"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-476-c372.html" class="img-link" target="_blank" title="苏阿姨"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-504-c372.html" class="img-link" target="_blank" title="三全"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-504-c372.html" class="img-link" target="_blank" title="三全"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-477-c372.html" class="img-link" target="_blank" title="龙凤"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-477-c372.html" class="img-link" target="_blank" title="龙凤"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-374-c372.html" class="img-link" target="_blank" title="真正老陆稿荐"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-374-c372.html" class="img-link" target="_blank" title="真正老陆稿荐"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
                    
                    
@@ -519,13 +524,13 @@ window.onerror = killerrors;
               <div class="item-brands">
                 <div class="brands-inner"> 
                    
-                   <a href="http://www.shikefood.com/brand-393-c374.html" class="img-link" target="_blank" title="海水来了"> <img src="./用户中心_注册_files/1488219291963083262.jpg" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-393-c374.html" class="img-link" target="_blank" title="海水来了"> <img src="/js/1488219291963083262.jpg" width="90" height="36"> </a>
                    
-                   <a href="http://www.shikefood.com/brand-711-c374.html" class="img-link" target="_blank" title="渔泊湾"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-711-c374.html" class="img-link" target="_blank" title="渔泊湾"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-712-c374.html" class="img-link" target="_blank" title="大厨小鲜"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-712-c374.html" class="img-link" target="_blank" title="大厨小鲜"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-710-c374.html" class="img-link" target="_blank" title="新鱼港"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-710-c374.html" class="img-link" target="_blank" title="新鱼港"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
                 </div>
               </div>
@@ -662,21 +667,21 @@ window.onerror = killerrors;
               <div class="item-brands">
                 <div class="brands-inner"> 
                    
-                   <a href="http://www.shikefood.com/brand-619-c376.html" class="img-link" target="_blank" title="喜德旺"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-619-c376.html" class="img-link" target="_blank" title="喜德旺"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-734-c376.html" class="img-link" target="_blank" title="六月香"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-734-c376.html" class="img-link" target="_blank" title="六月香"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-635-c376.html" class="img-link" target="_blank" title="老干妈"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-635-c376.html" class="img-link" target="_blank" title="老干妈"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-409-c376.html" class="img-link" target="_blank" title="海天"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-409-c376.html" class="img-link" target="_blank" title="海天"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-631-c376.html" class="img-link" target="_blank" title="味好美"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-631-c376.html" class="img-link" target="_blank" title="味好美"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-410-c376.html" class="img-link" target="_blank" title="恒顺"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-410-c376.html" class="img-link" target="_blank" title="恒顺"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-746-c376.html" class="img-link" target="_blank" title="玉棠"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-746-c376.html" class="img-link" target="_blank" title="玉棠"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
-                   <a href="http://www.shikefood.com/brand-733-c376.html" class="img-link" target="_blank" title="太太乐"> <img src="./用户中心_注册_files/saved_resource" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-733-c376.html" class="img-link" target="_blank" title="太太乐"> <img src="js/saved_resource" width="90" height="36"> </a>  
                    
                    
                    
@@ -881,21 +886,21 @@ window.onerror = killerrors;
               <div class="item-brands">
                 <div class="brands-inner"> 
                    
-                   <a href="http://www.shikefood.com/brand-482-c378.html" class="img-link" target="_blank" title="伊利"> <img src="./用户中心_注册_files/1487979404011159278.jpg" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-482-c378.html" class="img-link" target="_blank" title="伊利"> <img src="/js/1487979404011159278.jpg" width="90" height="36"> </a>
                    
-                   <a href="http://www.shikefood.com/brand-505-c378.html" class="img-link" target="_blank" title="光明"> <img src="./用户中心_注册_files/1487979436561458088.jpg" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-505-c378.html" class="img-link" target="_blank" title="光明"> <img src="/js/1487979436561458088.jpg" width="90" height="36"> </a>
                    
-                   <a href="http://www.shikefood.com/brand-315-c378.html" class="img-link" target="_blank" title="明治"> <img src="./用户中心_注册_files/1488503618094757574.jpg" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-315-c378.html" class="img-link" target="_blank" title="明治"> <img src="/js/1488503618094757574.jpg" width="90" height="36"> </a>
                    
-                   <a href="http://www.shikefood.com/brand-508-c378.html" class="img-link" target="_blank" title="ZEK"> <img src="./用户中心_注册_files/1488241194124481185.jpg" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-508-c378.html" class="img-link" target="_blank" title="ZEK"> <img src="/js/1488241194124481185.jpg" width="90" height="36"> </a>
                    
-                   <a href="http://www.shikefood.com/brand-392-c378.html" class="img-link" target="_blank" title="丽芝士"> <img src="./用户中心_注册_files/1487979526913257361.jpg" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-392-c378.html" class="img-link" target="_blank" title="丽芝士"> <img src="/js/1487979526913257361.jpg" width="90" height="36"> </a>
                    
-                   <a href="http://www.shikefood.com/brand-583-c378.html" class="img-link" target="_blank" title="雀巢"> <img src="./用户中心_注册_files/1497488406402914593.jpg" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-583-c378.html" class="img-link" target="_blank" title="雀巢"> <img src="/js/1497488406402914593.jpg" width="90" height="36"> </a>
                    
-                   <a href="http://www.shikefood.com/brand-349-c378.html" class="img-link" target="_blank" title="小老板"> <img src="./用户中心_注册_files/1487979378015340182.jpg" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-349-c378.html" class="img-link" target="_blank" title="小老板"> <img src="/js/1487979378015340182.jpg" width="90" height="36"> </a>
                    
-                   <a href="http://www.shikefood.com/brand-337-c378.html" class="img-link" target="_blank" title="沙巴哇"> <img src="./用户中心_注册_files/1488242545757548414.jpg" width="90" height="36"> </a>  
+                   <a href="http://www.shikefood.com/brand-337-c378.html" class="img-link" target="_blank" title="沙巴哇"> <img src="/js/1488242545757548414.jpg" width="90" height="36"> </a>
                    
                    
                    
@@ -1131,13 +1136,13 @@ $(function(){
 	
 });
 </script> 
-<script type="text/javascript" src="./用户中心_注册_files/nav.js.下载"></script>
+<script type="text/javascript" src="/js/nav.js"></script>
 </div>
 <div class="blank"></div>
 <div class="blank"></div>
 <div class="w990"> 
    
-  <script type="text/javascript" src="./用户中心_注册_files/utils.js.下载"></script>  <div id="regist">
+  <script type="text/javascript" src="/js/utils.js"></script>  <div id="regist">
     <div class="register-con" style="height: 0px;">
      <!--  <div class="box-pic-reg"></div> -->
       <div class="uc-box-reg">
@@ -1149,13 +1154,13 @@ $(function(){
             <li class="have-account fr">已有账号！<a href="user.php?act=login">登录</a></li>
           </ul>
         </form> -->
-        <form action="" method="post" id="formUser" name="formUser">
+        <form action="/phone" method="post"   id="formUser" name="formUser">
           <div class="form">
           <h3 class="form-h3">会员注册</h3>
             <input type="hidden" name="register_type" value="mobile">
            
             <div class="item">
-              <span class="item-span1"><b style="color: #b80304; margin-right: 2px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</b>手机：</span><input name="mobile_phone" type="text" id="mobile_phone" placeholder="手机" onblur="checkMobilePhone(this)" class="text">
+              <span class="item-span1"><b style="color: #b80304; margin-right: 2px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</b>手机：</span><input name="phone" type="text" id="mobile_phone" placeholder="手机"class="text">
               <div> <span class="label" id="mobile_phone_notice" style="margin-left: 10px;"></span> </div>
             </div>
           
@@ -1163,9 +1168,11 @@ $(function(){
             
             <div class="item">
              <span class="item-span1"><b style="color: #b80304; margin-right: 2px;">&nbsp;&nbsp;&nbsp;*</b>验证码：</span>
-              <input id="mobile_code" class="text text-te fl item-yanzhengma" type="text" placeholder="手机验证码" name="mobile_code">
+              <input id="mobile_code" class="text text-te fl item-yanzhengma" type="text" placeholder="手机验证码" name="code">
               
-              <input id="zphone" class="zphone" type="button" value="获取手机验证码 ">
+              <input class="zphone"  type="button" value="获取手机验证码 " id="zphone" onclick="yanzm()">
+                
+
               <!-- <div> <span id="extend_field5i" class="label"></span> </div> -->
             </div>
             
@@ -1173,7 +1180,7 @@ $(function(){
               <div class="item">
 
               <span class="item-span1"><b style="color: #b80304; margin-right: 2px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</b>密码：</span>
-                <input name="password" type="password" id="password" placeholder="密码" onblur="check_password(this.value);" onkeyup="checkIntensity(this.value)" class="text">
+                <input name="userPass" type="password" id="password" placeholder="密码" class="text">
               
                 <div id="pwd_notice" style=""> <span class="label" id="password_notice" style="color: rgb(227, 25, 57);">- 登录密码不能少于 6 个字符。</span> </div>
                <!--  <div id="pwd_intensity"> <span class="label">
@@ -1209,9 +1216,9 @@ $(function(){
             <div class="item">
               <input name="act" type="hidden" value="register">
               <input type="hidden" name="back_act" value="user.php">
-              <input type="submit" id="btn_submit" name="Submit" class="btn-img btn-regist" value="立即注册" disabled="">
+              <input type="button"   value="立即注册"  onclick="zhuce()" class="btn-img btn-regist">
             </div>
-            <span class="from-sapn5">已注册？<a href="http://www.shikefood.com/user.php?act=login">立即登录</a></span>
+            <span class="from-sapn5">已注册？<a href="/page/login.html">立即登录</a></span>
           </div>
         </form>
         <!--[if !ie]>form end<![endif]--> 
@@ -1220,7 +1227,7 @@ $(function(){
              
              <p class="regidter-t-right-p1">已经是会员：<span class="regidter-t-right-span1"><a href="http://www.shikefood.com/user.php?act=login">直接登录</a></span></p>
              
-                         <span class="regidter-t-right-span2"><a href="http://www.shikefood.com/"><img src="./用户中心_注册_files/1559500290334008946.jpg"></a></span>
+                         <span class="regidter-t-right-span2"><a href="http://www.shikefood.com/"><img src="/js/1559500290334008946.jpg"></a></span>
               
          </div>
       </div>
@@ -1255,9 +1262,9 @@ $(function(){
 		<div class="footer-article">
 			<div class="footer-b-l-top">
 				<ul>
-					<li><a><img src="./用户中心_注册_files/footer-img1.png"></a></li>
-					<li><a href="http://www.shikefood.com/bbs" target="_blank"><img src="./用户中心_注册_files/footer-img2.png"></a></li>
-					<li><a><img src="./用户中心_注册_files/footer-img3.png"></a></li>
+					<li><a><img src="/js/footer-img1.png"></a></li>
+					<li><a href="http://www.shikefood.com/bbs" target="_blank"><img src="/js/footer-img2.png"></a></li>
+					<li><a><img src="/js/footer-img3.png"></a></li>
 				</ul>
 			</div>
                     <dl class="col-article col-article-first">
@@ -1303,10 +1310,10 @@ $(function(){
            </dl>-->
 		   </div>
 		 <div class="footer-b-r-top">
-				<span class="menu-b-r-span1" style="margin-right:40px;"><img src="./用户中心_注册_files/weixin2.jpg" style="width:120px;height:120px;">食恪生鲜官方微信</span>
-				<span class="menu-b-r-span1" style="width:120px"><img src="./用户中心_注册_files/weixin3.jpg" style="width:120px;height:120px;">食恪尝鲜官方微信</span>
+				<span class="menu-b-r-span1" style="margin-right:40px;"><img src="/js/weixin2.jpg" style="width:120px;height:120px;">食恪生鲜官方微信</span>
+				<span class="menu-b-r-span1" style="width:120px"><img src="/js/weixin3.jpg" style="width:120px;height:120px;">食恪尝鲜官方微信</span>
 				
-				<p class="footer-b-t-top-p1" style="margin-top:170px;"><span class="footer-b-r-top-span1"><wb:follow-button uid="5838966503" type="red_1" width="67" height="24"><iframe src="./用户中心_注册_files/followbutton.html" width="67" height="24" frameborder="0" scrolling="no" marginheight="0"></iframe></wb:follow-button></span><span class="footer-b-r-top-span2">食恪网</span></p>
+				<p class="footer-b-t-top-p1" style="margin-top:170px;"><span class="footer-b-r-top-span1"><wb:follow-button uid="5838966503" type="red_1" width="67" height="24"><iframe src="/js/followbutton.html" width="67" height="24" frameborder="0" scrolling="no" marginheight="0"></iframe></wb:follow-button></span><span class="footer-b-r-top-span2">食恪网</span></p>
 			</div>
         </div>
     	<div class="footer-info clearfix">
@@ -1345,10 +1352,11 @@ $(function(){
   </div>
 </div>
 
-<img src="./用户中心_注册_files/cron.php" alt="" style="width:0px;height:0px;">
+<img src="/js/cron.php" alt="" style="width:0px;height:0px;">
 
 
-<script type="text/javascript" src="./用户中心_注册_files/jquery-lazyload.js.下载"></script>
+<script type="text/javascript" src="/js/jquery-lazyload.js"></script>
+        <script type="text/javascript" src="/js/jquery-3.4.0.js"></script>
 <script type="text/javascript">
 Ajax.call('api/okgoods.php', '', '', 'GET', 'JSON');
 $("img").lazyload({
@@ -1358,8 +1366,8 @@ $("img").lazyload({
 });
 </script>
 
-<script type="text/javascript" src="./用户中心_注册_files/base.js.下载"></script>
-<script src="./用户中心_注册_files/wb.js.下载" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/js/base.js"></script>
+<script src="/js/wb.js" type="text/javascript" charset="utf-8"></script>
 
 
 
@@ -1410,6 +1418,31 @@ var _hmt = _hmt || [];
  
 
   </script>
+
+<script>
+    function yanzm() {
+        var phone = $("#mobile_phone").val();
+        alert(phone)
+        $.post("/phone",{phone:phone},function (data) {
+
+        })
+    }
+
+    function zhuce() {
+        var user = {}
+        var phone = $("#mobile_phone").val();
+        var code = $("#mobile_code").val();
+        var pass = $("#password").val();
+        user["phone"] = phone;
+        user["code"] = code;
+        user["userPass"] = pass;
+        $.post("/addUser",user,function (data) {
+          if(data.code == 0){
+              location.href="/page/login.html";
+          }
+        })
+    }
+</script>
 
 <script type="text/javascript">
 	var process_request = "正在处理您的请求...";
@@ -1470,16 +1503,7 @@ var _hmt = _hmt || [];
 			sendEmailCode($("#email"), $("#email_code"), $(this));
 		});
 		
-		$("#zphone").click(function(){
-			$("#mobile_phone").blur();
 
-			if ($("#captcha").size() > 0 && $("#captcha").val().length == 0) {
-				$("#captcha_notice").html(msg_captcha_blank);
-				$("#captcha_notice").css({color: '#E31939'});
-				return;
-			}
-			sendMobileCode($("#mobile_phone"), $("#mobile_code"), $(this));
-		});
 		
 		
 		$(".register-tab").find(".cur").removeClass("cur");
@@ -1497,8 +1521,7 @@ var _hmt = _hmt || [];
         $('#tongyi i').removeClass('safety-icon1');
         $('#tongyi i').addClass('safety-icon2');
     }
-    
-    
+
     	$('.cencel-btn').addClass('none');
 	    $(this).parents('.pop-main').hide();
 	    $('.pop-mask').hide();	
@@ -1506,4 +1529,5 @@ var _hmt = _hmt || [];
   })
 </script> 
 
-</body></html>
+</body>
+</html>

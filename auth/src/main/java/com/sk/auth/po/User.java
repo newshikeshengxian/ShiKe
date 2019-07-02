@@ -16,7 +16,24 @@ public class User {
   private String brith;
   private String addr;
   private String payPwd;
+  private String userPass;
+  private String code;
 
+  public String getCode() {
+    return code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getUserPass() {
+    return userPass;
+  }
+
+  public void setUserPass(String userPass) {
+    this.userPass = userPass;
+  }
 
   public String getUserId() {
     return userId;
