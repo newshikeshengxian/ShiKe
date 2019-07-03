@@ -5,6 +5,28 @@
 
 <mapper namespace="com.sk.auth.mapper.UserMapper">
 
-    <
+    <resultMap id="userMap" type="com.sk.auth.po.User">
+        <id property="userId" column="user_id" ></id>
+        <result property="userName" column="user_name"></result>
+        <result property="phone" column="phone"></result>
+        <result property="userSex" column="user_sex"></result>
+        <result property="couponId" column="coupon_id"></result>
+        <result property="balance" column="balance"></result>
+        <result property="credits" column="credits"></result>
+        <result property="email" column="email"></result>
+        <result property="pic" column="pic"></result>
+        <result property="vipGrade" column="vip_grade"></result>
+        <result property="brith" column="brith"></result>
+        <result property="addr" column="addr"></result>
+        <result property="payPwd" column="pay_pwd"></result>
+        <result property="userPass" column="user_pass"></result>
+    </resultMap>
+    <select id="selectUser" resultMap="userMap">
+        select phone from user where user_id=#{userId}
+    </select>
+
+    <insert id="addUser" >
+        insert into user (user_id,phone) values (#{userId},#{phone})
+    </insert>
 
 </mapper>
