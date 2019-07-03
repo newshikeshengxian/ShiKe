@@ -1,0 +1,29 @@
+<!DOCTYPE html >
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<base th:href="${#request.getContextPath()}+'/'">
+<script type="text/javascript" src="js/jquery-3.4.0.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/axios.min.js"></script>
+
+
+</head>
+
+
+<body >
+ 月份：<input id="month" type="text" />
+状态：<input id="state" type="text" />
+ token:<input id="token" type="text">
+ <input type="button" value="测试" onclick="test()">
+<script>
+	function test() {
+		var token  = $("#token").val();
+		var indent = {"userId":token}
+		axios.post("order/addOrder",indent).then(function (res) {
+
+        })
+	}
+
+</script>
+</body>
+</html>
