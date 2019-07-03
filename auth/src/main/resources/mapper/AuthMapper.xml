@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sk.auth.mapper.AuthMapper">
+
+    <resultMap id="AuthMap" type="com.sk.auth.po.AuthCenter">
+        <id property="acId" column="ac_id" ></id>
+        <result property="roleId" column="role_id" ></result>
+        <result property="acPwd" column="ac_pwd" ></result>
+        <result property="userId" column="user_id" ></result>
+        <result property="acPhone" column="ac_phone" ></result>
+
+    </resultMap>
+
+    <insert id="addAuth" >
+        insert into auth_center (user_id,ac_phone,ac_pwd) values (#{userId},#{acPhone},#{acPwd})
+    </insert>
+
+    <select id="selectAuth" resultMap="AuthMap">
+        select * from auth_center where ac_phone=#{acPhone} and ac_pwd=#{acPwd}
+    </select>
+
+    <select id="authById" resultType="java.lang.String" >
+        select a.auth_name from auth a join role_auth ra join auth_center ac
+        on ac.role_id=ra.role_id and
+        a.auth_id=ra.auth_id
+        and ac.user_id=#{UserId}
+    </select>
+</mapper>
