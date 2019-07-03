@@ -1,7 +1,9 @@
 package com.sk.shoppingCart.vo;
 
-public class JsonResult {
-    private int code ;
+import java.io.Serializable;
+
+public class JsonResult implements Serializable {
+    private Integer code ;
     private String msg;
     private  Object data;
 
@@ -9,7 +11,7 @@ public class JsonResult {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 

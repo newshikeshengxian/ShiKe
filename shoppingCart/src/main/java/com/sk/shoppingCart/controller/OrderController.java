@@ -1,5 +1,6 @@
 package com.sk.shoppingCart.controller;
 
+import com.sk.shoppingCart.po.Indent;
 import com.sk.shoppingCart.service.IOrder;
 import com.sk.shoppingCart.vo.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -24,6 +26,7 @@ public class OrderController {
     @RequestMapping("/addShopCart")
     public JsonResult addShopCart(){
         JsonResult jsonResult = new JsonResult();
+
         return jsonResult;
     }
 
@@ -40,8 +43,13 @@ public class OrderController {
     }
 
     @RequestMapping("/addOrder")
-    public JsonResult addOrder(){
+    public JsonResult addOrder(@RequestBody Indent order){
         JsonResult jsonResult = new JsonResult();
+        try {
+            orderService.addOrder(order);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return jsonResult;
     }
 
@@ -49,7 +57,7 @@ public class OrderController {
      * 订单查询接口
      * @param map userId 用户ID
      *            state 订单状态
-     *            productState 产品状态
+     *            indentType 订单类型（0 普通 1 促销 2 抢购）
      *            deliverTime 发货时间
      *            receiveTime 签收时间
      *            leaveWord 留言
@@ -59,6 +67,16 @@ public class OrderController {
     @RequestMapping("/list")
     public JsonResult OrderList(@RequestBody Map map){
         JsonResult jsonResult = new JsonResult();
+        try {
+            List<Indent> order = orderService.findOrder(map);
+            jsonResult.setCode(0);
+            jsonResult.setData(order);
+        } catch (Exception e) {
+            e.printStackTrace();
+            jsonResult.setCode(1);
+            jsonResult.setMsg("出错了");
+        }
+
         return jsonResult;
     }
 

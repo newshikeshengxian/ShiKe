@@ -61,8 +61,8 @@
 </head>
 
 
-<body style="cursor: auto;">
-<div id="box">
+<body style="cursor: auto;" >
+<div id="box"  >
 	
 
 	<div id="site-nav">
@@ -166,7 +166,7 @@
 			 	时间：2019-06-29
 			 	描述：第一步
 			 -->
-		<div v-show="show1==1">
+		<div v-show="show1==1" onclick="price()">
   			
 			 
   			<div class="my-gouwuche"><p><i class="step-name-gwc"></i><span>我的购物车</span></p></div>
@@ -201,44 +201,45 @@
 						时间：2019-06-29
 						描述：结算商品列表
 					-->
-						<tr gift_cart_id="0" name="goods_list" id="rec_list_367375">
+						<tr gift_cart_id="0" name="goods_list" id="rec_list_367375"  v-for="product,index in products" >
 						    <td style="width:100%;border-bottom:1px dashed #eee;">
 						    	<table name="list" cellpadding="5" cellspacing="1" border="0" width="100%">
 						        	<tbody>
 						        		<tr>
 											<td align="center" width="4%">
-							        	        <input type="checkbox"  name="check" >
+							        	        <input type="checkbox" checked="checked" :id="index" :value="product.indentNum * product.productPrice"  name="check" >
 							        		</td>
 											<td align="center" width="32%">
 								  		    	<div class="thumb_name">
 							              			<dl>
-							                			<dt> <a  target="_blank"><img  src="/image/10026_thumb_G_1488937488931.jpg"  border="0" title="秘鲁红提 500g装" class="pic_img_10026"></a> </dt>
+							                			<dt> <a  target="_blank"><img  :src="product.productPic"  border="0" :title="product.productName" class="pic_img_10026"></a> </dt>
 							                			<dd> 
 							                				<a  target="_blank" class="f6">
-							                	               	秘鲁红提 500g装<br>
+							                	               	{{product.productName}}<br>
 							                				</a>
 							                			</dd>
 							                	    </dl>
 							            		</div>
 							            	</td>
+
 								  			<td width="8%">
-							                	<font class="cart_jmprice cart_jmprice1" goods_price="14.80" id="goods_price_367375">
-							                    	¥14.80                
+							                	<font class="cart_jmprice cart_jmprice1"  id="goods_price_367375">
+							                    	{{product.productPrice}}
 							                	</font>
 								  			</td>
 							      			<td align="center" width="13%">
 								    			<div class="jm_cartnum" rec_id="367375" goods_id="10026" supp_id="0" is_package="0">
-												    <span class="jmminu" value="1">-</span>
-						                           	<input type="text" name="goods_number[367375]" id="goods_number_367375" value="2" size="4" class="jminputBg">
+												    <span class="jmminu" @click="changeNum(index,-1)"  value="1">-</span>
+						                           	<input type="text" name="goods_number[367375]" id="goods_number_367375" :value="product.indentNum" size="4" class="jminputBg">
 						                            <input type="hidden" id="hidden_367375" value="2">
-						                            <span class="jmadd" value="1">+</span>
+						                            <span class="jmadd" @click="changeNum(index,1)" value="1">+</span>
 								              	</div>
 							            	</td>
 						          			<td align="center" width="10%">
 							         		    <font class="attrname"></font>
 						          			</td>
 						          			<td align="center" width="10%">
-						                		<font class="cart_jmprice cart_jmprice2" id="subtotal_367375">¥29.60</font>
+						                		<font class="cart_jmprice cart_jmprice2" id="subtotal_367375" name="price">{{(product.indentNum * product.productPrice).toFixed(2)}}</font>
 						          			</td>
 						          			<td align="center" width="10%">
 							  		  	        <a href="javascript:collect(10026)" class="shoucang">收藏</a>
@@ -268,13 +269,13 @@
 					    <tr>
 						    <td width="80">
 						    </td>
-					       	<td align="right" width="120"><a href="javascript:void(0);" class="jmclear"><i class="icon-shanchu" onclick="delete_checked()"></i></a><span onclick="return delete_checked()">删除选中的商品</span></td>
+					       	<td align="right" width="120"><a href="javascript:void(0);" class="jmclear"><i class="icon-shanchu" ></i></a><span >删除选中的商品</span></td>
 					       	<td align="right" width="150" id="coudan"><span>全场满99包邮费 <a >去凑单</a></span> </td>
-					        <td align="right" id="cart_money_info">应付总额：<span> ¥33.10</span>，比市场价 ¥39.72 节省了 ¥6.62 (17%)</td>
+					        <td align="right" id="cart_money_info">应付总额：<span> {{price}}</span>，比市场价 ¥{{(price*market).toFixed(2)}} 节省了 ¥{{(price*(market-1)).toFixed(2)}} ({{((market-1)*100).toFixed(2)}}%)</td>
 					        <td align="right" width="150">
 							    <input type="hidden" id="oldselcart" value="{&quot;367375&quot;:&quot;2&quot;,&quot;367377&quot;:&quot;1&quot;}">
 							
-							    <a href="javascript:void(0);" @click="goTwo()" class="jmcheckout" style="color:#ffffff">去结算</a>
+							    <a href="javascript:void(0);" onclick="goTwo()" class="jmcheckout" style="color:#ffffff">去结算</a>
 					        </td>
 					    </tr>
 					</tbody>
@@ -317,7 +318,7 @@
 			    <div class="address_jm" id="AddressList">
 			    	<ul style=" overflow-x: hidden;overflow-y: scroll;height: 130px;width: 102%;">
 						<li class="curr" onmouseover="showAddressEdit(this);" onmouseout="showAddressEdit(this);">
-							<div style="width:100%;height:100%;" onclick="selAddress(this, 1509);">
+							<div style="width:100%;height:100%;" onclick="selAddress(this, 1509);" v-for="ad in addr">
 								<!--
                                 	作者：offline
                                 	时间：2019-07-01
@@ -326,7 +327,7 @@
 								<table cellpadding="0" cellspacing="0" width="100%">
 									<tbody>
 										<tr>
-											<td>hanxun<br>上海-上海-浦东新区&nbsp;南岳小区四巷20号<br>13027190378</td>
+											<td>{{ad.raName}}<br>{{ad.raAddr}}<br>{{ad.raPhone}}</td>
 										</tr>
 									</tbody>
 								</table>
@@ -351,15 +352,15 @@
 			    <div class="timebox">
 			        <ul>
 			          <li class="curr" id="time_id_1" onclick="javascript:setTimeSh(&#39;1&#39;);">
-			            <input id="time_delivery1" type="radio" name="best_time" value="仅工作日送货" checked="checked">
+			            <input id="time_delivery1" type="radio" name="best_time" value="0" checked="checked">
 			            <label for="time_delivery1">仅工作日送货</label>
 			          </li>
 			          <li id="time_id_2" onclick="javascript:setTimeSh(&#39;2&#39;);">
-			            <input id="time_delivery2" type="radio" name="best_time" value="仅周末送货">
+			            <input id="time_delivery2" type="radio" name="best_time" value="1">
 			            <label for="time_delivery2">仅周末送货</label>
 			          </li>
 			          <li id="time_id_3" onclick="javascript:setTimeSh(&#39;3&#39;)">
-			            <input id="time_delivery3" type="radio" name="best_time" value="工作日/周末/假日均可">
+			            <input id="time_delivery3" type="radio" name="best_time" value="2">
 			            <label for="time_delivery3">工作日/周末/假日均可</label>
 			          </li>
 			
@@ -380,25 +381,25 @@
 			                <tr>
 			          			<td colspan="4" style="background:#FAFAFA; border-top:1px solid #eee; font-weight:bold; padding:5px 10px;"> 网站自营 <input name="fa_log[0]" type="hidden" value="N;"></td>
 			        		</tr>
-			                <tr rec_id="367393" name="goodsList" gift_cart_id="0">
+			                <tr rec_id="367393" name="goodsList" gift_cart_id="0" v-for="or in order">
 			          			<td width="50%" style="border-top:none;">
 			            			<div class="thumb_name">
 			              				<dl>
 			                				<dt>
 			                					<a  target="_blank">
-			                						<img src="/image/10963_thumb_G_1514509174527.jpg" style="border:1px solid #eeeeee;" title="澳洲脐橙 1个装">
+			                						<img :src="or.productPic" style="border:1px solid #eeeeee;" :title="productName">
 			                					</a>
 			                				</dt>
 					                		<dd>
-						                		<a  target="_blank" class="f6">澳洲脐橙 1个装     <br></a><br>
+						                		<a  target="_blank" class="f6">{{or.productName}}<br></a><br>
 						                  		<font class="attrname"></font>
 					                		</dd>
 			              				</dl>
 			            			</div>
 			            		</td>
-			          			<td align="center" style="border-top:none;">2</td>
-			          			<td align="center" class="price_font" style="border-top:none;">¥5.20</td>
-			          			<td align="center" class="price_font" style="border-top:none;">¥10.40</td>
+			          			<td align="center" style="border-top:none;">{{or.indentNum}}</td>
+			          			<td align="center" class="price_font" style="border-top:none;">¥{{or.productPrice}}</td>
+			          			<td align="center" class="price_font" style="border-top:none;">¥{{(or.indentNum * or.productPrice).toFixed(2)}}</td>
 			        		</tr>
 			        		<tr>
 			            		<td colspan="4" bgcolor="#ffffff" align="right" style="padding:12px 15px 12px 0;">
@@ -428,8 +429,9 @@
 												<tr>
 													<td align="right" width="120">使用优惠券：</td>
 													<td>
-														<select name="bonus[0]" onchange="changeBonus(this.value,0)" id="ECS_BONUS_0" class="otherinput">
-															<option value="0" selected="">请选择</option>
+														<select name="bonus[0]" onchange="coupon(this.value)" id="ECS_BONUS_0" class="otherinput">
+															<option value="-1" selected="">请选择</option>
+															<option :value="index"   v-for="cp,index in coupon">{{cp.condition}}</option>
 
 														</select>
 													</td>
@@ -581,7 +583,7 @@
 			                            <div id="allow_user_surplus" v-if="payBalan==1" style= "display: block">
 			                				<span class="surplus_desc">
 			                				<input name="surplus" type="text" class="surplus" >&nbsp;&nbsp;元</span>
-			                                                                                    您当前的可用余额为<span class="your_surplus" id="mk_yue"></span>
+			                                                                                    您当前的可用余额为<span class="your_surplus" id="mk_yue">{{balance}}</span>
 			                                <span id="ECS_SURPLUS_NOTICE_0" class="notice"></span>
 			                                <input type="hidden" id="rec_id_list" name="sel_goods" value="367393">
 			                            </div>
@@ -637,13 +639,13 @@
 				        						<tbody>
 				        							<tr>
 				            							<td align="right" bgcolor="#ffffff" style="padding: 0px 0px;border-top: 1px dotted #ffffff;">
-				                							该订单完成后，您将获得<font class="main-color">10</font>积分，
+				                							该订单完成后，您将获得<font class="main-color">{{parseInt(price)}}</font>积分，
 				                							以及价值<font class="main-color">¥0.00</font>的优惠券。
 				                            			</td>
 				       	 							</tr>
 				        							<tr>
 				            							<td align="right" bgcolor="#ffffff" style="padding: 0px 0px;border-top: 1px dotted #ffffff;">
-				                                    		商品总价: <font class="main-color">¥10.40</font><br>
+				                                    		商品总价: <font class="main-color">¥{{price}}</font><br>
 				                                        </td>
 				        							</tr>
 				                					
@@ -657,11 +659,11 @@
 			</div>
 			<div class="flowBox_jm clearfix" style="border:none;padding-bottom:20px;">
 			      	<div style="float:left;width:40%;padding:8px 0; padding-left:5px;">
-			      		<a onclick="goOne()" class="continue_buy" style="padding:0;">返回修改购物车</a> 
+			      		<a  href="javascript:;" onclick="goOne()" class="continue_buy" style="padding:0;">返回修改购物车</a>
 			      	</div>
 			      	<div style="float:right;width:55%;text-align:right;padding:8px 20px;">
-			                               应付款金额： <span class="main-color" style="font-size:18px;font-family:微软雅黑;margin-right:10px;" id="final_total_money">¥10.40</span>
-			        	<input id="ordersubimtx" type="button" value="确认订单" align="absmiddle" onclick="goOrder()" class="fliwbox-submit">
+			                               应付款金额： <span class="main-color" style="font-size:18px;font-family:微软雅黑;margin-right:10px;" id="final_total_money">¥{{realPay}}</span>
+			        	<a href="avascript:;"><input id="ordersubimtx" type="button" value="确认订单" align="absmiddle" onclick="goOrder()" class="fliwbox-submit"></a>
 			        	<input type="hidden" name="step" value="done">
 			        	<input type="hidden" name="flow_type" value="0">
 			    		<input type="hidden" name="formrandids" value="369641220190629142145">
@@ -927,33 +929,10 @@
 
 
 
-<script>
-	var chkAll = document.getElementById("chkAll");
-	var chk = $("input[name='check']")
-	if(chkAll.checked){
-		for (var i = 0; i < chk.length; i++) {
-            $("input[name='check']").attr("checked",true)
-        }
-	}else{
-		alert()
-		for (var i = 0; i < chk.length; i++) {
-            $("input[name='check']").attr("checked",false)
-        }
-	}
-	function check(){
-		var chkAll = document.getElementById("chkAll");
-		var chk = $("input[name='check']")
+<script type="text/javascript">
 
-		if(chkAll.checked){
-			for (var i = 0; i < chk.length; i++) {
-	            $("input[name='check']").attr("checked",true)
-	        }
-		}else{
-			for (var i = 0; i < chk.length; i++) {
-	            $("input[name='check']").attr("checked",false)
-	        }
-		}
-	}
+
+
 
 	
 	var v = new Vue({
@@ -970,19 +949,81 @@
 			payBalan:0,
 			payOther:0,
 			payMent:"",
-			order:[]
+			products:[{"productId":10001,"indentNum":2,"productPrice":14.8,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg"},
+				{"productId":10001,"indentNum":2,"productPrice":14.8,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg"}],
+			price:29.60,
+			raId:"",
+			conponId:"",
+			leaveWord:"",
+			indentType:0,
+			market:1,
+			addr:[{"raId":"0001","userId":"0006","raName":"xgf","raPhone":"15959595599","raAddr":"湖北武汉","raTel":"123456","raCode":"437300"}],
+			deliveryTime:0,
+			order:[],
+			coupon:[{"couponId":"0001","endTime":"2019-09-01 09:37:28","couponMoney":10,"condition":"满50减10","ptId":"0001","beginTime":"2019-07-01 09:37:36","state":0,"userId":"0006","couponCondition":50}],
+			realPay:0,
+			balance:0,
+			shop
+
 		},
 		methods:{
-			goTwo:function(){
-				v.show1=0;
-				v.show2=1;
-				v.show3=0;
-				v.sh2=1;
-			},
-			
+			changeNum:function (index,num) {
+				if (num > 0) {
+					v.products[index].indentNum = v.products[index].indentNum + num;
+				}
+				if (num < 0 && v.products[index].indentNum > 0) {
+					v.products[index].indentNum = v.products[index].indentNum + num;
+				}
+			}
 		}
 	})
-	
+	function check(){
+		var chkAll = document.getElementById("chkAll");
+		var chk = $("input[name='check']")
+
+		if(chkAll.checked){
+			for (var i = 0; i < chk.length; i++) {
+				chk[i].checked=true;
+			}
+		}else{
+			for (var i = 0; i < chk.length; i++) {
+				chk[i].checked=false
+			}
+		}
+	}
+	function goTwo(){
+		v.order = [];
+		var check = $("input[name='check']:checked");
+		var products = v.products;
+		for(var i = 0;i<check.length;i++){
+			var product = products[check[i].id];
+			var index = v.order.indexOf(product);
+			if(index == -1){
+				v.order.push(product)
+			}
+		}
+		v.realPay = v.price
+		// axios.post().then(function (res) {
+		//
+		// })
+		v.show1=0;
+		v.show2=1;
+		v.show3=0;
+		v.sh2=1;
+	}
+	var market = 1.05+Math.random()*0.15;
+	v.market = market
+
+	function price() {
+		var price = 0;
+		var check = $("input[name='check']:checked");
+		for(var i = 0;i<check.length;i++){
+			price = price+parseFloat(check[i].value)
+		}
+		v.price = price.toFixed(2);
+	}
+
+
 	function goOne(){
 		v.show1=1;
 		v.show2=2;
@@ -1003,6 +1044,14 @@
 			}
 			
 		}
+	}
+	function coupon(index) {
+		v.realPay = v.price
+		if(index!=-1){
+			var coupon = v.coupon[index].couponMoney
+			v.realPay = v.price - coupon;
+		}
+
 	}
 	function showTrack(){
 		v.track=1;
@@ -1039,7 +1088,9 @@ $("img").lazyload({
 	    var timeid = document.getElementById('time_id_'+id);
 	    timeid.className = 'curr';
 		$("input:radio[name='best_time']").attr("checked",false);
-		document.getElementById('time_delivery'+id).checked='checked';
+		var ck = document.getElementById('time_delivery'+id);
+		ck.checked='checked';
+		v.deliveryTime = ck.value;
 	}
 	
 	function showCheckoutOther(obj){
