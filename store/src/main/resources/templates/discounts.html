@@ -22,66 +22,12 @@
     <script type="text/javascript" src="/discounts_files/global.js"></script>
     <script type="text/javascript" src="/discounts_files/compare.js"></script><script>var jdpts = new Object(); jdpts._st = new Date().getTime();</script>
  </head>
-<body style="cursor: auto;"><iframe id="sina_anywhere_iframe" style="display: none;"></iframe><link rel="stylesheet" type="text/css" href="/discounts_files/68ecshop_common.css">
-<script language="javascript"> 
-<!--
-/*屏蔽所有的js错误*/
-function killerrors() { 
-return true; 
-} 
-window.onerror = killerrors; 
-//-->
-</script>
+<body style="cursor: auto;">
+<div id="box">
+<iframe id="sina_anywhere_iframe" style="display: none;"></iframe><link rel="stylesheet" type="text/css" href="/discounts_files/68ecshop_common.css">
 <script type="text/javascript" src="/discounts_files/page.js"></script>
 <script type="text/javascript" src="/discounts_files/bubbleup.js"></script>
 <script type="text/javascript" src="/discounts_files/theme.js"></script>
-
-<script type="text/javascript">
-//<![CDATA[
-
-function checkSearchForm()
-{
-    if(document.getElementById('keyword').value)
-    {
-	var frm  = document.getElementById('searchForm');
-	var type = parseInt(document.getElementById('searchtype').value);
-	frm.action = type==0 ? 'search.php' : 'stores.php';
-        return true;
-    }
-    else
-    {
-	alert("请输入关键词！");
-        return false;
-    }
-}
-
-function myValue1(){
-	document.getElementById('keyword').value = "请输入商品名称或编号...";
-}
-
-function myValue2(){
-	document.getElementById('keyword').value = "";
-}
-
-//]]>
-$('.search-type li').click(function() {
-    $(this).addClass('cur').siblings().removeClass('cur');
-    $('#searchtype').val($(this).attr('num'));
-});
-$(function(){
-	//图片放大效果
-    $(".header-right img").bubbleup({scale:70});
-	
-	//头部搜索
-	$('.search-type').hover(function(){
-		$(this).css({"height":"auto","overflow":"visible"});
-	},function(){
-		$(this).css({"height":32,"overflow":"hidden"});
-	});
-	
-	
-});
-</script> 
 <script type="text/javascript" src="/discounts_files/nav.js"></script><script type="text/javascript" src="/discounts_files/jquery.js"></script>
 <script type="text/javascript" src="/discounts_files/TouchSlide.1.1.js"></script>
 
@@ -129,16 +75,6 @@ box-shadow: 0 0 2px #ccc; }
 	</div>
 	
 </div>
-<script type="text/javascript">
-	TouchSlide({ 
-		slideCell:"#scrollimg",
-		titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-		mainCell:".bd ul", 
-		effect:"leftLoop", 
-		autoPage:true,//自动分页
-		autoPlay:true //自动播放
-	});
-</script>
 <div>
 	<link rel="stylesheet" type="text/css" href="/discounts_files/home.css">
 <style>
@@ -158,99 +94,53 @@ box-shadow: 0 0 2px #ccc; }
 		</ul>
 	</div>
 	<div class="arrival-center">
-				<div class="arrival-center-top">
-			<div class="arrival-center-top-left">
+		<h3 class="arrival-center-top-l-h3"><span class="arrival-center-span1">优惠推荐</span><span class="arrival-center-span2"><i></i></span></h3>
+
+		<temple v-for="promotions in promotion">
+		<div class="arrival-center-top" >
+			<div class="arrival-center-top-left" >
 				<div class="arrival-center-top-left-top">
-				<h3>厄瓜多尔白虾60/70 908g</h3>
-				<p class="arrival-center-top-left-p1">活虾急冻 入口鲜嫩</p>
-				<p class="arrival-center-top-left-p2">高蛋白低脂肪 肉肥Q弹</p>
+				<h3>{{promotions.product.product_Name}}</h3>
+				<p class="arrival-center-top-left-p1">{{promotions.product.product_Desc}}</p>
 				</div>
 				<div class="arrival-center-top-left-center">
-				<p class="arrival-center-top-left-p4" style="font-size:16px;">抢鲜价：￥<span class="arrival-center-top-left-span3">88</span></p>
+				<p class="arrival-center-top-left-p4" style="font-size:16px;">抢鲜价：￥<span class="arrival-center-top-left-span3">{{promotions.prom_Price}}</span></p>
 				<a href="http://www.shikefood.com/goods-12154.html"><input type="button" value="点击详情&gt;&gt;" class="arrical-btn1"></a>
 				</div>
 			</div>
-			<div class="arrival-center-top-right">
-				<a href="http://www.shikefood.com/goods-12154.html"><span class="arrival-center-top-right-span1"><img src="/discounts_files/1542045451282762024.jpg"></span></a>
+			<div class="arrival-center-top-right" >
+				<a href="http://www.shikefood.com/goods-12154.html"><span class="arrival-center-top-right-span1"><img :src="promotions.product.product_Pc1" style="height: 300px"></span></a>
 			</div>
 		</div>
-
-				<div class="arrival-center-top">
-			<div class="arrival-center-top-left">
-				<div class="arrival-center-top-left-top">
-				<h3>阿拉斯加鲑鱼条 454g</h3>
-				<p class="arrival-center-top-left-p1">外酥里嫩 满口浓香</p>
-				<p class="arrival-center-top-left-p2">无骨无刺 吃起来更安心</p>
-				</div>
-				<div class="arrival-center-top-left-center">
-				<p class="arrival-center-top-left-p4" style="font-size:16px;">抢鲜价：￥<span class="arrival-center-top-left-span3">18</span></p>
-				<a href="http://www.shikefood.com/goods-12230.html"><input type="button" value="点击详情&gt;&gt;" class="arrical-btn1"></a>
-				</div>
-			</div>
-			<div class="arrival-center-top-right">
-				<a href="http://www.shikefood.com/goods-12230.html"><span class="arrival-center-top-right-span1"><img src="/discounts_files/1542046054892504245.jpg"></span></a>
-			</div>
-		</div>
-
-				<div class="arrival-center-top">
-			<div class="arrival-center-top-left">
-				<div class="arrival-center-top-left-top">
-				<h3>蒜蓉粉丝贝6只装 270g</h3>
-				<p class="arrival-center-top-left-p1">肉质细腻 口感鲜香</p>
-				<p class="arrival-center-top-left-p2">鲜美劲道 营养便捷</p>
-				</div>
-				<div class="arrival-center-top-left-center">
-				<p class="arrival-center-top-left-p4" style="font-size:16px;">抢鲜价：￥<span class="arrival-center-top-left-span3">18</span></p>
-				<a href="http://www.shikefood.com/goods-12127.html"><input type="button" value="点击详情&gt;&gt;" class="arrical-btn1"></a>
-				</div>
-			</div>
-			<div class="arrival-center-top-right">
-				<a href="http://www.shikefood.com/goods-12127.html"><span class="arrival-center-top-right-span1"><img src="/discounts_files/1542046100281334565.jpg"></span></a>
-			</div>
-		</div>
-
-				
+		</temple>
 	</div>
 </div>	
 </div>
 <img src="/discounts_files/cron.php" alt="" style="width:0px;height:0px;">
 
-
-<script type="text/javascript">
-Ajax.call('api/okgoods.php', '', '', 'GET', 'JSON');
-$("img").lazyload({
-    effect       : "fadeIn",
-	 skip_invisible : true,
-	 failure_limit : 20
-});
-</script>
-
 <script type="text/javascript" src="/discounts_files/base.js"></script>
 <script src="/discounts_files/wb.js" type="text/javascript" charset="utf-8"></script>
 
-
+ </div>
+<script type="text/javascript"></script>
+<script type="text/javascript" src="/discounts_files/compare(1).js"></script>
+</body>
+<script type="text/javascript" src="/js/vue.min.js"></script>
+<script type="text/javascript" src="/js/axios.min.js"></script>
+</html>
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?f84308146ad12f1098c0af9e25217e46";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>  </div>
-</div>
-<script type="text/javascript">
-$("img").lazyload({
-	effect : "fadeIn",
-	skip_invisible : true,
-	failure_limit : 20
-});
-</script> 
-<script type="text/javascript" src="/discounts_files/compare(1).js"></script> 
-<style>
-	.fr{
-		float: none !important;
-	}
-</style>
+		var v=new Vue({
+		el:"#box",
+		data:{
+			promotion:[],
+		},
+		methods:{
 
-</body></html>
+		}
+		});
+		axios.get("/product/promotion").then(function (res) {
+			if (res.data.resultCode=="0"){
+				v.promotion=res.data.resultData;
+				}
+			});
+</script>
