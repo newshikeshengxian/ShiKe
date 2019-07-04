@@ -17,6 +17,10 @@ public class TypeController {
     @Autowired
     private IType typeService;
 
+    /** 查询所有商品类型
+     * 商城分类页面，所有一级、二级、三级类型
+     * @return
+     */
     @RequestMapping("/listAllType")
     @ResponseBody
     public ResultJson listAllType(){
