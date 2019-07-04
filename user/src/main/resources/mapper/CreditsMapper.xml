@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sk.user.mapper.CreditsMapper">
+    <resultMap id="creditsMap" type="com.sk.user.po.Credits">
+        <id property="creId" column="cre_id"/>
+        <result property="userId" column="user_id" />
+        <result property="creNum" column="cre_num" />
+        <result property="creTime" column="cre_time" />
+        <result property="creUse" column="cre_use" />
+        <result property="creDesc" column="cre_desc" />
+    </resultMap>
+ <select id="queryAllCre" resultMap="creditsMap">
+     select cre_id,cre_num,cre_time,cre_use,cre_desc from credits where user_id = #{userId}
+ </select>
+</mapper>
