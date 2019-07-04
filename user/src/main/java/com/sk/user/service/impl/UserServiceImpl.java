@@ -12,6 +12,16 @@ public class UserServiceImpl implements IUserService{
     private UserMapper userMapper;
 
     /**
+     * 根据用户ID修改用户余额
+     * @param userId
+     * @param balance
+     */
+    @Override
+    public void updateUserBalance(String userId, double balance) throws Exception {
+        userMapper.updateUserBalance(userId,balance);
+    }
+
+    /**
      * 根据用户ID查询用户全部信息
      * @param userId
      * @return 此用户信息

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RequestMapping("/user")
 @CrossOrigin
 @RestController
@@ -16,10 +17,10 @@ public class UserController {
     private UserServiceImpl userService;
     @RequestMapping("/queryUser")
     public JsonResult getUser(String uid){
-        //        Map map = new HashMap();
+//                Map map = new HashMap();
 //        map.put("token",userId);
 //        JsonResult forObject =null;
-//        forObject = restTemplate.postForObject("http://192.168.52.218:8080/ifLogin",map,JsonResult.class);
+//        forObject = restTemplate.postForObject("http://auth-server/ifLogin",map,JsonResult.class);
 //        String userId =(String) forObject.getData();
 //        if(forObject.getCode() == 0) {
         JsonResult result = new JsonResult();

@@ -5,6 +5,8 @@ import com.sk.user.vo.JsonResult;
 import com.sk.user.vo.ListCreditsVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,12 +31,12 @@ public class CreditsController {
     @RequestMapping("/list")
     public JsonResult getCredits(String uid){
 //        Map map = new HashMap();
-//        map.put("token",userId);
+//        map.put("token","666");
 //        JsonResult forObject =null;
-//        forObject = restTemplate.postForObject("http://192.168.52.218:8080/ifLogin",map,JsonResult.class);
+//        forObject = restTemplate.postForObject("http://auth-server/ifLogin",map,JsonResult.class);
 //        String userId =(String) forObject.getData();
+        JsonResult jsonResult = new JsonResult();
 //        if(forObject.getCode() == 0) {
-        JsonResult jsonResult = null;
             try {
                 ListCreditsVO creditsVO = creditsService.queryAllCre(uid);
                 jsonResult = new JsonResult();

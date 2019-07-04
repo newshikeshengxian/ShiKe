@@ -26,7 +26,7 @@ public class CouponController {
         //        Map map = new HashMap();
 //        map.put("token",userId);
 //        JsonResult forObject =null;
-//        forObject = restTemplate.postForObject("http://192.168.52.218:8080/ifLogin",map,JsonResult.class);
+//        forObject = restTemplate.postForObject("http://auth-server/ifLogin",map,JsonResult.class);
 //        String userId =(String) forObject.getData();
 //        if(forObject.getCode() == 0) {
         JsonResult jsonResult = new JsonResult();

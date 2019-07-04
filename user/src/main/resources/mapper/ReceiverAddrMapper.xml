@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sk.user.mapper.ReceiveAddrMapper">
+    <resultMap id="receiveMap" type="com.sk.user.po.ReceiverAddr">
+        <id property="raId" column="ra_id"/>
+        <result property="userId" column="user_id" />
+        <result property="raName" column="ra_name" />
+        <result property="raPhone" column="ra_phone" />
+        <result property="raAddr" column="ra_addr" />
+        <result property="raTel" column="ra_tel" />
+        <result property="zipCode" column="zip_code" />
+    </resultMap>
+    <select id="queryAddrById" resultMap="receiveMap">
+        select * from receiver_addr where ra_id = #{RaId}
+    </select>
+</mapper>
