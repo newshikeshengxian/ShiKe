@@ -3067,7 +3067,7 @@ transform:scale(0.7) translateX(270px)
     color: #000;
     overflow: hidden;
     background-color: #fff;
-	background-image:url(../images/sousuo.png);
+	background-image:url(../images/sousou.jpg);
 	background-repeat:no-repeat;
 	background-position:center center;
 }
@@ -3102,7 +3102,7 @@ transform:scale(0.7) translateX(270px)
 	}
 .hd-b-r-icon1 {
     display: block;
-	background-image:url(../images/icon1.png);
+	background-image:url(../images/icon1.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

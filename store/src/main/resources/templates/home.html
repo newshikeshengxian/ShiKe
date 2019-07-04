@@ -129,7 +129,7 @@
                     </div>
 
                     <div class="item w-bg" style="width: 396px;height: 190px; margin-right:10px;">
-                        <a class="s-img" target="_blank" href=""><img width="396px" height="190px" src="http://www.shikefood.com/data/afficheimg/1515349676157041727.jpg" /></a>
+                        <a class="s-img" target="_blank" href=""><img width="396px" height="190px" src="http://www.shikefood.com/data/afficheimg/1499300799882609828.jpg" /></a>
                     </div>
 
                     <div class="item w-bg" style="width: 396px;height: 190px; margin-right:10px;">
@@ -140,104 +140,66 @@
             <div style="width: 3px"></div>
 <div class="w1210 index-sale">
     <ul class="tabs-nav">
-        <li class="tabs-selected">
+        <li v-show="name==1" class="tabs-selected" >
+            <h3>今日新品</h3>
+        </li>
+        <li v-show="name!=1"  @mousemove="mouse2(1)">
             <h3>今日新品</h3>
         </li>
 
-        <li class="">
+        <li v-show="name==2" class="tabs-selected" >
+            <h3>整点秒鲜</h3>
+        </li>
+        <li v-show="name!=2" @mousemove="mouse2(2)">
             <h3>整点秒鲜</h3>
         </li>
 
-        <li class="">
+        <li v-show="name==3" class="tabs-selected" >
+            <h3>良心推荐</h3>
+        </li>
+        <li v-show="name!=3" @mousemove="mouse2(3)">
             <h3>良心推荐</h3>
         </li>
 
-    </ul>			<div class="tabs-panel sale-goods-list">
-    <ul>
+    </ul><div class="tabs-panel sale-goods-list">
+    <ul v-show="name==1">
 
         <temple v-for="products in product">
         <li>
             <dl>
-
                 <dd class="goods-thumb">
                     <a target="_blank" href="goods.php?id=14166" >
                     <img :src=products.product_Pc1 > </a> </dd>
                 <dt class="goods-name"> <a target="_blank" href="" >
                     {{products.product_Name}}</a> </dt>
                 <dd class="goods-price"> <span class="goods-price-span2">¥</span><em>
-
                     <b class="goods-price-b1">{{products.product_Price}}</b>
-
-                </em>    <span class="goods-price-span1">{{products.market_Price}}</span> </dd>
-
+                </em><span class="goods-price-span1">{{products.market_Price}}</span> </dd>
                 <dd class="goods-gouwuche"><i class="goods-gouwuche-icon"></i><input type="button" value="加入购物车" class="tabs-gouwuche" onclick="addToCart(14166)"></dd>
             </dl>
         </li>
         </temple>
+    </ul>
 
-        <li>
-            <dl>
+    <ul v-show="name==3">
 
-                <dd class="goods-thumb"> <a target="_blank" href="goods.php?id=14164" title="三全素馅春卷216g"> <img src="images/201905/thumb_img/14164_thumb_G_1558483578539.jpg" alt="三全素馅春卷216g"> </a> </dd>
-                <dt class="goods-name"> <a target="_blank" href="" title="三全素馅春卷216g">三全素馅春卷216g</a> </dt>
-                <dd class="goods-price"> <span class="goods-price-span2">¥</span><em>
-
-                    <b class="goods-price-b1">8.80</b>
-
-                </em>    <span class="goods-price-span1">10.56</span> </dd>
-
-                <dd class="goods-gouwuche"><i class="goods-gouwuche-icon"></i><input type="button" value="加入购物车" class="tabs-gouwuche" onclick="addToCart(14164)"></dd>
-            </dl>
-        </li>
-
-
-        <li>
-            <dl>
-
-                <dd class="goods-thumb"> <a target="_blank" href="goods.php?id=14153" title="达利园法式软面包360g"> <img src="images/201904/thumb_img/14153_thumb_G_1554943663021.jpg" alt="达利园法式软面包360g"> </a> </dd>
-                <dt class="goods-name"> <a target="_blank" href="" title="达利园法式软面包360g">达利园法式软面包360g</a> </dt>
-                <dd class="goods-price"> <span class="goods-price-span2">¥</span><em>
-
-                    <b class="goods-price-b1">10.90</b>
-
-                </em>    <span class="goods-price-span1">13.08</span> </dd>
-
-                <dd class="goods-gouwuche"><i class="goods-gouwuche-icon"></i><input type="button" value="加入购物车" class="tabs-gouwuche" onclick="addToCart(14153)"></dd>
-            </dl>
-        </li>
-
-
-        <li>
-            <dl>
-
-                <dd class="goods-thumb"> <a target="_blank" href="goods.php?id=14143" title="家乐浓汤宝猪骨浓汤口味64g"> <img src="images/201904/thumb_img/14143_thumb_G_1554935502769.jpg" alt="家乐浓汤宝猪骨浓汤口味64g"> </a> </dd>
-                <dt class="goods-name"> <a target="_blank" href="" title="家乐浓汤宝猪骨浓汤口味64g">家乐浓汤宝猪骨浓汤口味64g</a> </dt>
-                <dd class="goods-price"> <span class="goods-price-span2">¥</span><em>
-
-                    <b class="goods-price-b1">8.80</b>
-
-                </em>    <span class="goods-price-span1">10.56</span> </dd>
-
-                <dd class="goods-gouwuche"><i class="goods-gouwuche-icon"></i><input type="button" value="加入购物车" class="tabs-gouwuche" onclick="addToCart(14143)"></dd>
-            </dl>
-        </li>
-
-
-        <li>
-            <dl>
-
-                <dd class="goods-thumb"> <a target="_blank" href="goods.php?id=14139" title="喜德旺单晶冰糖400g"> <img src="images/201903/thumb_img/14139_thumb_G_1552255901259.jpg" alt="喜德旺单晶冰糖400g"> </a> </dd>
-                <dt class="goods-name"> <a target="_blank" href="" title="喜德旺单晶冰糖400g">喜德旺单晶冰糖400g</a> </dt>
-                <dd class="goods-price"> <span class="goods-price-span2">¥</span><em>
-
-                    <b class="goods-price-b1">12.80</b>
-
-                </em>    <span class="goods-price-span1">15.36</span> </dd>
-
-                <dd class="goods-gouwuche"><i class="goods-gouwuche-icon"></i><input type="button" value="加入购物车" class="tabs-gouwuche" onclick="addToCart(14139)"></dd>
-            </dl>
-        </li>
-
+        <temple v-for="promotions in promotion">
+            <li>
+                <dl>
+                    <dd class="goods-thumb">
+                        <a target="_blank" href="goods.php?id=14166" >
+                            <img :src=promotions.product.product_Pc1> </a> </dd>
+                    <dt class="goods-name"> <a target="_blank" href="" >
+                        {{promotions.product.product_Name}}</a> </dt>
+                    <dd class="goods-price"> <span class="goods-price-span2">¥</span><em>
+                        <b class="goods-price-b1">{{promotions.prom_Price}}</b>
+                    </em>
+                        <span class="goods-price-span1">{{promotions.product.product_Price}}</span>
+                    </dd>
+                    <dd class="goods-gouwuche"><i class="goods-gouwuche-icon"></i><input type="button" value="加入购物车" class="tabs-gouwuche" onclick="addToCart(14166)"></dd>
+                </dl>
+            </li>
+        </temple>
     </ul>
 </div>
 
@@ -501,108 +463,169 @@
         }
     </style>
     <div class="floor" >
-        <temple v-for="types in type">
+        <!--<temple v-for="types in type">-->
+        <!--水果列表-->
         <div class="floor-layout floor-layout1">
             <div class="floor-con">
                 <div class="floor-title  floor-title1" id="top-f">
                     <h2>
-                        <a href="category-367-b0.html" target="_blank" class="floor-title-a1">{{types.poName}}</a>
+                        <a href="" target="_blank" class="floor-title-a1">
+                            <img src="/images/fruit.png" style="width: 50px;height: 50px">
+                            新鲜水果</a>
                     </h2>
+                    <!--<temple v-for="(typet,index) in types.producrTwo">-->
                     <ul class="floor-tabs-nav" >
-                        <temple v-for="product in types.producrTwo">
-                        <li class="floor-tabs-selected">
-                            <a href="category-369-b0.html"><h3>{{product.ptName}}</h3></a>
+                        <li v-show="curIndex!=1" @mousemove="mousestyle(1)">
+                            <a href="category-369-b0.html"><h3>进口水果</h3></a>
                         </li>
-                        </temple>
+                        <li v-show="curIndex==1" class="floor-tabs-selected" >
+                            <a href="category-369-b0.html"><h3>进口水果</h3></a>
+                        </li>
+                        <li v-show="curIndex!=2" @mousemove="mousestyle(2)">
+                            <a href="category-369-b0.html"><h3>国产水果</h3></a>
+                        </li>
+                        <li v-show="curIndex==2" class="floor-tabs-selected">
+                            <a href="category-369-b0.html"><h3>国产水果</h3></a>
+                        </li>
                     </ul>
+                    <!--</temple>-->
                 </div>
-                <div class="floor-content">
-                    <div class="floor-right">
-                        <div class="floor-tabs-panel floor-tabs-hide">
-
-                            <div class="menu-main-a-b-left">
-                                <a href="http://www.shikefood.com/goods-10963.html" title="http://www.shikefood.com/goods-10963.html">
-                                    <img src="http://www.shikefood.com/data/afficheimg/1542046688980229201.jpg"/>
-                                    <span style="font-size: 20px;color: #b90201;position: absolute;top: 90px;left: 23px;">￥</span>
-                                    <span style="font-size: 30px;color: #b90201;font-weight: bold;position: absolute;top: 92px;left: 41px;">5.20</span>
-                                </a>
+                <div class="tabs-panel sale-goods-list" style="margin: auto;height: 550px;border: 1px solid #858585" >
+                    <div style="border:1px solid gray;float: left;height: 520px;width: 300px;margin: 10px;box-shadow:darkgray 5px 5px" >
+                        <img src="http://www.shikefood.com/data/afficheimg/1542046688980229201.jpg" style="height: 520px;width: 300px">
+                    </div>
+                    <temple v-for="product in productbyptid">
+                            <div style="border:1px solid gray;float: left;height: 250px;width: 250px;margin: 10px;box-shadow:darkgray 5px 5px" >
+                            <dl>
+                                <dd class="goods-thumb">
+                                    <a target="_blank" href="goods.php?id=14166" >
+                                        <img :src=product.product_Pc1 style="height: 200px;width: 200px"> </a> </dd>
+                                <dt class="goods-name"> <a target="_blank" href="" style="font-size: 15px" >
+                                    {{product.product_Name}}</a> </dt>
+                                <dd class="goods-price"> <span class="goods-price-span2">¥</span><em>
+                                    <b class="goods-price-b1" style="color: red">{{product.product_Price}}</b>
+                                </em><span class="goods-price-span1">{{product.market_Price}}</span> </dd>
+                            </dl>
                             </div>
-
-                            <div class="center">
-                                <div class="goods">
-                                    <a href="http://www.shikefood.com/goods-10964.html">
-                                        <img src="http://www.shikefood.com/data/afficheimg/1534720496243376910.jpg"/>
-                                        <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 20px;">￥</span>
-                                        <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 31px;">9.20</span>
-                                    </a>
-                                </div>
-
-
-
-                                <div class="goods">
-                                    <a href="http://www.shikefood.com/goods-10557.html">
-                                        <img src="http://www.shikefood.com/data/afficheimg/1531352230930433771.jpg"/>
-                                        <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 20px;">￥</span>
-                                        <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 31px;">13.80</span>										</a>
-                                </div>
-
-
-                                <div class="goods">
-                                    <a href="http://shikefood.com/goods-10048.html">
-                                        <img src="http://www.shikefood.com/data/afficheimg/1558890736182215245.jpg"/>
-                                        <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 20px;">￥</span>
-                                        <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 31px;">48.00</span>                                        </a>
-                                </div>
-
-
-                                <div class="goods">
-                                    <a href="http://www.shikefood.com/goods-9933.html">
-                                        <img src="http://www.shikefood.com/data/afficheimg/1534720554629695209.jpg"/>
-                                        <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 20px;">￥</span>
-                                        <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 31px;">25.60</span>										</a>
-                                </div>
-                            </div>
-
-                            <div class="menu-right-a">
-                                <div class="menu-main-brt-right">
-                                    <a href="http://www.shikefood.com/goods-10026.html">
-                                        <img src="http://www.shikefood.com/data/afficheimg/1519421703597440956.jpg" />
-                                        <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 26px;">￥</span>
-                                        <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 40px;">14.80</span>										</a>
-                                </div>
-
-
-                                <div class="menu-main-brt-right">
-                                    <a href="http://www.shikefood.com/goods-10062.html">
-                                        <img src="http://www.shikefood.com/data/afficheimg/1502998251059687929.jpg" />
-                                        <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 26px;">￥</span>
-                                        <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 40px;">32.00</span>										</a>
-                                </div>
-                            </div>
-
-
-                            <li>
-                                <a href="http://www.shikefood.com/category-367-b537-min0-max0-fil0-attr0.html">
-                                    <img src="http://www.shikefood.com/data/afficheimg/1488478750198568557.jpg">
-                                </a>
-                            </li>
-                        </div>
-
-                        <div class="floor-tabs-panel" style="border-top: 0px  solid;">
-
-                            <div class="menu-main-a-b-left">
-                                <a href="http://www.shikefood.com/goods-10963.html" title="http://www.shikefood.com/goods-10963.html">
-                                    <img src="http://www.shikefood.com/data/afficheimg/1542046758562636559.jpg"/>
-                                    <span style="font-size: 20px;color: #b90201;position: absolute;top: 90px;left: 23px;">￥</span>
-                                    <span style="font-size: 30px;color: #b90201;font-weight: bold;position: absolute;top: 92px;left: 41px;">5.20</span>                                    </a>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
+                    </temple>
+                    <div style="border:1px solid gray;float: left;height: 250px;width: 70px;margin: 10px;box-shadow:darkgray 5px 5px" >
+                        <span style="margin-top: 110px;float: left;margin-left: 20px">
+                            <a href=""><label style="font-size: 20px;color: darkgray">更多</a>
+                        </span>
+                    </div>
                     </div>
                 </div>
         </div>
-        </temple>
+        <!--冷鲜肉类-->
+        <div class="floor-layout floor-layout1">
+            <div class="floor-con">
+                <div class="floor-title  floor-title1" id="top-f">
+                    <h2>
+                        <a href="" target="_blank" class="floor-title-a1">
+                            <img src="/images/meat.png" style="width: 50px;height: 50px">
+                            冷鲜肉类</a>
+                    </h2>
+                    <!--<temple v-for="(typet,index) in types.producrTwo">-->
+                    <ul class="floor-tabs-nav" >
+                        <li v-show="curIndex1!=3" @mousemove="mousestyle1(3)">
+                            <a href="category-369-b0.html"><h3>牛肉</h3></a>
+                        </li>
+                        <li v-show="curIndex1==3" class="floor-tabs-selected">
+                            <a href="category-369-b0.html"><h3>牛肉</h3></a>
+                        </li>
+                        <li v-show="curIndex1!=4" @mousemove="mousestyle1(4)">
+                            <a href="category-369-b0.html"><h3>其它肉类</h3></a>
+                        </li>
+                        <li v-show="curIndex1==4" class="floor-tabs-selected">
+                            <a href="category-369-b0.html"><h3>其它肉类</h3></a>
+                        </li>
+                    </ul>
+                    <!--</temple>-->
+                </div>
+                <div class="tabs-panel sale-goods-list" style="margin: auto;height: 550px;border: 1px solid #858585" >
+                    <div style="border:1px solid gray;float: left;height: 520px;width: 300px;margin: 10px;box-shadow:darkgray 5px 5px" >
+                        <img src="http://www.shikefood.com/data/afficheimg/1542046688980229201.jpg" style="height: 520px;width: 300px">
+                    </div>
+                    <temple v-for="product in productbyptid">
+                        <div style="border:1px solid gray;float: left;height: 250px;width: 250px;margin: 10px;box-shadow:darkgray 5px 5px" >
+                            <dl>
+                                <dd class="goods-thumb">
+                                    <a target="_blank" href="goods.php?id=14166" >
+                                        <img :src=product.product_Pc1 style="height: 200px;width: 200px"> </a> </dd>
+                                <dt class="goods-name"> <a target="_blank" href="" style="font-size: 15px" >
+                                    {{product.product_Name}}</a> </dt>
+                                <dd class="goods-price"> <span class="goods-price-span2">¥</span><em>
+                                    <b class="goods-price-b1" style="color: red">{{product.product_Price}}</b>
+                                </em><span class="goods-price-span1">{{product.market_Price}}</span> </dd>
+                            </dl>
+                        </div>
+                    </temple>
+                    <div style="border:1px solid gray;float: left;height: 250px;width: 70px;margin: 10px;box-shadow:darkgray 5px 5px" >
+                        <span style="margin-top: 110px;float: left;margin-left: 20px">
+                            <a href=""><label style="font-size: 20px;color: darkgray">更多</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+        <!--禽蛋类-->
+        <div class="floor-layout floor-layout1">
+            <div class="floor-con">
+                <div class="floor-title  floor-title1" id="top-f">
+                    <h2>
+                        <a href="" target="_blank" class="floor-title-a1">
+                            <img src="/images/egg.jpg" style="width: 50px;height: 50px">
+                            禽蛋速食</a>
+                    </h2>
+                    <!--<temple v-for="(typet,index) in types.producrTwo">-->
+                    <ul class="floor-tabs-nav" >
+                        <li v-show="curIndex2!=5" @mousemove="mousestyle2(5)">
+                            <a href="category-369-b0.html"><h3>禽蛋类</h3></a>
+                        </li>
+                        <li v-show="curIndex2==5" class="floor-tabs-selected">
+                            <a href="category-369-b0.html"><h3>禽蛋类</h3></a>
+                        </li>
+                        <li v-show="curIndex2!=6" @mousemove="mousestyle2(6)">
+                            <a href="category-369-b0.html"><h3>方便食品</h3></a>
+                        </li>
+                        <li v-show="curIndex2==6" class="floor-tabs-selected">
+                            <a href="category-369-b0.html"><h3>方便食品</h3></a>
+                        </li>
+                    </ul>
+                    <!--</temple>-->
+                </div>
+                <div class="tabs-panel sale-goods-list" style="margin: auto;height: 550px;border: 1px solid #858585" >
+                    <div style="border:1px solid gray;float: left;height: 520px;width: 300px;margin: 10px;box-shadow:darkgray 5px 5px" >
+                        <img src="http://www.shikefood.com/data/afficheimg/1542046688980229201.jpg" style="height: 520px;width: 300px">
+                    </div>
+                    <temple v-for="product in productbyptid">
+                        <div style="border:1px solid gray;float: left;height: 250px;width: 250px;margin: 10px;box-shadow:darkgray 5px 5px" >
+                            <dl>
+                                <dd class="goods-thumb">
+                                    <a target="_blank" href="goods.php?id=14166" >
+                                        <img :src=product.product_Pc1 style="height: 200px;width: 200px"> </a> </dd>
+                                <dt class="goods-name"> <a target="_blank" href="" style="font-size: 15px" >
+                                    {{product.product_Name}}</a> </dt>
+                                <dd class="goods-price"> <span class="goods-price-span2">¥</span><em>
+                                    <b class="goods-price-b1" style="color: red">{{product.product_Price}}</b>
+                                </em><span class="goods-price-span1">{{product.market_Price}}</span> </dd>
+                            </dl>
+                        </div>
+                    </temple>
+                    <div style="border:1px solid gray;float: left;height: 250px;width: 70px;margin: 10px;box-shadow:darkgray 5px 5px" >
+                        <span style="margin-top: 110px;float: left;margin-left: 20px">
+                            <a href=""><label style="font-size: 20px;color: darkgray">更多</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+</div>
+        <!--</temple>-->
     </div>
     <script type="text/javascript">
         $('#top-f ul li').click(function(){
@@ -1005,11 +1028,50 @@ function deleteCartGoodsResponse(res){
     var v=new Vue({
         el:"#box",
         data:{
-            type:[],
-            product:[]
+           type:[],
+            product:[],
+            curIndex:1,
+            curIndex1:3,
+            curIndex2:5,
+            style1:"",
+            name:1,
+            promotion:[],
+            productbyptid:[],
+            ptId:""
         },
         methods:{
-
+            mousestyle:function (id) {
+                v.curIndex=id
+                if(id==2){
+                    axios.get("/product/findProductByPtId",{params:{"ptId":0002}}).then(function (res) {
+                        if (res.data.resultCode=="0"){
+                            v.productbyptid=res.data.resultData;
+                        }
+                    });
+                }else {
+                    axios.get("/product/findProductByPtId",{params:{"ptId":0001}}).then(function (res) {
+                        if (res.data.resultCode=="0"){
+                            v.productbyptid=res.data.resultData;
+                        }
+                    });
+                }
+            },
+            mousestyle1:function (id) {
+                v.curIndex1=id;
+            },
+            mousestyle2:function (id) {
+                v.curIndex2=id;
+            },
+            mouse2:function (nameid) {
+                v.name=nameid;
+                if(nameid==3){
+                    axios.get("/product/promotion").then(function (res) {
+                        if (res.data.resultCode=="0"){
+                            v.promotion=res.data.resultData;
+                        }
+                    });
+                }
+            }
         }
     });
     axios.get("/type/listAllType").then(function (res) {
@@ -1022,5 +1084,9 @@ function deleteCartGoodsResponse(res){
             v.product=res.data.resultData;
         }
     });
-
+    axios.get("/product/findProductByPtId",{params:{"ptId":0001}}).then(function (res) {
+        if (res.data.resultCode=="0"){
+            v.productbyptid=res.data.resultData;
+        }
+    });
 </script>
