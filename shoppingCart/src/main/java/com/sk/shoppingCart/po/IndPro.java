@@ -4,6 +4,7 @@ package com.sk.shoppingCart.po;
 public class IndPro {
 
   private long ipId;
+  private long spId;
   private String indentId;
   private String productId;
   private long indentNum;
@@ -11,6 +12,13 @@ public class IndPro {
   private String productName;
   private String productPic;
 
+  public long getSpId() {
+    return spId;
+  }
+
+  public void setSpId(long spId) {
+    this.spId = spId;
+  }
 
   public long getIpId() {
     return ipId;

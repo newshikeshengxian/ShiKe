@@ -2,6 +2,7 @@ package com.sk.shoppingCart.dao;
 
 import com.sk.shoppingCart.po.IndPro;
 import com.sk.shoppingCart.po.Indent;
+import com.sk.shoppingCart.po.ShopCart;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -15,7 +16,7 @@ public interface OrderDAO {
      * @param orders
      */
     void addOrder(Indent orders);
-    void addIndPro(List<IndPro> indPros);
+    void addIndPro(@Param("indPros") List<IndPro> indPros);
 
     /**
      * 查询订单
@@ -28,5 +29,10 @@ public interface OrderDAO {
      * 修改订单状态
      * @param i
      */
-    void updateOrderState(@Param("state") Integer state ,@Param("orderId") String orderId);
+    void updateOrderState(Map map);
+
+    void addShopCart(ShopCart shopCart);
+    List<ShopCart> ShopCartList(@Param("userId") String userId);
+    void deleteShopCart(@Param("id") String id);
+    void deleteShopCarts(@Param("shopCarts") List<IndPro> shopCarts);
 }

@@ -32,12 +32,18 @@
 <script type="text/javascript" src="/js/jquery-lazyload.js"></script>
 <script type="text/javascript" src="/js/vue.js"></script>
 		<script type="text/javascript" src="/js/mycookie.js"></script>
+		<script type="text/javascript" src="/js/axios.min.js"></script>
+
 
 
 
 <style>
   		table.split_order tbody{background:#fff}
         .submit_back a{color:#F00;}
+	.addr{
+		border-style: dotted;
+		border-color: #f8aba6;
+	}
 </style>
 
 
@@ -243,7 +249,7 @@
 						          			</td>
 						          			<td align="center" width="10%">
 							  		  	        <a href="javascript:collect(10026)" class="shoucang">收藏</a>
-							          	        &nbsp;&nbsp;<a name="delCartGoods" rec_id="367375" href="javascript:void(0);" class="f6">删除</a>
+							          	        &nbsp;&nbsp;<a name="delCartGoods" rec_id="367375" href="javascript:void(0);" @click="deleteShopCart(product.spId)" class="f6">删除</a>
 							               	</td>
 							    		</tr>
 							  		</tbody>
@@ -290,12 +296,12 @@
 				</div>
 				<div class="flowHot" id="HotBox">
 					<!--猜您喜欢商品列表，最多共24个商品-->
-				    <ul class="curr clearfix">
-				        <li id="like_0">
-				          <p class="pic"><a href="http://www.shikefood.com/goods-10028.html" target="_blank"><img src="/image/10028_thumb_G_1488937785914.jpg"></a></p>
-				          <p class="name"><a href="http://www.shikefood.com/goods-10028.html" target="_blank">秘鲁红提 2kg装</a></p>
-				          <p><font class="price">¥55.00</font></p>
-				          <a class="j_AddCart" href="javascript:addToCart(10028)">加入购物车</a> 
+				    <ul class="curr clearfix" >
+				        <li id="like_0"  v-for="good,index in likeGood">
+				          <p class="pic"><a href="http://www.shikefood.com/goods-10028.html" target="_blank"><img :src="good.productPic"></a></p>
+				          <p class="name"><a href="http://www.shikefood.com/goods-10028.html" target="_blank">{{good.productName}}</a></p>
+				          <p><font class="price">¥{{good.productPrice}}</font></p>
+				          <a class="j_AddCart" href="javascript:;" @click="addShopCart(index)">加入购物车</a>
 				        </li>
 				    </ul>
 				</div>
@@ -316,9 +322,9 @@
 			<div class="checkBox_jm clearfix">
 			    <div class="title">1 地址选择</div>
 			    <div class="address_jm" id="AddressList">
-			    	<ul style=" overflow-x: hidden;overflow-y: scroll;height: 130px;width: 102%;">
-						<li class="curr" onmouseover="showAddressEdit(this);" onmouseout="showAddressEdit(this);">
-							<div style="width:100%;height:100%;" onclick="selAddress(this, 1509);" v-for="ad in addr">
+			    	<ul style=" overflow-x: hidden;overflow-y: scroll;height: 140px;width: 102%;">
+						<li class="curr" :class="{'addr':index==addrIndex}"  v-for="ad,index in addr">
+							<div style="width:100%;height:100%;background-color: #feeeed;"  @click="changeAddr(index)" >
 								<!--
                                 	作者：offline
                                 	时间：2019-07-01
@@ -339,13 +345,62 @@
 						</li>
 					</ul>
 					<div class="blank10"></div>
-					<div class="address_jm_add" onclick="AddressEdit(0);">使用新地址</div>
+					<div class="address_jm_add" onclick="showAddr()">使用新地址</div>
 				</div>
-			    <div id="popDiv" class="mydiv" style="display:none;">
-			        <div class="mydiv-l" id="PopAddressTitle">使用新地址</div>
-			        <div class="mydiv-r" onclick="javascript:closePopDiv()"></div>
-			        <div id="PopAddressCon"></div>
-			    </div>
+			    <div id="popDiv" class="mydiv" v-show="showAddr==1">
+					<div class="mydiv-l" id="PopAddressTitle">使用新地址</div>
+					<div class="mydiv-r" onclick="javascript:closePopDiv()"></div>
+					<div id="PopAddressCon"><table cellpadding="4" cellspacing="4" width="100%" style="clear:both;">
+						<tbody><tr>
+							<td style="text-align:right;width:13%"><font class="main-color">*</font>收件人</td>
+							<td><input type="text" name="consignee" value="" class="input_addr2">
+								<div class="required-notice fl"><i class="notice-icon"></i><span class="notice-text reciever-notice"></span></div></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;"><font class="main-color">*</font>手机号码</td>
+							<td><input type="text" name="mobile" class="input_addr2 input_addr2_t" value="">
+								&nbsp;&nbsp;&nbsp;&nbsp;或固定电话
+								<input type="text" name="tel_01" class="input_addr4" value=""> - <input type="text" name="tel_02" class="input_addr3" value=""> - <input type="text" name="tel_03" class="input_addr4" value=""></td></tr>
+
+						<tr>
+							<td style="text-align:right;"><font class="main-color">*</font>所在地区</td>
+							<td>
+								<input type="hidden" name="country" value="1">
+								<select name="province" id="selProvinces" onchange="region.changed(this, 2, 'selCities');" class="select_addr">
+									<option value="0">请选择</option>
+									<option value="25">上海</option>
+								</select>
+								<select name="city" id="selCities" onchange="region.changed(this, 3, 'selDistricts');" class="select_addr">
+									<option value="0">请选择</option>
+								</select>
+								<select name="district" id="selDistricts" class="select_addr" style="display:none;">
+									<option value="0">请选择</option>
+								</select>
+								<div class="required-notice fl"><i class="notice-icon"></i><span class="notice-text address-notice"></span></div>
+							</td></tr>
+						<tr>
+							<td style="text-align:right;"><font class="main-color">*</font>详细地址</td>
+							<td><input type="text" name="address" class="input_addr1 inputMiddle" value="">
+								<div class="required-notice"><i class="notice-icon"></i><span class="notice-text detail-address-notice"></span></div></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">电子邮箱</td>
+							<td><input type="text" name="email" class="input_addr1 inputMiddle" value=""></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">邮编</td>
+							<td><input type="text" name="zipcode" class="input_addr3" value=""></td>
+						</tr>
+
+						<tr><td></td><td><font color="#cccccc" style="height:30px;line-height:30px; display:inline-block;">两者至少填写一项</font><div class="required-notice"><i class="notice-icon"></i><span class="notice-text phone-notice"></span></div></td></tr>
+						<tr><td></td><td style="padding-top:10px;">
+							<input type="hidden" name="address_id" value="">
+							<input type="hidden" name="shipping_bian" value="0">
+							<input type="hidden" name="closediv" value="1">
+							<input type="button" class="BonusButton" value=" 确定 " onclick="addAddr()">&nbsp;&nbsp;<input type="button" class="Button_reset" value=" 取消 " onclick="closeAddr()"></td></tr>
+						</tbody></table></div>
+
+				</div>
 			</div>
 			<div class="checkBox_jm">
 			    <div class="title">2 送货时间 <span class="songhuo">送货时间仅作参考，快递公司会尽量满足您的要求</span></div>
@@ -441,111 +496,7 @@
 									</div>
 			            		</td>
 			        		</tr>
-			                <!--<tr>
-			                	<td colspan="4" class="tdother2">
-			                  		<div class="checkout_other"> 
-			                  			<a class="jmbag" href="javascript:void(0);" onclick="showCheckoutOther(this);"><span>+</span>开发票</a>
-				                    	<table class="subbox_other" width="100%">
-				                            <tbody width="100%" cellpadding="5" cellspacing="0">
-				                        		<tr>
-				                          			<td align="right"><label class="mar-b" for="ECS_NEEDINV_0"><input name="need_inv[0]" type="checkbox" id="ECS_NEEDINV_0" onclick="changeNeedInv(0)" value="1" class="checkbox">开发票：</label></td>
-				                          			<td align="left" colspan="2">
-				                          				<select name="inv_type[0]" id="ECS_INVTYPE_0" onchange="changeNeedInv(0)" class="select fl" style="display:none;" disabled="">
-						                  					<option value="0">请选择发票类型</option>
-						    								<option value="normal_invoice" selected="">普通发票 [0%]</option>
-				                          				</select>
-				                            			&nbsp;&nbsp;
-				                            			<select name="inv_content[0]" id="ECS_INVCONTENT_0" onchange="changeNeedInv(0)" class="select fl"  disabled="">
-					                              			<option value="0">请选择发票内容</option>
-					                    					<option value="明细">明细</option>
-					                    					<option value="办公用品">办公用品</option>
-					                    					<option value="电脑配件">电脑配件</option>
-					                    					<option value="耗材">耗材</option>
-					                    					<option value="其他">其他</option>                            
-				                            			</select>
-				                          			</td>
-				                        		</tr>
-				                      		</tbody>
-				                      		<tbody id="vat_invoice_tbody"  width="100%" cellpadding="5" cellspacing="0">
-				                        		<tr>
-				                          			<td colspan="3" align="left"><strong style="font-size:16px;">公司信息</strong></td>
-				                        		</tr>
-						                        <tr>
-						                          <td align="right"><em style="color:#e4393c">*</em>单位名称：</td>
-						                          <td colspan="2"><input name="vat_inv_company_name" type="text" class="otherinput2"></td>
-						                        </tr>
-						                        <tr>
-						                          <td align="right"><em style="color:#e4393c">*</em>纳税人识别号：</td>
-						                          <td width="300" style="width:300px;"><input name="vat_inv_taxpayer_id" type="text" onblur="javascript:check_taxpayer_id(this,&quot;taxpayer_notice&quot;)" class="otherinput2"></td>
-						                          <td>&nbsp;<span id="taxpayer_notice" style="font-size:12px;color:#f00;"></span></td>
-						                        </tr>
-						                        <tr>
-						                          <td align="right"><em style="color:#e4393c">*</em>注册地址：</td>
-						                          <td colspan="2"><input name="vat_inv_registration_address" type="text" class="otherinput2"></td>
-						                        </tr>
-						                        <tr>
-						                          <td align="right"><em style="color:#e4393c">*</em>注册电话：</td>
-						                          <td colspan="2"><input name="vat_inv_registration_phone" type="text" class="otherinput2"></td>
-						                        </tr>
-						                        <tr>
-						                          <td align="right"><em style="color:#e4393c">*</em>开户银行：</td>
-						                          <td colspan="2"><input name="vat_inv_deposit_bank" type="text" class="otherinput2"></td>
-						                        </tr>
-						                        <tr>
-						                          <td align="right"><em style="color:#e4393c">*</em>银行账户：</td>
-						                          <td><input name="vat_inv_bank_account" type="text" onblur="javascript:check_bank_account(this,&quot;bank_account_notice&quot;)" class="otherinput2"></td>
-						                          <td>&nbsp;<span id="bank_account_notice" style="font-size:12px;color:#f00;"></span></td>
-						                        </tr>
-						                        <tr>
-						                          <td colspan="3" align="left" style="padding:10px 0px"><strong style="font-size:16px;">收票人信息</strong></td>
-						                        </tr>
-						                        <tr>
-						                          <td align="right"><em style="color:#e4393c">*</em>收票人姓名：</td>
-						                          <td colspan="2"><input name="inv_consignee_name" type="text" class="otherinput2"></td>
-						                        </tr>
-						                        <tr>
-						                          <td align="right"><em style="color:#e4393c">*</em>收票人手机：</td>
-						                          <td><input name="inv_consignee_phone" type="text" onblur="javascript:check_phone_number(this,&quot;phone_number_notice&quot;)" class="otherinput2"></td>
-						                          <td>&nbsp;<span id="phone_number_notice" style="font-size:12px;color:#f00;"></span></td>
-				              					</tr>
-								              	<tr>
-									                <td align="right"><em style="color:#e4393c">*</em>收票人省份：</td>
-									                <td colspan="2"><input type="hidden" name="country" value="1">
-									                	<select name="inv_consignee_province" id="selProvinces" onchange="region.changed(this, 2, &#39;selCities&#39;);">
-										                    <option value="0">请选择省</option>
-										                    <option value="25">上海</option>
-									                    </select>
-									                  	<select name="inv_consignee_city" id="selCities" onchange="region.changed(this, 3, &#39;selDistricts&#39;);">
-									                    	<option value="0">请选择</option>
-									                  	</select>
-									                  	<select name="inv_consignee_district" id="selDistricts" style="display:none;">
-									                    	<option value="0">请选择</option>
-									                  	</select>
-									                </td>
-								              	</tr>
-				              					<tr>
-				                					<td align="right"><em style="color:#e4393c">*</em>详细地址：</td>
-				                          			<td colspan="2"><input name="inv_consignee_address" type="text" class="otherinput2"></td>
-				                        		</tr>
-				                      		</tbody>
-				                      		<tbody id="normal_invoice_tbody_0" style="display: none;">
-				                        		<tr>
-				                         	 		<td align="right">发票抬头：</td>
-				                          			<td colspan="2">
-				                            			<input id="individual_inv_0" type="radio" onclick="changeNeedInv(0)" name="inv_payee_type[0]" value="individual" checked="true" style="vertical-align:middle">
-				                            			<label for="individual_inv_0" style="vertical-align:middle">个人</label>
-				                            			<input id="unit_inv0" type="radio" onclick="changeNeedInv(0)" name="inv_payee_type[0]" value="unit" style="vertical-align:middle">
-				                            			<label for="unit_inv" style="vertical-align:middle">单位</label>
-				                            			&nbsp;&nbsp;
-				                            			<input id="ECS_INVPAYEE_0" name="inv_payee[0]" class="otherinput2" style="vertical-align: middle; display: none;" disabled="">
-				                            			<input id="ECS_INVTAXNUMBER_0" name="inv_tax_number[0]" class="otherinput2" style="vertical-align: middle; display: none;" placeholder="公司税号" disabled="">
-				                          			</td>
-				                        		</tr>
-				                      		</tbody>
-				                    	</table>
-			                    	</div>
-			                	</td>
-			              	</tr>-->
+
 			                <tr>
 			                	<td colspan="4" class="tdother2">
 			                		<div class="checkout_other"> 
@@ -554,7 +505,7 @@
 				                      		<tbody width="100%" cellpadding="5" cellspacing="0">
 				                        		<tr>
 				                          			<td align="right" width="100" valign="top">订单留言：</td>
-				                          			<td colspan="4"><textarea name="postscript[0]" cols="80" rows="3" id="postscript" class="textarea" maxlength="50"></textarea></td>
+				                          			<td colspan="4"><textarea name="postscript[0]" cols="80" rows="3" id="postscript" v-model="leaveWord" class="textarea" maxlength="50"></textarea></td>
 				                        		</tr>
 				                      		</tbody>
 				                    	</table>
@@ -748,7 +699,7 @@
 			                        	<i class="cart"></i>
 			                        	<div class="span">购物车</div>
 										<span class="ECS_CARTINFO"></span>
-										<span class="cart_num">3</span>
+										<span class="cart_num">{{shopCart.length}}</span>
 
                         			</div>
 	                    		</li>
@@ -767,7 +718,7 @@
 			        	</div>
 			    	</div>
 
-	        		<div class="right-sidebar-panels">
+	        		<div class="right-sidebar-panels" >
 	          			<div class="sidebar-panel-main">
 	          			<!--
 		                                                    作者：offline
@@ -777,26 +728,26 @@
 		                	<div v-show="cartShow==1">
 		          				<div class="cart-panel-content"  style="height: 829px;">
 			                        	<div class="cart-list">
-			                            	<div class="cart-item">
+			                            	<div class="cart-item" v-for="product in shopCart" >
 			                        			
-			                        			<div class="item-goods">
+			                        			<div class="item-goods" >
 			                            			<span class="p-img">
 			                            				<a href="http://www.shikefood.com/goods-10502.html">
-			                            					<img src="/image/10502_thumb_G_1522372548442.jpg" width="50" height="50" alt="三得利乌龙茶（无糖）500ml">
+			                            					<img :src="product.productPic" width="50" height="50" :alt="product.productName">
 			                            				</a>
 			                            			</span>
-			                        				<div class="p-name"><a href="http://www.shikefood.com/goods-10502.html" title="三得利乌龙茶（无糖）500ml">三得利乌龙茶（无糖）500ml</a></div>
-			                        				<div class="p-price"><strong>¥3.50</strong>×1</div>
-			                                   		<a href="javascript:;" class="p-del" onclick="deleteCartGoods(367377)">删除</a>
+			                        				<div class="p-name"><a href="http://www.shikefood.com/goods-10502.html" :title="product.productName">{{product.productName}}</a></div>
+			                        				<div class="p-price"><strong>¥{{product.productPrice}}</strong>×1</div>
+			                                   		<a href="javascript:;" class="p-del" @click="deleteShopCart(product.spId)">删除</a>
 			                                	</div>
 			                    			</div>
 			                        	</div>
 			                    	</div>
 			                    	<div class="cart-panel-footer">
 				            			<div class="cart-footer-checkout">
-				                			<div class="number"><strong class="count">3</strong>件商品</div>
-				                			<div class="sum">共计：<strong class="total">¥33.10</strong></div>
-				                			<a class="btn"  target="_blank">去购物车结算</a>
+				                			<div class="number"><strong class="count">{{shopCart.length}}</strong>件商品</div>
+				                			<div class="sum">共计：<strong class="total">¥{{shopPrice}}</strong></div>
+				                			<a class="btn"  target="_blank" onclick="pay()">去购物车结算</a>
 				            			</div>
 			        				</div>
 		        				</div>
@@ -805,7 +756,7 @@
 		                                                               时间：2019-06-29
 		                                                               描述：看过商品列表
 	                     	-->
-	                     		<div >
+	                     		<div v-show="cartShow==0">
 		                        	<h3 class="sidebar-panel-header">
 			               				<a href="javascript:;" class="title"><i></i><em class="title">我的足迹</em></a>
 			                			<span class="close-panel"></span>
@@ -945,25 +896,33 @@
 			sh2:0,
 			sh3:0,
 			cartShow:0,
+			showAddr:0,
 			track:0,
 			payBalan:0,
 			payOther:0,
 			payMent:"",
-			products:[{"productId":10001,"indentNum":2,"productPrice":14.8,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg"},
-				{"productId":10001,"indentNum":2,"productPrice":14.8,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg"}],
+			products:[],
 			price:29.60,
-			raId:"",
-			conponId:"",
-			leaveWord:"",
+			conponId:null,
+			leaveWord:"111",
 			indentType:0,
 			market:1,
-			addr:[{"raId":"0001","userId":"0006","raName":"xgf","raPhone":"15959595599","raAddr":"湖北武汉","raTel":"123456","raCode":"437300"}],
+			addr:[{"raId":"0001","userId":"0006","raName":"xgf","raPhone":"15959595599","raAddr":"湖北武汉","raTel":"123456","raCode":"437300"},
+				{"raId":"0001","userId":"0006","raName":"xgf","raPhone":"15959595599","raAddr":"湖北武汉","raTel":"123456","raCode":"437300"}],
 			deliveryTime:0,
 			order:[],
 			coupon:[{"couponId":"0001","endTime":"2019-09-01 09:37:28","couponMoney":10,"condition":"满50减10","ptId":"0001","beginTime":"2019-07-01 09:37:36","state":0,"userId":"0006","couponCondition":50}],
 			realPay:0,
 			balance:0,
-			shop
+			shopCart:[],
+			shopPrice:0,
+			likeGood:[{"productId":10001,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8},
+				{"productId":10001,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8},
+				{"productId":10001,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8}
+				,{"productId":10001,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8},
+				{"productId":10001,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8}],
+			addrIndex:0,
+
 
 		},
 		methods:{
@@ -974,23 +933,80 @@
 				if (num < 0 && v.products[index].indentNum > 0) {
 					v.products[index].indentNum = v.products[index].indentNum + num;
 				}
+			},
+			addShopCart:function(index) {
+				var shopCart = v.likeGood[index];
+				shopCart["indentNum"] = 1;
+				shopCart["userId"]  = "111"
+				axios.post("order/addShopCart",shopCart).then(function (res) {
+					if(res.data.code==0){
+						alert("添加购物车成功！")
+						var shopCart = JSON.stringify(res.data.data);
+						setCookie("shopCart",shopCart)
+						location.reload();
+					}
+				})
+
+			},
+			deleteShopCart: function (id) {
+				if(confirm("确定删除吗？")){
+					var map = {"id":id,"token":"111"};
+					axios.post("order/deleteShopCart",map).then(function (res) {
+						if(res.data.code==0){
+							var shopCart = JSON.stringify(res.data.data);
+							setCookie("shopCart",shopCart)
+							v.shopCart = res.data.data;
+							v.products = v.shopCart;
+						}
+					})
+				}
+			},
+			changeAddr:function (index) {
+				v.addrIndex = index;
 			}
 		}
 	})
-	function check(){
-		var chkAll = document.getElementById("chkAll");
-		var chk = $("input[name='check']")
 
-		if(chkAll.checked){
-			for (var i = 0; i < chk.length; i++) {
-				chk[i].checked=true;
-			}
-		}else{
-			for (var i = 0; i < chk.length; i++) {
-				chk[i].checked=false
-			}
+	$(function () {
+		var s = getCookie("shopCart");
+		v.shopCart = JSON.parse(s);
+		v.products = v.shopCart
+		var price = 0;
+		for(var i = 0;i<v.shopCart.length;i++){
+			price = price+v.shopCart[i].productPrice * v.shopCart[i].indentNum
 		}
+		v.price = price.toFixed(2);
+		v.shopPrice = v.price
+
+
+
+	})
+
+	function goOrder() {
+		var order = {};
+		order["userId"] = "111"
+		order["products"] = v.order;
+		order["price"] = v.price;
+		order["raId"] = v.addr[v.addrIndex].raId;
+		order["couponId"] = v.couponId;
+		order["leaveWord"] = v.leaveWord;
+		order["indentType"] = v.indentType;
+		order["payMent"] = v.payMent;
+		order["deliveryTime"] = v.deliveryTime;
+		order["realPay"] = v.realPay;
+		alert(JSON.stringify(v.order))
+		axios.post("order/addOrder",order).then(function (res) {
+
+		})
+
+
 	}
+	function pay() {
+		var shopCart = JSON.stringify(v.shopCart);
+		setCookie("shopCart",shopCart);
+		location.href = "order.html"
+	}
+
 	function goTwo(){
 		v.order = [];
 		var check = $("input[name='check']:checked");
@@ -998,9 +1014,10 @@
 		for(var i = 0;i<check.length;i++){
 			var product = products[check[i].id];
 			var index = v.order.indexOf(product);
-			if(index == -1){
+			if(index == -1 && product.indentNum>0 ){
 				v.order.push(product)
 			}
+
 		}
 		v.realPay = v.price
 		// axios.post().then(function (res) {
@@ -1021,6 +1038,22 @@
 			price = price+parseFloat(check[i].value)
 		}
 		v.price = price.toFixed(2);
+	}
+
+	function check(){
+		var chkAll = document.getElementById("chkAll");
+		var chk = $("input[name='check']")
+
+		if(chkAll.checked){
+			for (var i = 0; i < chk.length; i++) {
+				chk[i].checked=true;
+			}
+		}else{
+			for (var i = 0; i < chk.length; i++) {
+				chk[i].checked=false
+			}
+		}
+		price();
 	}
 
 
@@ -1045,11 +1078,24 @@
 			
 		}
 	}
+
+	function showAddr() {
+		v.showAddr = 1;
+	}
+	function closeAddr(){
+		v.showAddr=0;
+	}
+
+	function addAddr(){
+		v.showAddr=0;
+	}
 	function coupon(index) {
-		v.realPay = v.price
+		v.couponId = null;
+		v.realPay = v.price;
 		if(index!=-1){
 			var coupon = v.coupon[index].couponMoney
 			v.realPay = v.price - coupon;
+			v.couponId = v.coupon[incex].couponId
 		}
 
 	}
@@ -1057,9 +1103,7 @@
 		v.track=1;
 		v.cartShow=0;
 	}
-	function goOrder() {
-		
-	}
+
 	
 </script>
 <!--
@@ -1171,6 +1215,8 @@ $('.pop-login .item .text').focus(function(){
 			$(this).addClass('current').html('已选');
 		}) 
 	})
+
+
 		
 </script>	
 </body>

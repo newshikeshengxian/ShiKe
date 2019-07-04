@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sk.shoppingCart.dao.OrderDAO">
     <resultMap id="orderMap" type="com.sk.shoppingCart.po.Indent">
-        <result property="indentId" column="indent_id"></result>
+        <id property="indentId" column="indent_id"></id>
         <result property="userId" column="user_id"></result>
         <result property="price" column="price" ></result>
         <result property="payTime" column="pay_time" javaType="java.sql.Timestamp"></result>
@@ -22,25 +22,59 @@
         <collection property="products" column="indent_id" select="findProduct"></collection>
     </resultMap>
     <resultMap id="proMap" type="com.sk.shoppingCart.po.IndPro">
-        <result property="productId" column="product_id"></result>
+        <id property="productId" column="product_id"></id>
         <result property="indentNum" column="indent_num"></result>
         <result property="productPrice" column="product_price"></result>
         <result property="productName" column="product_name"></result>
         <result property="productPic" column="product_pic"></result>
     </resultMap>
+    <resultMap id="shopCartMap" type="com.sk.shoppingCart.po.ShopCart">
+        <id property="spId" column="sp_id"></id>
+        <result property="productId" column="product_id"></result>
+        <result property="userId" column="user_id"></result>
+        <result property="productPic" column="product_pic"></result>
+        <result property="productPrice" column="product_price"></result>
+        <result property="productName" column="product_name"></result>
+        <result property="indentNum" column="indent_num"></result>
+    </resultMap>
+
+    <insert id="addShopCart">
+        insert into shop_cart(product_id, user_id, product_pic, product_price, product_name,indent_num) values
+        (#{productId},#{userId},#{productPic},#{productPrice},#{productName},#{indentNum})
+    </insert>
+
+    <select id="ShopCartList" resultMap="shopCartMap">
+        select * from shop_cart where user_id = #{userId}
+    </select>
+    <delete id="deleteShopCart">
+        delete from shop_cart where sp_id = #{id}
+    </delete>
+    <delete id="deleteShopCarts">
+        delete from shop_cart where sp_id in
+        <foreach collection="shopCarts" separator="," open="(" close=")" item="sp">
+            #{sp.spId}
+        </foreach>
+    </delete>
+
 
     <insert id="addOrder" >
         INSERT INTO indent(indent_id, user_id, price, pay_time, state, create_time, ra_id, coupon_id, deliver_goods_time, receive_time, tracking_number, leave_word, indent_type, pay_ment, delivery_time)
         values (#{indentId},#{userId},#{price},#{payTime},#{state},#{createTime},#{raId},#{couponId},#{deliverGoodsTime},#{receiveTime},#{trackingNumber},#{leaveWord},#{indentType},#{payMent},#{deliveryTime})
 
     </insert>
+    <insert id="addIndPro">
+        insert into ind_pro(indent_id, product_id, indent_num, product_price, product_name, product_pic) values
+        <foreach collection="indPros" separator="," item="pro">
+            (#{pro.indentId},#{pro.productId},#{pro.indentNum},#{pro.productPrice},#{pro.productName},#{pro.productPic})
+        </foreach>
+    </insert>
 
-    <update id="">
+    <update id="updateOrderState">
         update indent set state = #{state} where indent_id = #{orderId};
     </update>
 
     <select id="findOrder" resultMap="orderMap">
-        select indent_id,ra_id,price,create_time,state from indent where 1=1
+        select indent_id,ra_id,price,create_time,state,leave_word from indent where 1=1
         <if test="userId != null and userId != ''">
             and user_id =#{userId}
         </if>
@@ -60,8 +94,8 @@
         <if test="leaveWord != null and leaveWord != ''">
             and leave_word =#{leaveWord}
         </if>
-        <if test="month != null and month != ''">
-            and create_time > DATE_SUB(CURDATE(), INTERVAL #{month} MONTH)
+        <if test="months != null and months != ''">
+            and create_time > DATE_SUB(CURDATE(), INTERVAL #{months} MONTH)
         </if>
 
     </select>
