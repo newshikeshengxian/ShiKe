@@ -86,6 +86,12 @@
 			<version>2.8.5</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.sk</groupId>
+			<artifactId>shoppingCart</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 
 	</dependencies>
 

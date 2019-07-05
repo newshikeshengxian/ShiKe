@@ -18,4 +18,10 @@ public interface AuthMapper {
     //查询权限
     List<String> authById(String UserId);
 
+    //修改密码
+    void alterPass(AuthCenter authCenter);
+
+    //判断是否有手机号
+    AuthCenter selectAuthcenter(String phone);
+
 }

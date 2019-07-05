@@ -9,6 +9,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -29,6 +30,7 @@ public class UserServiceimp implements IUserService {
      * @param user
      */
     @Override
+    @Transactional
     public void addUser(User user) throws Exception{
 
         if (user.getPhone() != null || user.getPhone() != "") {
@@ -62,6 +64,8 @@ public class UserServiceimp implements IUserService {
         User user = userMapper.selectUser(userId);
         return user;
     }
+
+
 
 
 }
