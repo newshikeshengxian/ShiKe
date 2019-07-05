@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>订单支付</title>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+    <script type="text/javascript">
+        var goEasy = new GoEasy({
+            appkey: 'BC-3d44e1928491488599f4a35fd862c228'
+        });
+        //GoEasy-OTP可以对appkey进行有效保护，详情请参考：GoEasy-Reference
+
+        goEasy.subscribe({
+            channel:'member',
+            onMessage: function(message){
+                window.location.href="page/pay-success.html";
+            }
+        });
+    </script>
+</head>
+<body>
+
+<img src="images/WePayLogo.png">
+<br/>
+<img th:src="@{'/qrcode?codeUrl='+${code}}">
+
+</body>
+</html>
