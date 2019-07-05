@@ -1260,7 +1260,7 @@ i, cite,em, strong, th {
 	background: #000;
 	z-index: 2;
 	top: 0;
-	left: 0px;
+	right: 0px;
 	font-family: 'microsoft yahei', arial;
 }
 .right-sidebar-panel .quick-links-a {
@@ -1276,7 +1276,7 @@ i, cite,em, strong, th {
 	position: relative;
 	overflow: hidden;
 	top: 0;
-	left: 0px;
+	right: 0px;
 	z-index: 1;
 	margin: 0;
 	padding: 0;
@@ -3060,14 +3060,14 @@ transform:scale(0.7) translateX(270px)
     width: 54px;
     height: 39px;
     line-height: 37px;
-    border: solid 1px #61be16;
+    border: solid 1px #ffcc00;
     font-size: 16px;
     letter-spacing: 4px;
     cursor: pointer;
     color: #000;
     overflow: hidden;
     background-color: #fff;
-	background-image:url(../images/sousuo.png);
+	background-image:url(../images/sousou.jpg);
 	background-repeat:no-repeat;
 	background-position:center center;
 }
@@ -3102,7 +3102,7 @@ transform:scale(0.7) translateX(270px)
 	}
 .hd-b-r-icon1 {
     display: block;
-	background-image:url(../images/icon1.png);
+	background-image:url(../images/icon1.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -3113,7 +3113,7 @@ transform:scale(0.7) translateX(270px)
     margin-bottom: 4px;
 }
 .main-nav{
-	background-color:#61be16;
+	background-color:#ffcc00;
 	height:48px;
 	width:auto;
 	}
@@ -3145,7 +3145,7 @@ transform:scale(0.7) translateX(270px)
 	color:#fff;
 	}
 .all-nav .home-category .menu-event{
-	background:#61be16;
+	background:#ffcc00;
 	height:48px;
 	line-height:48px;
 	}

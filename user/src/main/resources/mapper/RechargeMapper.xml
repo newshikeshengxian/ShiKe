@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sk.user.mapper.RechargeMapper">
+    <resultMap id="rechargeMap" type="com.sk.user.po.Recharge">
+        <id property="rechId" column="rech_id"/>
+        <result property="userId" column="userId"/>
+        <result property="rechPrice" column="rech_price"/>
+        <result property="rechState" column="rech_state"/>
+        <result property="rechTime" column="rech_time"/>
+        <result property="rechNum" column="rech_num"/>
+        <result property="rechPwd" column="rech_pwd"/>
+    </resultMap>
+    <insert id="addRecharge">
+        insert  into  recharge(rech_id, user_id, rech_price, rech_state, rech_time,rech_num,rech_pwd)
+        values (#{rechId},#{userId},#{rechPrice},#{rechState},#{rechTime},#{rechNum},#{rechPwd})
+    </insert>
+    <select id="queryAllRecharges" resultMap="rechargeMap">
+        select rech_id,rech_price,rech_state,rech_time from recharge where user_id = #{userId}
+    </select>
+</mapper>

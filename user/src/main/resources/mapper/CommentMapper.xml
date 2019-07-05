@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sk.user.mapper.CommentMapper">
+    <resultMap id="commentMap" type="com.sk.user.po.Comment">
+        <id property="comId" column="com_id"/>
+        <result property="indentId" column="indent_id"/>
+        <result property="comRank" column="com_rank"/>
+        <result property="comDesc" column="com_desc"/>
+        <result property="comTheme" column="com_theme"/>
+        <result property="userId" column="user_id"/>
+    </resultMap>
+    <insert id="addComment" >
+        insert  into comment(com_id, indent_id, com_rank, com_desc, com_theme, userId) values
+        (#{comId},#{indentId},#{comRank},#{comDesc},#{comTheme},#{userId})
+    </insert>
+    <select id="queryAllComment" resultMap="commentMap">
+        select * from comment where userId = #{userId}
+    </select>
+</mapper>

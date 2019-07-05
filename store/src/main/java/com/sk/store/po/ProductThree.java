@@ -4,6 +4,8 @@ package com.sk.store.po;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 public class ProductThree {
@@ -11,7 +13,7 @@ public class ProductThree {
   private String pthId;
   private String pthName;
   private String ptId;
-
+  private List<Product> products;
 
   public String getPthId() {
     return pthId;
