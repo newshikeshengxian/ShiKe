@@ -26,7 +26,7 @@ public class OrderController {
      */
     @RequestMapping("/addShopCart")
     public JsonResult addShopCart(@RequestBody ShopCart shopCart){
-        JsonResult jsonResult = new JsonResult();
+            JsonResult jsonResult = new JsonResult();
         try {
             List<ShopCart> shopCartList = orderService.addShopCart(shopCart);
             jsonResult.setCode(0);

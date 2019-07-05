@@ -737,7 +737,7 @@
 			                            				</a>
 			                            			</span>
 			                        				<div class="p-name"><a href="http://www.shikefood.com/goods-10502.html" :title="product.productName">{{product.productName}}</a></div>
-			                        				<div class="p-price"><strong>¥{{product.productPrice}}</strong>×1</div>
+			                        				<div class="p-price"><strong>¥{{product.productPrice}}</strong>×{{product.indentNum}}</div>
 			                                   		<a href="javascript:;" class="p-del" @click="deleteShopCart(product.spId)">删除</a>
 			                                	</div>
 			                    			</div>
@@ -968,15 +968,31 @@
 	})
 
 	$(function () {
-		var s = getCookie("shopCart");
-		v.shopCart = JSON.parse(s);
-		v.products = v.shopCart
-		var price = 0;
-		for(var i = 0;i<v.shopCart.length;i++){
-			price = price+v.shopCart[i].productPrice * v.shopCart[i].indentNum
-		}
-		v.price = price.toFixed(2);
-		v.shopPrice = v.price
+        var s = getCookie("shopCart");
+        v.shopCart = JSON.parse(s);
+        var price = 0;
+        for(var i = 0;i<v.shopCart.length;i++){
+            price = price+v.shopCart[i].productPrice * v.shopCart[i].indentNum
+        }
+        v.shopPrice  = price.toFixed(2);
+	    if(getCookie("order")==null || getCookie("order")==""){
+            v.products = v.shopCart
+            v.price = v.shopCart
+            v.indentType=0;
+        }else {
+            v.order = getCookie("order");
+            v.price = (v.order.productPrice * v.order.indentNum).toFixed(2);
+            v.indentType = v.order.state
+            v.realPay = v.price
+            v.show1=0;
+            v.show2=1;
+            v.show3=0;
+            v.sh2=1;
+        }
+
+
+
+
 
 
 
@@ -984,7 +1000,8 @@
 
 	function goOrder() {
 		var order = {};
-		order["userId"] = "111"
+		var user = JSON.parse(getCookie("auth"))
+		order["userId"] = user.acPwd;
 		order["products"] = v.order;
 		order["price"] = v.price;
 		order["raId"] = v.addr[v.addrIndex].raId;
@@ -996,7 +1013,12 @@
 		order["realPay"] = v.realPay;
 		alert(JSON.stringify(v.order))
 		axios.post("order/addOrder",order).then(function (res) {
-
+            if(res.data.code==3){
+                v.show1=0;
+                v.show2=0;
+                v.show3=1;
+                v.sh3=1;
+            }
 		})
 
 
@@ -1104,7 +1126,6 @@
 		v.cartShow=0;
 	}
 
-	
 </script>
 <!--
 	作者：offline

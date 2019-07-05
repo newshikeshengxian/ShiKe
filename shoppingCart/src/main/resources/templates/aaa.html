@@ -3,7 +3,7 @@
 <head>
 	<base th:href="${#request.getContextPath()}+'/'">
 <script type="text/javascript" src="js/jquery-3.4.0.js"></script>
-<script type="text/javascript" src="js/vue.js"></script>
+
 	<script type="text/javascript" src="js/axios.min.js"></script>
 
 
@@ -11,17 +11,82 @@
 
 
 <body >
+<div id="box">
  月份：<input id="month" type="text" />
 状态：<input id="state" type="text" />
  token:<input id="token" type="text">
  <input type="button" value="测试" onclick="test()">
-<script>
-	function test() {
-		var token  = $("#token").val();
-		var indent = {"userId":token}
-		axios.post("order/addOrder",indent).then(function (res) {
 
-        })
+ <input type="text" value="" id="date2">
+ <input type="button" onclick="go(document.getElementById('date2').value);" value="开始">
+ <div id="timer"></div>
+
+     <div id="scroll_new" class="scroll_hot" style="display: inline-block;">
+         <ul>
+
+             <li v-for="good in repertory">
+                 <a href="http://www.shikefood.com/j_seckill_goods.php?act=view&amp;id=463">
+                     <div class="delivery-bottom" style="position:relative;">
+                         <span class="delivery-bottom-span1"><img :src="good.product.productPic"></span>
+                         <p class="delivery-bottom-p1" style="font-size: 14px;">{{good.product.productName}}<span></span></p>
+                         <p class="delvery-bottom-p2"><b class="delver-bottom-b2">¥{{good.product.productPrice}}</b>
+                             <b class="delvery-bottom-b1">&nbsp;抢</b></p>
+                     </div>
+
+                 </a>
+                 <div  :id="good.repId"  style="color: rgb(97, 190, 22);"></div>
+             </li>
+         </ul>
+     </div>
+</div>
+
+
+<script>
+
+    var v = new Vue({
+        el:"#box",
+        data:{
+            repertory:[{"repId":"122312312","product":{"productId":"1112321","productPic":"/image/13564_G_1546474869388.jpg","productPrice":3.90,"productName":"泰康黄牌上海辣酱油200ml"},"expireTime":"2019-07-10 00:00:00","repNum":30},
+                {"repId":"122312313","product":{"productId":"1112321","productPic":"/image/13564_G_1546474869388.jpg","productPrice":3.90,"productName":"泰康黄牌上海辣酱油200ml"},"expireTime":"2019-07-10 00:00:00","repNum":30}]
+        }
+    })
+
+    var _ordertimer = null;
+    function leftTimer(enddate,id) {
+        var leftTime = (new Date(enddate)) - new Date(); //计算剩余的毫秒数
+        var days = parseInt(leftTime / 1000 / 60 / 60 / 24, 10); //计算剩余的天数
+        var hours = parseInt(leftTime / 1000 / 60 / 60 % 24, 10); //计算剩余的小时
+        var minutes = parseInt(leftTime / 1000 / 60 % 60, 10);//计算剩余的分钟
+        var seconds = parseInt(leftTime / 1000 % 60, 10);//计算剩余的秒数
+        days = checkTime(days);
+        hours = checkTime(hours);
+        minutes = checkTime(minutes);
+        seconds = checkTime(seconds);
+        if (days >= 0 || hours >= 0 || minutes >= 0 || seconds >= 0) {
+            $("#"+id).text(days + "天" + hours + "小时" + minutes + "分" + seconds + "秒");
+        }
+        if (days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0) {
+            window.clearInterval(_ordertimer);
+            _ordertimer = null;
+        }
+    }
+    function checkTime(i) { //将0-9的数字前面加上0，例1变为01
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+    function go(time,id){
+        var date1=new Date(),data2=new Date(time);
+        if(data2<date1)return;//设置的时间小于现在时间退出
+        _ordertimer = setInterval(function(){leftTimer(data2,id)}, 1000);
+    }
+	function test() {
+        alert()
+		var repertory = v.repertory
+        for(var i = 0;i<repertory.length;i++){
+            go(repertory[i].expireTime,repertory[i].repId)
+        }
 	}
 
 </script>

@@ -271,7 +271,7 @@ i, cite,em, strong, th {
 }
 /*头部*/
 .sn-container .sn-quick-menu .sn-stores i, .sn-container .sn-quick-menu .sn-cart i, .sn-quick-menu .sn-site, .sn-quick-menu .sn-mobile, .breadcrumb i, .nav .allGoodsCat .menuEvent i, .sn-container .sn-quick-menu .menu-hd b, .sn-container .sn-all-msg b,.noresult-con .noresult-icon,.sidebar-user .arrow-right,#historyList .scroll-btn,#historyList .compare-btn,.pop-header .tell-me-close{
-	background: transparent url(../images/common/common-icon.png) no-repeat;
+	background: transparent url(common-icon.png) no-repeat;
 	font-size: 12px;
 	font-style: normal;
 }
@@ -510,7 +510,7 @@ i, cite,em, strong, th {
 	height: 106px;
 	padding: 15px;
 	text-align: center;
-	background:url(../images/common/app.jpg) no-repeat 19px 45px;	
+	background:url(app.jpg) no-repeat 19px 45px;	
 }
 .sn-container .sn-qrcode .app_down img{
 	width: 76px;
@@ -646,7 +646,7 @@ i, cite,em, strong, th {
 	display:block;
 	width:150px;
 	height:70px;
-	background:url(../images/common/logo_right.gif)	no-repeat center center;
+	background:url(logo_right.gif)	no-repeat center center;
 }
 /******头部搜索*******/
 .header .mall-search {
@@ -692,7 +692,7 @@ i, cite,em, strong, th {
 	color: #666;
 }
 .header .mall-search .mallSearch-form .mallSearch-input .search-type li i.icon-down {
-	background: url(../images/common/common-icon.png) no-repeat;
+	background: url(common-icon.png) no-repeat;
 	background-position: 0px -80px;
 	width: 12px;
 	height: 8px;
@@ -1135,7 +1135,7 @@ i, cite,em, strong, th {
 }
 /*.site-footer .footer-service .list-service li a i {
 	display: block;
-	background: url(../images/common/common-icon.png) no-repeat center 0px;
+	background: url(common-icon.png) no-repeat center 0px;
 	height: 35px;
 	line-height: 35px;
 	float: left;
@@ -1297,7 +1297,7 @@ i, cite,em, strong, th {
 }
 .right-sidebar-panel i{
 	display: inline-block;
-	background: url(../images/common/common-icon.png) no-repeat;
+	background: url(common-icon.png) no-repeat;
 	cursor: pointer;
 	height: 19px;
 	width: 18px;
@@ -1402,7 +1402,7 @@ i, cite,em, strong, th {
 	line-height: 36px;
 }
 .quick-toggle li.returnTop a i.top{ 
-	background: url( ../images/common/top.png) no-repeat;
+	background: url( top.png) no-repeat;
 	width: 22px;
 	height: 22px;
 	left: 7px;
@@ -1581,7 +1581,7 @@ transform:scale(0.7) translateX(270px)
 	background: #eceaea
 }
 .sidebar-panel-header i {
-	background: url(../images/common/common-icon.png) no-repeat;
+	background: url(common-icon.png) no-repeat;
 	margin-right: 4px;
 	margin-left: 10px;
 	vertical-align: top;
@@ -1610,7 +1610,7 @@ transform:scale(0.7) translateX(270px)
 .sidebar-panel-header .close-panel {
 	width: 12px;
 	height: 12px;
-	background: url(../images/common/common-icon.png) no-repeat;
+	background: url(common-icon.png) no-repeat;
 	background-position: -429px -40px;
 	position: absolute;
 	right: 8px;
@@ -1718,7 +1718,7 @@ transform:scale(0.7) translateX(270px)
 	width:156px;
 	height:85px;
 	margin:0 auto;
-	background:url(../images/noresult.png) no-repeat 0 0;
+	background:url(noresult.png) no-repeat 0 0;
 }
 .tip-box .tip-text{
 	line-height:20px;
@@ -1885,7 +1885,7 @@ transform:scale(0.7) translateX(270px)
 .sidebar-user .user-pic-mask{
 	width:74px;
 	height:74px;
-	background:url(../images/mask1.png) no-repeat center center;
+	background:url(people.gif) no-repeat center center;
 	position:absolute;
 	left:0;
 	top:0;
@@ -1961,7 +1961,7 @@ transform:scale(0.7) translateX(270px)
 	width:27px;
 	height:27px;
 	float:left;
-	background:url(../images/user-icon.png) no-repeat;	
+	background:url(user-icon.png) no-repeat;	
 	margin-right:10px;
 }
 .sidebar-service .customer-service .icon-online{
@@ -2100,7 +2100,7 @@ transform:scale(0.7) translateX(270px)
     margin-top: 10px;
     line-height: 15px;
     margin-right: 10px;
-    background: url(../images/common/common-icon.png) no-repeat -41px -44px;
+    background: url(common-icon.png) no-repeat -41px -44px;
     width: 16px;
 }
 #compareList {
@@ -2293,7 +2293,7 @@ transform:scale(0.7) translateX(270px)
 
 /********弹框提示信息********/
 .pop-header .pop-close,.pop-con .pop-icon{
-	background:url(../images/common/common-icon.png) no-repeat;
+	background:url(common-icon.png) no-repeat;
 }
 .pop-mask{
 	position:fixed;
@@ -2428,7 +2428,7 @@ transform:scale(0.7) translateX(270px)
 	display:inline-block;	
 }
 .page-num .prev .icon,.page-num .next .icon{
-	background:url(../images/common/common-icon.png) no-repeat;	
+	background:url(common-icon.png) no-repeat;	
 	display:inline-block;
 	width:6px;
 	height:9px;
@@ -2519,7 +2519,7 @@ transform:scale(0.7) translateX(270px)
 
 /*****登录弹框*****/
 .pop-login .msg-wrap .msg-icon,.pop-login .item .icon,.pop-login .item-coagent a i{
-	background:url(../images/user-icon.png) no-repeat;	
+	background:url(user-icon.png) no-repeat;	
 }
 .pop-login{
 	display:none;	
@@ -2553,7 +2553,7 @@ transform:scale(0.7) translateX(270px)
 	float:left;
 	width:6px;
 	height:9px;
-	background:url(../images/common/common-icon.png) no-repeat;
+	background:url(common-icon.png) no-repeat;
 	background-position:-90px 0;
 	margin:9px 0 0 4px;
 }
@@ -2782,7 +2782,7 @@ transform:scale(0.7) translateX(270px)
 	float:left;
     width: 14px;
     height: 14px;
-	background:url(../images/user-icon.png) no-repeat 0 0;
+	background:url(user-icon.png) no-repeat 0 0;
 	margin-top:8px;
 }
 .tell-me-form .tell-me-notice .notice-text,.required-notice .notice-text{
@@ -2801,7 +2801,7 @@ transform:scale(0.7) translateX(270px)
 	width:33px;
 	height:33px;
 	float:left;
-	background: url(../images/user-center.png) no-repeat -175px -150px;	
+	background: url(user-center.png) no-repeat -175px -150px;	
 }
 .tell-me-form .tell-me-result .result-text{
 	position: relative;
@@ -2900,7 +2900,7 @@ transform:scale(0.7) translateX(270px)
 #speDiv .spe-close{
 	width: 13px;
     height: 13px;
-    background: url(../images/common/common-icon.png) no-repeat;
+    background: url(common-icon.png) no-repeat;
     background-position: -41px -44px;
     position: absolute;
     right: 13px;
@@ -2943,7 +2943,7 @@ transform:scale(0.7) translateX(270px)
 	cursor:pointer;
 }
 #speDiv .attr-list .attr-radio.curr{
-	background:url(../images/bg_attr_sel_zyh.png) no-repeat bottom right;
+	background:url(bg_attr_sel_zyh.png) no-repeat bottom right;
 	border:1px solid #E31939;	
 }
 #speDiv .attr-list .attr-radio label{
@@ -2972,7 +2972,7 @@ transform:scale(0.7) translateX(270px)
     float: left;
     width: 14px;
     height: 14px;
-    background: url(../images/user-icon.png) no-repeat 0 0;
+    background: url(user-icon.png) no-repeat 0 0;
     margin-top: 8px;
 }
 .price-text-notice .notice-text{
@@ -3067,14 +3067,14 @@ transform:scale(0.7) translateX(270px)
     color: #000;
     overflow: hidden;
     background-color: #fff;
-	background-image:url(../images/sousuo.png);
+	background-image:url(sousuo.png);
 	background-repeat:no-repeat;
 	background-position:center center;
 }
 .hd-shop-icon {
     display: block;
     float: left;
-	background-image:url(../images/gouwuche.png);
+	background-image:url(gouwuche.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -3102,7 +3102,7 @@ transform:scale(0.7) translateX(270px)
 	}
 .hd-b-r-icon1 {
     display: block;
-	background-image:url(../images/icon1.png);
+	background-image:url(icon1.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -3183,19 +3183,19 @@ transform:scale(0.7) translateX(270px)
 	background-size:cover;
 	}
 .icon1{
-	background-image:url(../images/footer-top-icon1.png);
+	background-image:url(footer-top-icon1.png);
 	width:64px;
 	}
 .icon2{
-	background-image:url(../images/footer-top-icon2.png);
+	background-image:url(footer-top-icon2.png);
 	width:64px;
 	}
 .icon3{
-	background-image:url(../images/footer-top-icon3.png);
+	background-image:url(footer-top-icon3.png);
 	width:32px;
 	}
 .icon4{
-	background-image:url(../images/footer-top-icon4.png);
+	background-image:url(footer-top-icon4.png);
 	width:32px;
 	}
 .site-footer .footer-service .list-service li a{
@@ -3252,7 +3252,7 @@ transform:scale(0.7) translateX(270px)
 .hd-shop-icon {
     display: block;
     float: left;
-    background-image: url(../images/gouwuche.png);
+    background-image: url(gouwuche.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -3305,7 +3305,7 @@ transform:scale(0.7) translateX(270px)
 .sn-menu-icon1{    
 	display: block;
     float: right;
-	background-image:url(../images/home/sanjiao1_icon.png);
+	background-image:url(sanjiao1_icon.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -3321,7 +3321,7 @@ transform:scale(0.7) translateX(270px)
 .home-category-icon1{
 	display: block;
 	position: absolute;
-	background-image: url(../images/common/shangsanjiao1_icon.png);
+	background-image: url(shangsanjiao1_icon.png);
 	background-repeat: no-repeat;
 	background-position: 0px center;
 	background-size: cover;
@@ -3356,7 +3356,7 @@ transform:scale(0.7) translateX(270px)
 .all-cat .list:hover .all-cat-icon{
 	display:block;
 	float:right;
-	background-image:url(../images/home/sanjiao.png);
+	background-image:url(sanjiao.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3371,7 +3371,7 @@ transform:scale(0.7) translateX(270px)
 .cat-icon1{
 	display:block;
 	float:left;
-	background-image:url(../images/menu_icon1.png);
+	background-image:url(menu_icon1.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3381,7 +3381,7 @@ transform:scale(0.7) translateX(270px)
 .cat-icon1{
 	display:block;
 	float:left;
-	background-image:url(../images/menu_icon1.png);
+	background-image:url(menu_icon1.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3391,7 +3391,7 @@ transform:scale(0.7) translateX(270px)
 .cat-icon2{
 	display:block;
 	float:left;
-	background-image:url(../images/menu_icon1.png);
+	background-image:url(menu_icon1.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3401,7 +3401,7 @@ transform:scale(0.7) translateX(270px)
 .cat-icon3{
 	display:block;
 	float:left;
-	background-image:url(../images/menu_icon03.png);
+	background-image:url(menu_icon03.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3411,7 +3411,7 @@ transform:scale(0.7) translateX(270px)
 .cat-icon4{
 	display:block;
 	float:left;
-	background-image:url(../images/menu_icon04.png);
+	background-image:url(menu_icon04.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3421,7 +3421,7 @@ transform:scale(0.7) translateX(270px)
 .cat-icon5{
 	display:block;
 	float:left;
-	background-image:url(../images/menu_icon02.png);
+	background-image:url(menu_icon02.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3431,7 +3431,7 @@ transform:scale(0.7) translateX(270px)
 .cat-icon6{
 	display:block;
 	float:left;
-	background-image:url(../images/menu_icon05.png);
+	background-image:url(menu_icon05.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3441,7 +3441,7 @@ transform:scale(0.7) translateX(270px)
 .cat-icon7{
 	display:block;
 	float:left;
-	background-image:url(../images/menu_icon06.png);
+	background-image:url(menu_icon06.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3460,7 +3460,7 @@ transform:scale(0.7) translateX(270px)
 .cat-icon367{
 	display:block;
 	float:left;
-	background-image:url(../images/menu_icon1.png);
+	background-image:url(menu_icon1.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3470,7 +3470,7 @@ transform:scale(0.7) translateX(270px)
 .cat-icon370{
 	display:block;
 	float:left;
-	background-image:url(../images/menu_icon03.png);
+	background-image:url(menu_icon03.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3480,7 +3480,7 @@ transform:scale(0.7) translateX(270px)
 .cat-icon372{
 	display:block;
 	float:left;
-	background-image:url(../images/menu_icon04.png);
+	background-image:url(menu_icon04.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3490,7 +3490,7 @@ transform:scale(0.7) translateX(270px)
 .cat-icon374{
 	display:block;
 	float:left;
-	background-image:url(../images/menu_icon02.png);
+	background-image:url(menu_icon02.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3500,7 +3500,7 @@ transform:scale(0.7) translateX(270px)
 .cat-icon376{
 	display:block;
 	float:left;
-	background-image:url(../images/menu_icon05.png);
+	background-image:url(menu_icon05.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3510,7 +3510,7 @@ transform:scale(0.7) translateX(270px)
 .cat-icon378{
 	display:block;
 	float:left;
-	background-image:url(../images/menu_icon06.png);
+	background-image:url(menu_icon06.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3572,19 +3572,19 @@ transform:scale(0.7) translateX(270px)
 	background-size:cover;
 	}
 .icon1{
-	background-image:url(../images/footer-top-icon1.png);
+	background-image:url(footer-top-icon1.png);
 	width:64px;
 	}
 .icon2{
-	background-image:url(../images/footer-top-icon2.png);
+	background-image:url(footer-top-icon2.png);
 	width:64px;
 	}
 .icon3{
-	background-image:url(../images/footer-top-icon3.png);
+	background-image:url(footer-top-icon3.png);
 	width:32px;
 	}
 .icon4{
-	background-image:url(../images/footer-top-icon4.png);
+	background-image:url(footer-top-icon4.png);
 	width:32px;
 	}
 .site-footer .footer-service .list-service li a{
@@ -3616,7 +3616,7 @@ transform:scale(0.7) translateX(270px)
 .col-article-icon1{
 	display:block;
 	float:left;
-	background-image:url(../images/home/footer_bottom_icon1.png);
+	background-image:url(footer_bottom_icon1.png);
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-size:cover;
@@ -3626,7 +3626,7 @@ transform:scale(0.7) translateX(270px)
 .col-article-icon2{
 	display:block;
 	float:left;
-	background-image:url(../images/home/footer_bottom_icon2.png);
+	background-image:url(footer_bottom_icon2.png);
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-size:cover;
@@ -3636,7 +3636,7 @@ transform:scale(0.7) translateX(270px)
 	.col-article-icon3{
 	display:block;
 	float:left;
-	background-image:url(../images/home/footer_bottom_icon3.png);
+	background-image:url(footer_bottom_icon3.png);
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-size:cover;
@@ -3646,7 +3646,7 @@ transform:scale(0.7) translateX(270px)
 	.col-article-icon4{
 	display:block;
 	float:left;
-	background-image:url(../images/home/footer_bottom_icon4.png);
+	background-image:url(footer_bottom_icon4.png);
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-size:cover;
@@ -3722,7 +3722,7 @@ transform:scale(0.7) translateX(270px)
 .into-text-icon{
 	display:inline-block;
 
-	background-image:url(../images/home/dianhua.png);
+	background-image:url(dianhua.png);
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-size:cover;
@@ -3765,7 +3765,7 @@ transform:scale(0.7) translateX(270px)
 */
 .fs-line1{
 	display:block;
-	background-image:url("../images/home/louceng-icon1.png");
+	background-image:url("louceng-icon1.png");
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-size:cover;
@@ -3776,7 +3776,7 @@ transform:scale(0.7) translateX(270px)
 	}
 .fs-line2{
 	display:block;
-	background-image:url("../images/home/louceng-icon2.png");
+	background-image:url("louceng-icon2.png");
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-size:cover;
@@ -3787,7 +3787,7 @@ transform:scale(0.7) translateX(270px)
 	}
 .fs-line3{
 	display:block;
-	background-image:url("../images/home/louceng-icon3.png");
+	background-image:url("louceng-icon3.png");
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-size:cover;
@@ -3798,7 +3798,7 @@ transform:scale(0.7) translateX(270px)
 	}
 .fs-line4{
 	display:block;
-	background-image:url("../images/home/louceng-icon4.png");
+	background-image:url("louceng-icon4.png");
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-size:cover;
@@ -3809,7 +3809,7 @@ transform:scale(0.7) translateX(270px)
 	}
 .fs-line5{
 	display:block;
-	background-image:url("../images/home/louceng-icon5.png");
+	background-image:url("louceng-icon5.png");
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-size:cover;
@@ -3820,7 +3820,7 @@ transform:scale(0.7) translateX(270px)
 	}
 .fs-line6{
 	display:block;
-	background-image:url("../images/home/louceng-icon6.png");
+	background-image:url("louceng-icon6.png");
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-size:cover;
@@ -3830,27 +3830,27 @@ transform:scale(0.7) translateX(270px)
 	border:solid 1px #d8d8d8;
 	}
 .smooth:hover .fs-line1{
-	background:url("../images/home/louceng-icon01.png");
+	background:url("louceng-icon01.png");
 	border:solid 1px #087c3d;
 	}
 .smooth:hover .fs-line2{
-	background:url("../images/home/louceng-icon02.png");
+	background:url("louceng-icon02.png");
 	border:solid 1px #009cff;
 	}
 .smooth:hover .fs-line3{
-	background:url("../images/home/louceng-icon03.png");
+	background:url("louceng-icon03.png");
 	border:solid 1px #ff0000;
 	}
 .smooth:hover .fs-line4{
-	background:url("../images/home/louceng-icon04.png");
+	background:url("louceng-icon04.png");
 	border:solid 1px #ff9000;
 	}
 .smooth:hover .fs-line5{
-	background:url("../images/home/louceng-icon05.png");
+	background:url("louceng-icon05.png");
 	border:solid 1px #e90e49;
 	}
 .smooth:hover .fs-line6{
-	background:url("../images/home/louceng-icon06.png");
+	background:url("louceng-icon06.png");
 	border:solid 1px #4b0b94;
 	}
 .elevator-floor-top-span1{
@@ -3862,7 +3862,7 @@ transform:scale(0.7) translateX(270px)
 	}
 .elevator-floor-top-icon1{
 	display:block;
-	background-image:url(../images/home/sanjiao1_top.png);
+	background-image:url(sanjiao1_top.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3881,7 +3881,7 @@ transform:scale(0.7) translateX(270px)
 	}
 .elevator-floor-top-icon2{
 	display:block;
-	background-image:url(../images/home/sanjiao1_bottom.png);
+	background-image:url(sanjiao1_bottom.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-size:cover;
@@ -3925,30 +3925,30 @@ transform:scale(0.7) translateX(270px)
 /*楼层问题解决2017-2-4*/
 
  .smooth.active .fs-line1 {
-    background: url("../images/home/louceng-icon01.png");
+    background: url("louceng-icon01.png");
     border: solid 1px #087c3d;
 }
 
 .smooth.active .fs-line2 {
-    background: url("../images/home/louceng-icon02.png");
+    background: url("louceng-icon02.png");
     border: solid 1px #009cff;
 }
 
 .smooth.active .fs-line3 {
-    background: url("../images/home/louceng-icon03.png");
+    background: url("louceng-icon03.png");
     border: solid 1px #ff0000;
 }
 
 .smooth.active .fs-line4 {
-    background: url("../images/home/louceng-icon04.png");
+    background: url("louceng-icon04.png");
     border: solid 1px #ff9000;
 }
 .smooth.active .fs-line5 {
-    background: url("../images/home/louceng-icon05.png");
+    background: url("louceng-icon05.png");
     border: solid 1px #e90e49;
 }
 .smooth.active .fs-line6 {
-    background: url("../images/home/louceng-icon06.png");
+    background: url("louceng-icon06.png");
     border: solid 1px #4b0b94;
 }
 .bonus_con li .elips{	
@@ -3960,7 +3960,7 @@ transform:scale(0.7) translateX(270px)
 
 /*团购购买按钮*/
 #now-goumai{
-	/*background-image: url(../images/home/gouwuche1.png);
+	/*background-image: url(gouwuche1.png);
 	background-repeat: no-repeat;
 	background-position: 16px center;
 	text-indent: 24px;*/

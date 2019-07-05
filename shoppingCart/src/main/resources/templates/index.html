@@ -13,17 +13,150 @@
 <link rel="shortcut icon" href="favicon.ico" />
         
 <link rel="alternate" type="application/rss+xml" title="RSS|食恪生鲜-全程冷链，鲜活天然，产地直采，一站式生鲜服务管家  " href="feed.xml" />
-<link rel="stylesheet" type="text/css" href="/Untitled/index.css" />
+<link rel="stylesheet" type="text/css" href="/css/index.css" />
     <link rel="stylesheet" type="text/css" href="/css/flow.css">
-    <link rel="stylesheet" type="text/css" href="/Untitled/zc.css" />
-    <link rel="stylesheet" type="text/css" href="/Untitled/68ecshop_common.css" />
+    <link rel="stylesheet" type="text/css" href="/css/zc.css" />
+    <link rel="stylesheet" type="text/css" href="/css/68ecshop_common.css" />
+    <link rel="stylesheet" type="text/css" href="/css/category.css">
+    <link rel="stylesheet" type="text/css" href="/css/goods.css">
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
 
-<script type="text/javascript" src="/Untitled/jquery-lazyload.js" ></script>
-    <script type="text/javascript" src="/Untitled/vue.js"></script>
-    <script type="text/javascript" src="/Untitled/jquery-3.4.0.js"></script>
-    <script type="text/javascript" src="/Untitled/home_index.js"></script>
-    <script type="text/javascript" src="/Untitled/axios.min.js"></script>
+<script type="text/javascript" src="/js/jquery-lazyload.js" ></script>
+    <script type="text/javascript" src="/js/vue.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.4.0.js"></script>
+    <script type="text/javascript" src="/js/home_index.js"></script>
+    <script type="text/javascript" src="/js/axios.min.js"></script>
     <script type="text/javascript" src="/js/mycookie.js"></script>
+
+    <style>
+        #goods-price{
+            background-color: #fff;
+            border:1px dotted #d8d8d8;
+            border-left: none;
+            border-right: none;
+            height: 90px;
+        }
+        .goods-title{
+            color: red;
+            font-size: 20px;
+            margin-bottom: 35px;
+        }
+        #shuxing {
+            border-width: 0px;
+            border-style: solid;
+            border-color: #eee;
+            padding: 8px;
+            overflow: hidden;
+            padding-left: 12.5%;
+            zoom: 1;
+            padding-right: 12.5%;
+        }
+        .detail-content {
+            border: 1px solid #eee;
+            border-width: 0px 1px 1px 1px;
+        }
+        #shuxing li {
+            padding: 9px 0px;
+            float: left;
+            width: 49%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: table-cell;
+            border: 1px solid #61be16;
+            text-indent: 22px;
+        }
+        .detail-content img{
+            width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        .tb-prop .catt {
+            line-height: 28px;
+        }
+        .tb-prop .catt {
+            float: left;
+            position: relative;
+            margin: 0 4px 4px 0;
+            line-height: 20px;
+            vertical-align: middle;
+            padding: 1px;
+        }
+        .tb-prop .catt a {
+            float: left;
+            background-color: #fff;
+            white-space: nowrap;
+            width: auto!important;
+            min-width: 10px;
+            padding: 0 9px;
+            text-align: center;
+            border: 1px solid #b8b7bd;!important;
+            color: #000;
+            text-decoration: none;
+        }
+        .tb-prop .catt.tb-selected a{
+            border: 2px solid #be0106;
+            margin: -1px;
+        }
+        .goodselect {
+            position: absolute;
+            bottom: 6px;
+            right: 0;
+            width: 12px;
+            height: 12px;
+            overflow: hidden;
+            text-indent: -99em;
+            display: block;
+            background-repeat: no-repeat;
+            background-position: -62px -16px;
+            background-image: url(//img.alicdn.com/tps/i1/TB1LBaOHFXXXXaMXFXXBJc1_FXX-114-30.png);
+        }
+        .tm-clear:after {
+            content: '\20';
+            display: block;
+            height: 0;
+            clear: both;
+        }
+    </style>
+
+    <style>
+        table.detail-msg {
+            width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 10px;
+            cell-spacing: 0px;
+            border-width: 0px 1px 1px 0px;
+            border-style: solid;
+            border-color: #ded9dd;
+        }
+        table.detail-msg td {
+            width: 30%;
+            text-indent: 20px;
+            border-width: 1px 0px 0px 1px;
+            border-color: #ded9dd;
+            border-style: solid;
+        }
+        table.detail-msg td.thead {
+            background-color: #f5feeb;
+            width: 20%;
+            text-align: center;
+            text-indent: 0px;
+            height: 30px;
+            line-height: 30px;
+        }
+    </style>
+    <style type="text/css">
+        .crumbs-nav .crumbs-title{
+            border: none;
+            color: #3b730e;
+
+        }
+        .crumbs-nav .crumbs-title .icon{
+            display: none;
+        }
+    </style>
 
     <style type="text/css">
         .center{
@@ -166,7 +299,7 @@
                         <li id="list-li"><a class="nav " href="home.php?id=380" title="家乡味道" >家乡味道</a></li>
                         <li id="list-li"><a class="nav " href="local.php?id=399" title="农土特产" >农土特产</a></li>
                         <li id="list-li"><a class="nav " href="new_tuijian.php?act=list" title="新品推荐" >新品推荐</a></li>
-                        <li id="list-li"><a class="nav " href="j_seckill_goods.php?act=list" title="限时抢购" >限时抢购</a></li>
+                        <li id="list-li"><a class="nav " href="javascript:;" onclick="goCuXiao()" title="限时抢购" >限时抢购</a></li>
                         <li id="list-li"><a class="nav " href="group_buy.php" title="团购" >团购</a></li>
                     </ul>
                 </div>
@@ -433,268 +566,668 @@
         </ul>
     </div>
 
-    <div class="w1210 ad-groups">
-        <div class="mc">
-            <div class="sc-list">
-                <div class="item w-bg" style="width: 396px;height: 190px; margin-right:10px;">
-                    <a class="s-img" target="_blank" href="http://www.shikefood.com/local.php?id=399"><img width="396px" height="190px" src="/Untitled/1499300431796157177.jpg" /></a>
-                </div>
-                <div class="item w-bg" style="width: 396px;height: 190px; margin-right:10px;">
-                    <a class="s-img" target="_blank" href="http://www.shikefood.com/home.php?id=380"><img width="396px" height="190px" src="/Untitled/1499300799882609828.jpg" /></a>
-                </div>
-                <div class="item w-bg" style="width: 396px;height: 190px; margin-right:10px;">
-                    <a class="s-img" target="_blank" href="http://www.shikefood.com/new_tuijian.php?act=list"><img width="396px" height="190px" src="/Untitled/1499300847815903851.jpg" /></a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div v-show="show1==0">
 
-    <div class="w1210 index-sale">
-        <ul class="tabs-nav">
-		    <li class="tabs-selected">
-                <h3>今日新品</h3>
-  	        </li>
-		    <li class="">
-                <h3>整点秒鲜</h3>
-            </li>
-		    <li class="">
-                <h3>良心推荐</h3>
-	        </li>
-        </ul>
-        <div class="tabs-panel sale-goods-list">
-            <ul>
-                <li>
-                    <dl>
-                        <dd class="goods-thumb"> <a target="_blank" href="goods.php?id=14166" title="三全上海风味荠菜猪肉馄饨150g"> <img src="images/201905/thumb_img/14166_thumb_G_1558550282700.jpg" alt="三全上海风味荠菜猪肉馄饨150g"> </a> </dd>
-                        <dt class="goods-name"> <a target="_blank" href="" title="三全上海风味荠菜猪肉馄饨150g">三全上海风味荠菜猪肉馄饨150g</a> </dt>
-		                <dd class="goods-price"> <span class="goods-price-span2">¥</span><em>
-                            <b class="goods-price-b1">6.90</b>
-                            </em><span class="goods-price-span1">8.28</span>
-                        </dd>
-		                <dd class="goods-gouwuche"><i class="goods-gouwuche-icon"></i><input type="button" value="加入购物车" class="tabs-gouwuche" onclick="addToCart(14166)"></dd>
-                    </dl>
-                </li>
-            </ul>
-        </div>
-
-        <div class="tabs-panel sale-goods-list tabs-hide">
-            <ul>
-                <li>
-                    <dl>
-                        <dd class="goods-thumb"> <a target="_blank" href="j_seckill_goods.php?act=view&id=466" title="味全优酪乳(全脂)八连杯原味 100g*8"> <img src="images/201901/source_img/9835_G_1546475380809.jpg" alt="味全优酪乳(全脂)八连杯原味 100g*8"> </a> </dd>
-                        <dt class="goods-name"> <a target="_blank" href="j_seckill_goods.php?act=view&id=466" title="味全优酪乳(全脂)八连杯原味 100g*8">味全优酪乳(全脂)八连杯原味 100g*8</a> </dt>
-                        <dd class="goods-price"> <em>¥17.00</em> </dd>
-                        <dd class="endtime" xvalue="3814" yvalue="214"  value="1562036400" startvalue='1562032800' showday='no' style="width:97%;font-size:12px;margin-left:10px;line-height: 30px; color:#6C6; position: absolute;left: 0;top: 257px;"></dd>
-                        <dd class="goods-gouwuche"><i class="goods-gouwuche-icon"></i><input type="button" value="加入购物车" class="tabs-gouwuche" onclick="addToCart(9835)"></dd>
-                    </dl>
-                </li>
-            </ul>
-        </div>
-
-        <div class="tabs-panel sale-goods-list tabs-hide">
-            <ul>
-                <li>
-                    <dl>
-                        <dd class="goods-thumb"> <a target="_blank" href="j_seckill_goods.php?act=view&id=466" title="味全优酪乳(全脂)八连杯原味 100g*8"> <img src="images/201901/source_img/9835_G_1546475380809.jpg" alt="味全优酪乳(全脂)八连杯原味 100g*8"> </a> </dd>
-                        <dt class="goods-name"> <a target="_blank" href="j_seckill_goods.php?act=view&id=466" title="味全优酪乳(全脂)八连杯原味 100g*8">味全优酪乳(全脂)八连杯原味 100g*8</a> </dt>
-                        <dd class="goods-price"> <em>¥17.00</em> </dd>
-                        <dd class="endtime" xvalue="3814" yvalue="214"  value="1562036400" startvalue='1562032800' showday='no' style="width:97%;font-size:12px;margin-left:10px;line-height: 30px; color:#6C6; position: absolute;left: 0;top: 257px;"></dd>
-                        <dd class="goods-gouwuche"><i class="goods-gouwuche-icon"></i><input type="button" value="加入购物车" class="tabs-gouwuche" onclick="addToCart(9835)"></dd>
-                    </dl>
-                </li>
-            </ul>
-        </div>
-
-	</div>
-
-	<div class="w1210 index-center">
-        <a href="http://www.shikefood.com/goods-9918.html?u=2179" onclick="loadClickAdNum('296');">
-            <img src="/Untitled/1506476218303069934.jpg" style="width: 1210px;height: 110px;"/>
-        </a>
-    </div>
-	<div class="w1210 floor-list">
-		<div class="w1210 ad-groups">
+        <div class="w1210 ad-groups">
             <div class="mc">
-                <div class="sc-list"></div>
+                <div class="sc-list">
+                    <div class="item w-bg" style="width: 396px;height: 190px; margin-right:10px;">
+                        <a class="s-img" target="_blank" href="http://www.shikefood.com/local.php?id=399"><img width="396px" height="190px" src="/Untitled/1499300431796157177.jpg" /></a>
+                    </div>
+                    <div class="item w-bg" style="width: 396px;height: 190px; margin-right:10px;">
+                        <a class="s-img" target="_blank" href="http://www.shikefood.com/home.php?id=380"><img width="396px" height="190px" src="/Untitled/1499300799882609828.jpg" /></a>
+                    </div>
+                    <div class="item w-bg" style="width: 396px;height: 190px; margin-right:10px;">
+                        <a class="s-img" target="_blank" href="http://www.shikefood.com/new_tuijian.php?act=list"><img width="396px" height="190px" src="/Untitled/1499300847815903851.jpg" /></a>
+                    </div>
+                </div>
             </div>
         </div>
-	</div>
-    <!--
-        商品大块
-    -->
-    <div class="w1210 floor-list">
-        <div class="floor"  >
-            <div class="floor-layout floor-layout1">
-                <div class="floor-con">
-                    <div class="floor-title  floor-title1" id="top-f">
-                        <h2>
-                            <span class="floor-title-span1"><i class="floor-title-icon1"></i> F1 </span>
-                            <a href="category-367-b0.html" target="_blank" class="floor-title-a1">新鲜水果</a>
-                        </h2>
-                        <ul class="floor-tabs-nav" >
-                            <li class="floor-tabs-selected">
-                                <a href="category-369-b0.html"><h3>进口水果</h3></a>
-                            </li>
-                            <li class="">
-                                <a href="category-382-b0.html"><h3>国产水果</h3></a>
-                            </li>
-                        </ul>
-                        <ul class="right">
-                            <li><a href="category-367-b0.html">&nbsp;&nbsp;more>></a></li>
-                            <li><a href="http://www.shikefood.com/category-431-b0.html">&nbsp;&nbsp;|&nbsp;红提</a></li>
-                            <li><a href="http://www.shikefood.com/category-430-b0.html">&nbsp;&nbsp;|&nbsp;红蛇果</a></li>
-                            <li><a href="http://www.shikefood.com/category-429-b0.html">&nbsp;&nbsp;&nbsp;牛油果</a></li>
-                        </ul>
-                    </div>
-                    <div class="floor-content">
-                        <div class="floor-right">
-                            <div class="floor-tabs-panel floor-tabs-hide">
-                                <div class="menu-main-a-b-left">
-                                    <a href="http://www.shikefood.com/goods-10963.html" title="http://www.shikefood.com/goods-10963.html">
-                                        <img src="/Untitled/1542046688980229201.jpg"/>
-                                        <span style="font-size: 20px;color: #b90201;position: absolute;top: 90px;left: 23px;">￥</span>
-                                        <span style="font-size: 30px;color: #b90201;font-weight: bold;position: absolute;top: 92px;left: 41px;">5.20</span>
-                                    </a>
-                                </div>
-                                <div class="center">
-                                    <div class="goods">
-                                        <a href="http://www.shikefood.com/goods-10964.html">
-                                            <img src="/Untitled/1534720496243376910.jpg"/>
-                                            <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 20px;">￥</span>
-                                            <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 31px;">9.20</span>
+
+        <div class="w1210 index-sale">
+            <ul class="tabs-nav">
+                <li class="tabs-selected">
+                    <h3>今日新品</h3>
+                </li>
+                <li class="">
+                    <h3>整点秒鲜</h3>
+                </li>
+                <li class="">
+                    <h3>良心推荐</h3>
+                </li>
+            </ul>
+            <div class="tabs-panel sale-goods-list">
+                <ul>
+                    <li>
+                        <dl>
+                            <dd class="goods-thumb"> <a target="_blank" href="goods.php?id=14166" title="三全上海风味荠菜猪肉馄饨150g"> <img src="images/201905/thumb_img/14166_thumb_G_1558550282700.jpg" alt="三全上海风味荠菜猪肉馄饨150g"> </a> </dd>
+                            <dt class="goods-name"> <a target="_blank" href="" title="三全上海风味荠菜猪肉馄饨150g">三全上海风味荠菜猪肉馄饨150g</a> </dt>
+                            <dd class="goods-price"> <span class="goods-price-span2">¥</span><em>
+                                <b class="goods-price-b1">6.90</b>
+                                </em><span class="goods-price-span1">8.28</span>
+                            </dd>
+                            <dd class="goods-gouwuche"><i class="goods-gouwuche-icon"></i><input type="button" value="加入购物车" class="tabs-gouwuche" onclick="addToCart(14166)"></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tabs-panel sale-goods-list tabs-hide">
+                <ul>
+                    <li>
+                        <dl>
+                            <dd class="goods-thumb"> <a target="_blank" href="j_seckill_goods.php?act=view&id=466" title="味全优酪乳(全脂)八连杯原味 100g*8"> <img src="images/201901/source_img/9835_G_1546475380809.jpg" alt="味全优酪乳(全脂)八连杯原味 100g*8"> </a> </dd>
+                            <dt class="goods-name"> <a target="_blank" href="j_seckill_goods.php?act=view&id=466" title="味全优酪乳(全脂)八连杯原味 100g*8">味全优酪乳(全脂)八连杯原味 100g*8</a> </dt>
+                            <dd class="goods-price"> <em>¥17.00</em> </dd>
+                            <dd class="endtime" xvalue="3814" yvalue="214"  value="1562036400" startvalue='1562032800' showday='no' style="width:97%;font-size:12px;margin-left:10px;line-height: 30px; color:#6C6; position: absolute;left: 0;top: 257px;"></dd>
+                            <dd class="goods-gouwuche"><i class="goods-gouwuche-icon"></i><input type="button" value="加入购物车" class="tabs-gouwuche" onclick="addToCart(9835)"></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tabs-panel sale-goods-list tabs-hide">
+                <ul>
+                    <li>
+                        <dl>
+                            <dd class="goods-thumb"> <a target="_blank" href="j_seckill_goods.php?act=view&id=466" title="味全优酪乳(全脂)八连杯原味 100g*8"> <img src="images/201901/source_img/9835_G_1546475380809.jpg" alt="味全优酪乳(全脂)八连杯原味 100g*8"> </a> </dd>
+                            <dt class="goods-name"> <a target="_blank" href="j_seckill_goods.php?act=view&id=466" title="味全优酪乳(全脂)八连杯原味 100g*8">味全优酪乳(全脂)八连杯原味 100g*8</a> </dt>
+                            <dd class="goods-price"> <em>¥17.00</em> </dd>
+                            <dd class="endtime" xvalue="3814" yvalue="214"  value="1562036400" startvalue='1562032800' showday='no' style="width:97%;font-size:12px;margin-left:10px;line-height: 30px; color:#6C6; position: absolute;left: 0;top: 257px;"></dd>
+                            <dd class="goods-gouwuche"><i class="goods-gouwuche-icon"></i><input type="button" value="加入购物车" class="tabs-gouwuche" onclick="addToCart(9835)"></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="w1210 index-center">
+            <a href="http://www.shikefood.com/goods-9918.html?u=2179" onclick="loadClickAdNum('296');">
+                <img src="/Untitled/1506476218303069934.jpg" style="width: 1210px;height: 110px;"/>
+            </a>
+        </div>
+        <div class="w1210 floor-list">
+            <div class="w1210 ad-groups">
+                <div class="mc">
+                    <div class="sc-list"></div>
+                </div>
+            </div>
+        </div>
+        <!--
+            商品大块
+        -->
+        <div class="w1210 floor-list">
+            <div class="floor"  >
+                <div class="floor-layout floor-layout1">
+                    <div class="floor-con">
+                        <div class="floor-title  floor-title1" id="top-f">
+                            <h2>
+                                <span class="floor-title-span1"><i class="floor-title-icon1"></i> F1 </span>
+                                <a href="category-367-b0.html" target="_blank" class="floor-title-a1">新鲜水果</a>
+                            </h2>
+                            <ul class="floor-tabs-nav" >
+                                <li class="floor-tabs-selected">
+                                    <a href="category-369-b0.html"><h3>进口水果</h3></a>
+                                </li>
+                                <li class="">
+                                    <a href="category-382-b0.html"><h3>国产水果</h3></a>
+                                </li>
+                            </ul>
+                            <ul class="right">
+                                <li><a href="category-367-b0.html">&nbsp;&nbsp;more>></a></li>
+                                <li><a href="http://www.shikefood.com/category-431-b0.html">&nbsp;&nbsp;|&nbsp;红提</a></li>
+                                <li><a href="http://www.shikefood.com/category-430-b0.html">&nbsp;&nbsp;|&nbsp;红蛇果</a></li>
+                                <li><a href="http://www.shikefood.com/category-429-b0.html">&nbsp;&nbsp;&nbsp;牛油果</a></li>
+                            </ul>
+                        </div>
+                        <div class="floor-content">
+                            <div class="floor-right">
+                                <div class="floor-tabs-panel floor-tabs-hide">
+                                    <div class="menu-main-a-b-left">
+                                        <a href="http://www.shikefood.com/goods-10963.html" title="http://www.shikefood.com/goods-10963.html">
+                                            <img src="/Untitled/1542046688980229201.jpg"/>
+                                            <span style="font-size: 20px;color: #b90201;position: absolute;top: 90px;left: 23px;">￥</span>
+                                            <span style="font-size: 30px;color: #b90201;font-weight: bold;position: absolute;top: 92px;left: 41px;">5.20</span>
                                         </a>
                                     </div>
-                                    <div class="goods">
-                                        <a href="http://www.shikefood.com/goods-10557.html">
-                                            <img src="/Untitled/1531352230930433771.jpg"/>
-                                            <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 20px;">￥</span>
-                                            <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 31px;">13.80</span>
-                                        </a>
+                                    <div class="center">
+                                        <div class="goods">
+                                            <a href="http://www.shikefood.com/goods-10964.html">
+                                                <img src="/Untitled/1534720496243376910.jpg"/>
+                                                <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 20px;">￥</span>
+                                                <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 31px;">9.20</span>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="http://www.shikefood.com/goods-10557.html">
+                                                <img src="/Untitled/1531352230930433771.jpg"/>
+                                                <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 20px;">￥</span>
+                                                <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 31px;">13.80</span>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="http://shikefood.com/goods-10048.html">
+                                                <img src="/Untitled/1558890736182215245.jpg"/>
+                                                <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 20px;">￥</span>
+                                                <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 31px;">48.00</span>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="http://www.shikefood.com/goods-9933.html">
+                                                <img src="/Untitled/1534720554629695209.jpg"/>
+                                                <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 20px;">￥</span>
+                                                <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 31px;">25.60</span>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="goods">
-                                        <a href="http://shikefood.com/goods-10048.html">
-                                            <img src="/Untitled/1558890736182215245.jpg"/>
-                                            <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 20px;">￥</span>
-                                            <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 31px;">48.00</span>
-                                        </a>
+
+                                    <div class="menu-right-a">
+                                        <div class="menu-main-brt-right">
+                                            <a href="http://www.shikefood.com/goods-10026.html">
+                                                <img src="/Untitled/1519421703597440956.jpg" />
+                                                <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 26px;">￥</span>
+                                                <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 40px;">14.80</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-main-brt-right">
+                                            <a href="http://www.shikefood.com/goods-10062.html">
+                                                <img src="/Untitled/1502998251059687929.jpg" />
+                                                <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 26px;">￥</span>
+                                                <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 40px;">32.00</span>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="goods">
-                                        <a href="http://www.shikefood.com/goods-9933.html">
-                                            <img src="/Untitled/1534720554629695209.jpg"/>
-                                            <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 20px;">￥</span>
-                                            <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 31px;">25.60</span>
+                                    <li>
+                                        <a href="http://www.shikefood.com/category-367-b537-min0-max0-fil0-attr0.html">
+                                            <img src="/Untitled/1488478750198568557.jpg">
                                         </a>
-                                    </div>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <img src="/Untitled/1488478763337378599.jpg">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.shikefood.com/search.php?encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjY6IuS9s%2bWGnCI7czoxODoic2VhcmNoX2VuY29kZV90aW1lIjtpOjE0ODg2MDc5OTg7fQ==">
+                                            <img src="/Untitled/1488579212579110242.jpg">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <img src="/Untitled/1488581204066997370.jpg">
+                                        </a>
+                                    </li>
                                 </div>
 
-                                <div class="menu-right-a">
-                                    <div class="menu-main-brt-right">
-                                        <a href="http://www.shikefood.com/goods-10026.html">
-                                            <img src="/Untitled/1519421703597440956.jpg" />
-                                            <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 26px;">￥</span>
-                                            <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 40px;">14.80</span>
+                                <div class="floor-tabs-panel" style="border-top: 0px  solid;">
+                                    <div class="menu-main-a-b-left">
+                                        <a href="http://www.shikefood.com/goods.php?id=8746" title="http://www.shikefood.com/goods.php?id=8746">
+                                            <img src="/Untitled/1495504321270684383.jpg"/>
                                         </a>
                                     </div>
-                                    <div class="menu-main-brt-right">
-                                        <a href="http://www.shikefood.com/goods-10062.html">
-                                            <img src="/Untitled/1502998251059687929.jpg" />
-                                            <span style="font-size: 10px;color: #b90201;position: absolute;top: 63px;left: 26px;">￥</span>
-                                            <span style="font-size: 16px;color: #b90201;font-weight: bold;position: absolute;top: 64px;left: 40px;">32.00</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <li>
-                                    <a href="http://www.shikefood.com/category-367-b537-min0-max0-fil0-attr0.html">
-                                        <img src="/Untitled/1488478750198568557.jpg">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <img src="/Untitled/1488478763337378599.jpg">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.shikefood.com/search.php?encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjY6IuS9s%2bWGnCI7czoxODoic2VhcmNoX2VuY29kZV90aW1lIjtpOjE0ODg2MDc5OTg7fQ==">
-                                        <img src="/Untitled/1488579212579110242.jpg">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <img src="/Untitled/1488581204066997370.jpg">
-                                    </a>
-                                </li>
-                            </div>
+                                    <div class="center">
+                                        <div class="goods">
+                                            <a href="http://www.shikefood.com/goods-8777.html">
+                                                <img src="/Untitled/1488758120281225735.jpg"/>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="http://www.shikefood.com/goods-8797.html">
+                                                <img src="/Untitled/1488758020484922256.jpg"/>
+                                            </a>
+                                        </div>
+                                        <div class="goods">
+                                            <a href="http://www.shikefood.com/goods-8813.html">
+                                                <img src="/Untitled/1488758058435180742.jpg"/>
+                                            </a>
+                                        </div>
 
-                            <div class="floor-tabs-panel" style="border-top: 0px  solid;">
-                                <div class="menu-main-a-b-left">
-                                    <a href="http://www.shikefood.com/goods.php?id=8746" title="http://www.shikefood.com/goods.php?id=8746">
-                                        <img src="/Untitled/1495504321270684383.jpg"/>
-                                    </a>
+                                        <div class="goods">
+                                            <a href="http://www.shikefood.com/goods-8676.html">
+                                                <img src="/Untitled/1488758068655067876.jpg"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="menu-right-a">
+                                        <div class="menu-main-brt-right">
+                                            <a href="http://www.shikefood.com/goods-8653.html">
+                                                <img src="/Untitled/1488758077745886871.jpg" />
+                                            </a>
+                                        </div>
+                                        <div class="menu-main-brt-right">
+                                            <a href="http://www.shikefood.com/goods-8657.html">
+                                                <img src="/Untitled/1488758087977954940.jpg" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <li>
+                                        <a href="http://www.shikefood.com/category-367-b537-min0-max0-fil0-attr0.html">
+                                            <img src="/Untitled/1488478816513053131.jpg">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <img src="/Untitled/1488478828119282071.jpg">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.shikefood.com/search.php?encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjY6IuS9s%2bWGnCI7czoxODoic2VhcmNoX2VuY29kZV90aW1lIjtpOjE0ODg2MDc5OTg7fQ==">
+                                            <img src="/Untitled/1488579278924224609.jpg">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <img src="/Untitled/1488579295333370450.jpg">
+                                        </a>
+                                    </li>
                                 </div>
-                                <div class="center">
-                                    <div class="goods">
-                                        <a href="http://www.shikefood.com/goods-8777.html">
-                                            <img src="/Untitled/1488758120281225735.jpg"/>
-                                        </a>
-                                    </div>
-                                    <div class="goods">
-                                        <a href="http://www.shikefood.com/goods-8797.html">
-                                            <img src="/Untitled/1488758020484922256.jpg"/>
-                                        </a>
-                                    </div>
-                                    <div class="goods">
-                                        <a href="http://www.shikefood.com/goods-8813.html">
-                                            <img src="/Untitled/1488758058435180742.jpg"/>
-                                        </a>
-                                    </div>
-
-                                    <div class="goods">
-                                        <a href="http://www.shikefood.com/goods-8676.html">
-                                            <img src="/Untitled/1488758068655067876.jpg"/>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="menu-right-a">
-                                    <div class="menu-main-brt-right">
-                                        <a href="http://www.shikefood.com/goods-8653.html">
-                                            <img src="/Untitled/1488758077745886871.jpg" />
-                                        </a>
-                                    </div>
-                                    <div class="menu-main-brt-right">
-                                        <a href="http://www.shikefood.com/goods-8657.html">
-                                            <img src="/Untitled/1488758087977954940.jpg" />
-                                        </a>
-                                    </div>
-                                </div>
-                                <li>
-                                    <a href="http://www.shikefood.com/category-367-b537-min0-max0-fil0-attr0.html">
-                                        <img src="/Untitled/1488478816513053131.jpg">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <img src="/Untitled/1488478828119282071.jpg">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.shikefood.com/search.php?encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjY6IuS9s%2bWGnCI7czoxODoic2VhcmNoX2VuY29kZV90aW1lIjtpOjE0ODg2MDc5OTg7fQ==">
-                                        <img src="/Untitled/1488579278924224609.jpg">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <img src="/Untitled/1488579295333370450.jpg">
-                                    </a>
-                                </li>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-	</div>
+    </div>
 
     <div class="pop-mask"></div>
+
+
+
+    <!--
+        商品详情
+
+    -->
+
+    <div class="margin-w1210 clearfix">
+        <div class="w">
+            <div class="breadcrumb clearfix"><a href="http://www.shikefood.com/" class="index">首页</a> <span class="crumbs-arrow">&gt;</span> <div class="crumbs-nav crumbs-nav0"><a class="crumbs-title" href="http://www.shikefood.com/category-367-b0.html">新鲜水果<i class="icon"></i></a><div class="crumbs-drop"><ul class="crumbs-drop-list"><li><a href="http://www.shikefood.com/category.php?id=399">农土特产</a></li><li><a href="http://www.shikefood.com/category.php?id=421">注册有礼</a></li><li><a href="http://www.shikefood.com/category.php?id=660">宅配</a></li><li><a href="http://www.shikefood.com/category.php?id=433">众筹</a></li><li><a href="http://www.shikefood.com/category.php?id=356">虚拟商品</a></li><li><a href="http://www.shikefood.com/category.php?id=367">新鲜水果</a></li><li><a href="http://www.shikefood.com/category.php?id=370">冷鲜肉类</a></li><li><a href="http://www.shikefood.com/category.php?id=372">禽蛋速食</a></li><li><a href="http://www.shikefood.com/category.php?id=374">鲜冻水产</a></li><li><a href="http://www.shikefood.com/category.php?id=376">粮油副食</a></li><li><a href="http://www.shikefood.com/category.php?id=378">食品酒饮</a></li><li><a href="http://www.shikefood.com/category.php?id=380">家乡味道</a></li><li><a href="http://www.shikefood.com/category.php?id=456">宅配套餐</a></li><li><a href="http://www.shikefood.com/category.php?id=667">专题</a></li><li><a href="http://www.shikefood.com/category.php?id=793">活动</a></li><li><a href="http://www.shikefood.com/category.php?id=815">月饼券</a></li></ul></div></div> <span class="crumbs-arrow">&gt;</span> <div class="crumbs-nav crumbs-nav1"><a class="crumbs-title" href="http://www.shikefood.com/category-383-b0.html">时令蔬菜<i class="icon"></i></a><div class="crumbs-drop"><ul class="crumbs-drop-list"><li><a href="http://www.shikefood.com/category.php?id=369">进口水果</a></li><li><a href="http://www.shikefood.com/category.php?id=382">国产水果</a></li><li><a href="http://www.shikefood.com/category.php?id=383">时令蔬菜</a></li></ul></div></div> <span class="crumbs-arrow">&gt;</span> <div class="crumbs-nav crumbs-nav2"><a class="crumbs-title" href="http://www.shikefood.com/category-461-b0.html">茄果/瓜果类<i class="icon"></i></a><div class="crumbs-drop"><ul class="crumbs-drop-list"><li><a href="http://www.shikefood.com/category.php?id=756">菌菇类</a></li><li><a href="http://www.shikefood.com/category.php?id=457">葱姜蒜</a></li><li><a href="http://www.shikefood.com/category.php?id=458">豆类/花菜</a></li><li><a href="http://www.shikefood.com/category.php?id=459">根茎类</a></li><li><a href="http://www.shikefood.com/category.php?id=460">椒类</a></li><li><a href="http://www.shikefood.com/category.php?id=461">茄果/瓜果类</a></li><li><a href="http://www.shikefood.com/category.php?id=462">叶菜类</a></li><li><a href="http://www.shikefood.com/category.php?id=680">笋类</a></li><li><a href="http://www.shikefood.com/category.php?id=701">西兰花</a></li><li><a href="http://www.shikefood.com/category.php?id=727">玉米</a></li></ul></div></div> <span class="crumbs-arrow">&gt;</span> <span class="last">阿林果 西葫芦 称重</span></div>
+        </div>
+
+     	<div id="product-intro" class="goods-info">
+        <div id="preview">
+            <div class="goods-img" id="li_8797" style="position:relative; z-index:3;">
+                <a href="/image/8797_P_1487118227929.jpg" class="MagicZoom" id="zoom" rel="zoom-position: right;" title="" style="position: relative; display: inline-block; text-decoration: none; outline: 0px; width: 530px;"><img src="/image/8797_P_1487118227929.jpg" class="goodsimg pic_img_8797" id="goods_bimg" width="400" height="400" alt="阿林果 西葫芦 称重" style="opacity: 1;">
+                </a>
+            </div>
+            <div style="height:10px; line-height:10px; clear:both;"></div>
+
+            <div class="clearfix">
+                <span class="scrleft" onmouseover="moveLeft()" onmousedown="clickLeft()" onmouseup="moveLeft()" onmouseout="scrollStop()"></span>
+                <div class="gallery">
+                    <div id="demo">
+                        <div id="demo1">
+                            <ul id="goods_gallery" style="position: relative; left: 0px;">
+                                <li> <a href="/image/8797_P_1487118227929.jpg" rel="zoom-id: zoom;" rev="images/201702/source_img/8797_P_1487118227929.jpg" title="" style="outline: 0px;"> <img src="/image/8797_P_1487118227929.jpg" alt="阿林果 西葫芦 称重" class="B_blue"> </a> </li>
+                            </ul>
+                        </div>
+                        <div id="demo2" style="display:inline; overflow:visible;"></div>
+                    </div>
+                </div>
+                <span class="scrright" onmouseover="moveRight()" onmousedown="clickRight()" onmouseup="moveRight()" onmouseout="scrollStop()"></span>
+
+            </div>
+
+
+
+        </div>
+        <div class="goods-detail-info">
+
+                <div class="goods-name">
+                    <h1>阿林果 西葫芦 称重</h1>
+                </div>
+                <!--                <div class="goods-title">冷链到家&nbsp;安全放心</div> -->
+                <div class="goods-title"><span>全程冷链 鲜嫩无比</span></div>
+                <div id="goods-price">
+                    <div class="mar-l">
+                        <p class="mar-l-p1">
+
+                            <span class="price" style="width: 30px;">价格</span><strong class="p-price">￥16</strong>
+                            <i style="margin-left: 10px;">市场价：<font style="text-decoration: line-through;">¥19.20元</font></i>
+
+                        </p>
+                        <p class="mar-l-p2"><span class="price-top">总体满意度：&nbsp;&nbsp;<b>0</b>分</span><span class="price-bottom">累计评论数：&nbsp;&nbsp;<a href="http://www.shikefood.com/goods-8797.html#os_pinglun">共计0条</a></span></p>
+                    </div>
+
+                </div>
+
+                <div style="padding-bottom: 6px;"><span>店铺来源：</span><strong><a href="http://www.shikefood.com/suppliers.php?id=0" target="_blank">网站自营</a></strong></div>
+                <ul>
+
+                    <li class="padd" style="margin-left: 0px;padding-top: 11px;">
+                        <div class="dt2" style="float:left;">可使积分：</div>
+                        <div class="dd">100 积分</div>
+                    </li>
+
+
+                </ul>
+
+
+
+                <ul id="summary1">
+
+                    <li class="padd" style="margin-left: 0px;padding-top: 11px;">
+                        <div class="dt2" style="float:left;">赠送积分：</div>
+                        <div class="dd">16 积分</div>
+                    </li>
+
+
+                </ul>
+
+
+                <ul id="summary" style="display: inline-block;">
+
+                    <li class="padd padd-promotion clearfix">
+
+
+
+
+
+
+
+
+
+
+
+                    </li>
+
+
+                </ul>
+                <div class="bianhao" style="height:40px"><span>商品编号：&nbsp;&nbsp;0703030053</span></div>
+
+
+                <ul class="tb-prop tm-clear">
+                    <li>
+                        <div class="dt" style="margin-top: 5px;">包装规格：&nbsp;&nbsp;</div>
+                        <div class="dd catt">
+                            <ul class="ys_xuan1">
+                                <div class="catt1">
+
+                                    <a>
+                                        <div class="value-label">kg</div>
+
+                                    </a>
+
+                                </div>
+                            </ul>
+                            <div class="clear"></div>
+
+                        </div>
+                    </li>
+                </ul>
+
+                <ul id="choose" class="choose_bor  tb-prop tm-clear">
+
+
+
+
+
+
+                </ul>
+
+                <div class="pinpai"><span>商品品牌：阿林果</span></div>
+                <ul>
+
+
+                    <li id="choose-amount">
+                        <div class="dt">数量:</div>
+                        <div class="dd">
+                            <div class="wrap-input">
+
+                                <input name="number" type="text" class="text" id="number" value="1" readonly="readonly">
+
+                                <div class="wrap-input-btna">
+                                    <a class="btn-add" href="javascript:;" onclick="goods_add();">+</a>
+                                    <a class="btn-reduce" href="javascript:;" onclick="goods_cut();">-</a>
+                                </div>
+                                <input type="hidden" id="kucun" value="0">
+                                <span style="line-height:18px;display:none;">
+                                                                        （库存<font id="shows_number">0</font>）
+
+					  					  </span>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+
+                <div class="buyNub-buy-wrap">
+                    <div id="choose-btns1" class="buyNub-buy" style="display:none">
+                        <a onclick="tell_me(8797)" class="tell-me"><i></i>到货通知</a>
+                    </div>
+                    <div id="choose-btns" class="buyNub-buy" style="display: block;float: left;width: 325px;">
+
+                        <a onclick="tell_me(8797)" class="tell-me"><i></i>到货通知</a>
+
+                    </div>
+                    <div class="goods-gallery-bottom">
+
+
+
+                        <div class="bdsharebuttonbox fr bdshare-button-style0-16" data-bd-bind="1562239854246">
+                            <a href="javascript:collect(8797);addgood();" class="goods-col  fr">
+                                <b></b><i>收藏 (<span id="collectnum">0</span>)</i>
+                            </a>
+                            <!-- <a class="bds_more" href="#" data-cmd="more" style="background: transparent url(http://www.shikefood.com/themes/68ecshopcom_360buy/images/goods-icon.png) no-repeat -110px -166px;color: #999;line-height: 25px;height: 25px; margin: 0px 10px; padding-left:20px; display: block;"><i class="bds-more-fenxiang"></i>分享</a> -->
+                            <a data-cmd="more" style="margin-top: 5px !important;margin-left: 50px !important;background: transparent url(http://www.shikefood.com/themes/68ecshopcom_360buy/images/goods-icon.png) no-repeat -110px -166px;color: #999;line-height: 25px;height: 25px; margin: 0px 10px; padding-left:20px; display: block;"><i class="bds-more-fenxiang"></i>分享</a>
+                        </div>
+                    </div>
+
+                </div>
+
+        </div>
+        <!-- <div id="supp_info">
+
+          #BeginLibraryItem "/library/ziying_info.lbi"  #EndLibraryItem
+
+        </div> -->
+    </div>
+        <div class="left-con">
+
+            <div class="aside-con collect">
+                <div class="aside-tit">
+                    <h2>热销榜</h2>
+                </div>
+                <div class="aside-list colList" style="max-height:1100px;">
+                    <div class="slider colFrame" id="slider">
+                        <ul style="left: 0px; height: 2280px; top: -570px;">
+                            <li style="border-top:none;">
+                                <div class="rate"><a href="http://www.shikefood.com/goods-10484.html" title="">农夫山泉天然饮用水 55...</a></div>
+                                <div class="p-price"><strong>
+
+                                    ¥1.60
+
+                                </strong><span>￥1.92</span></div>
+                                <div class="p-img"><a href="http://www.shikefood.com/goods-10484.html"><img width="100" height="100" alt="" src="/image/10484_thumb_G_1497317102303.jpg"></a></div>
+                            </li>
+                            <li>
+                                <div class="rate"><a href="http://www.shikefood.com/goods-10403.html" title="">雀巢优活饮用水 330m...</a></div>
+                                <div class="p-price"><strong>
+
+                                    ¥1.30
+
+                                </strong><span>￥1.56</span></div>
+                                <div class="p-img"><a href="http://www.shikefood.com/goods-10403.html"><img width="100" height="100" alt="" src="/image/10403_thumb_G_1497311728581.jpg"></a></div>
+                            </li>
+                            <li>
+                                <div class="rate"><a href="http://www.shikefood.com/goods-10480.html" title="">怡宝矿泉水 555ml</a></div>
+                                <div class="p-price"><strong>
+
+                                    ¥1.60
+
+                                </strong><span>￥1.92</span></div>
+                                <div class="p-img"><a href="http://www.shikefood.com/goods-10480.html"><img width="100" height="100" alt="" src="/image/10480_thumb_G_1497316821076.jpg"></a></div>
+                            </li>
+                            <li>
+                                <div class="rate"><a href="http://www.shikefood.com/goods-8565.html" title="">依云天然矿泉水500ml</a></div>
+                                <div class="p-price"><strong>
+
+                                    ¥7.40
+
+                                </strong><span>￥11.00</span></div>
+                                <div class="p-img"><a href="http://www.shikefood.com/goods-8565.html"><img width="100" height="100" alt="" src="/image/8565_thumb_G_1528915469787.jpg"></a></div>
+                            </li>
+                            <li>
+                                <div class="rate"><a href="http://www.shikefood.com/goods-10483.html" title="">农夫山泉天然饮用水 38...</a></div>
+                                <div class="p-price"><strong>
+
+                                    ¥1.40
+
+                                </strong><span>￥1.68</span></div>
+                                <div class="p-img"><a href="http://www.shikefood.com/goods-10483.html"><img width="100" height="100" alt="" src="/image/10483_thumb_G_1497316986968.jpg"></a></div>
+                            </li>
+                            <li>
+                                <div class="rate"><a href="http://www.shikefood.com/goods-10402.html" title="">雀巢优活饮用水 550m...</a></div>
+                                <div class="p-price"><strong>
+
+                                    ¥1.40
+
+                                </strong><span>￥1.68</span></div>
+                                <div class="p-img"><a href="http://www.shikefood.com/goods-10402.html"><img width="100" height="100" alt="" src="/image/10402_thumb_G_1497311496186.jpg"></a></div>
+                            </li>
+                            <li>
+                                <div class="rate"><a href="http://www.shikefood.com/goods-10515.html" title="">中盐加碘精制盐500g</a></div>
+                                <div class="p-price"><strong>
+
+                                    ¥2.00
+
+                                </strong><span>￥2.40</span></div>
+                                <div class="p-img"><a href="http://www.shikefood.com/goods-10515.html"><img width="100" height="100" alt="" src="/image/10515_thumb_G_1498159374991.jpg"></a></div>
+                            </li>
+                            <li>
+                                <div class="rate"><a href="http://www.shikefood.com/goods-8482.html" title="">出前一丁（红烧牛肉面）1...</a></div>
+                                <div class="p-price"><strong>
+
+                                    ¥4.50
+
+                                </strong><span>￥5.04</span></div>
+                                <div class="p-img"><a href="http://www.shikefood.com/goods-8482.html"><img width="100" height="100" alt="" src="/image/8482_thumb_G_1497980202554.jpg"></a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <a id="btn-left" class="prev" title="上一个" onclick="top2()" style="cursor: pointer;"></a>
+                    <a id="btn-right" class="next" title="下一个" onclick="bottom2()" style="cursor: pointer;"></a>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="blank"></div>
+
+
+        </div>
+        <div class="right-con">
+            <div id="wrapper">
+                <div class="mt" id="main-nav-holder">
+                    <ul class="tab" >
+                        <li class="boldtit-list h-list" onclick="change_widget(1, this);"><a href="http://www.shikefood.com//goods-8797.html#os_canshu">商品详情</a></li>
+                        <!-- <li class="boldtit-list" onclick="change_widget(1, this);"><a href="/goods-8797.html#os_jieshao" >商品介绍</a></li> -->
+                        <li class="boldtit-list" onclick="change_widget(1, this);"><a href="http://www.shikefood.com//goods-8797.html#os_pinglun">购买评论&nbsp;&nbsp;0</a></li>
+                        <!-- <li class="boldtit-list" onclick="change_widget(1, this);"><a href="/goods-8797.html#os_shouhou" >售后保障</a></li> -->
+                    </ul>
+                    <div class="goods-ce-right">
+
+                    </div>
+                </div>
+                <div id="main_widget_1">
+                    <div class="mc" id="os_canshu" style="display: none;">
+
+                    </div>
+                    <div class="mc" id="os_jieshao" style="display: none;">
+                        <div class="mc" id="os_pinglun">
+                            <div class="my-comment-pre">
+
+                                <div class="goods-content">
+                                    <ul>
+                                        <li class="hpd"><p class="manyi-p"><span class="manyi-du">总体满意度</span><span class="manyi-fen">0<b>分</b></span><span class="manyi-ren">(共有<b style="color: #61be16;">0</b>人评论)</span></p></li>
+                                        <li class="pre">
+                                            <dl><dt>很不错</dt><dd><div style="background-color: #efefef; background: none; width:0%"><div class="pre-div" style="background: none;width: 100%;"></div></div></dd><span style="margin-left: 20px;">0%</span></dl>
+                                            <dl><dt>待提高</dt><dd><div style="background-color: #efefef; background: none; width:0%"><div class="pre-div" style="background: none;width: 100%;"></div></div></dd><span style="margin-left: 20px;">0%</span></dl>
+                                            <dl><dt>小失落</dt><dd><div style="background-color: #efefef; background: none; width:0%"><div class="pre-div" style="background: none;width: 100%;"></div></div></dd><span style="margin-left: 20px;">0%</span></dl>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="my-comment-tab">
+                                <ul>
+                                    <li id="mct_0" onclick="ShowMyComments(8797,0,1)" class="cur">全部评价<span>(0)</span></li>
+                                    <li id="mct_1" onclick="ShowMyComments(8797,1,1)" class="">好评<span>(0)</span></li>
+                                    <li id="mct_2" onclick="ShowMyComments(8797,2,1)" class="">中评<span>(0)</span></li>
+                                    <li id="mct_3" onclick="ShowMyComments(8797,3,1)" class="">差评<span>(0)</span></li>
+                                    <li id="mct_4" onclick="ShowMyComments(8797,4,1)" class="">用户晒单<span>(0)</span></li>
+                                </ul>
+                            </div>
+                            <div class="my-comment-list" id="ECS_MYCOMMENTS"><div class="no-comment">暂时还没有任何评论！</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- <div class="blank20"></div> -->
+
+                    <div class="detail-content">
+                        <ul class="detail-list" id="shuxing">
+                            <!--              <table style="border:solid 1px #d8d8d8;"><tr><th style="width:180px; line-height:31px; background-color:#f4feeb; border-right:solid 1px #d8d8d8;">品牌</th><a href="brand-537-c0.html" ><td style="width:695px;">阿林果</td></a></tr></table>
+                            -->
+                            <table class="detail-msg" cellspacing="0">
+                                    <tr>
+                                        <td class="thead">品名</td><td>阿林果 西葫芦 称重</td>
+                                        <td class="thead">商品编号</td><td>0703030053</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="thead">包装方式</td><td>袋</td>
+
+                                        <td class="thead">储存方式</td><td>冷藏</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="thead">产地</td><td>金山</td>
+
+                                        <td class="thead">包装规格</td><td>kg</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="thead">等级</td><td>特级</td>
+
+                                        <td class="thead"></td><td></td>
+                                    </tr>
+                                    <tr>
+                                    </tr>
+                            </table>
+                        </ul>
+                    </div>
+
+                    <div class="blank20"></div>
+                    <div class="detail-content altImg"> <p style="text-align: center"><img src="/image/1487144165151269.jpg" style="" alt="阿林果 西葫芦 称重多少钱"></p><p style="text-align: center"><img src="/image/1487144165437840.jpg" style="" alt="哪里买阿林果 西葫芦 称重"></p><p style="text-align: center"><img src="/image/1487144166991359.jpg" style="" alt="阿林果 西葫芦 称重怎么样"></p><p style="text-align: center"><img src="/image/1487144166975815.jpg" style="" alt="在线阿林果 西葫芦 称重"></p><p><br></p> </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--
+        限时促销
+    -->
+    <section class="innerconten" style="width: 1210px; margin: 0 auto; margin-top: 15px;" v-show="show1==1">
+        <div id="scroll_new" class="scroll_hot" >
+            <ul>
+                <li v-for="good in repertory">
+                    <a href="http://www.shikefood.com/j_seckill_goods.php?act=view&amp;id=463">
+                        <div class="delivery-bottom" style="position:relative;">
+                            <span class="delivery-bottom-span1"><img :src="good.product.productPic"></span>
+                            <p class="delivery-bottom-p1" style="font-size: 14px;">{{good.product.productName}}<span></span></p>
+                            <p class="delvery-bottom-p2"><b class="delver-bottom-b2">¥{{good.product.productPrice}}</b>
+                                <b class="delvery-bottom-b1">&nbsp;抢</b></p>
+                        </div>
+
+                    </a>
+                    <div  :id="good.repId" class="endtime" style="color: rgb(97, 190, 22);"></div>
+                </li>
+            </ul>
+        </div>
+    </section>
 
     <!--
 				作者：offline
@@ -771,7 +1304,7 @@
 			                            				</a>
 			                            			</span>
                                         <div class="p-name"><a href="http://www.shikefood.com/goods-10502.html" :title="product.productName">{{product.productName}}</a></div>
-                                        <div class="p-price"><strong>¥{{product.productPrice}}</strong>×1</div>
+                                        <div class="p-price"><strong>¥{{product.productPrice}}</strong>×{{product.indentNum}}</div>
                                         <a href="javascript:;" class="p-del" @click="deleteShopCart(product.spId)">删除</a>
                                     </div>
                                 </div>
@@ -935,11 +1468,14 @@
     var v = new Vue({
         el:"#box",
         data:{
+            show1:0,
             cartShow:0,
             track:0,
             shopCart:[{"productId":10001,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8,"indentNum":2},
                 {"productId":10001,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8,"indentNum":2}],
             shopPrice:0,
+            repertory:[{"repId":"122312312","product":{"productId":"1112321","productPic":"/image/13564_G_1546474869388.jpg","productPrice":3.90,"productName":"泰康黄牌上海辣酱油200ml"},"expireTime":"2019-07-10 00:00:00","repNum":30},
+                {"repId":"122312313","product":{"productId":"1112321","productPic":"/image/13564_G_1546474869388.jpg","productPrice":3.90,"productName":"泰康黄牌上海辣酱油200ml"},"expireTime":"2019-07-10 00:00:00","repNum":30}]
         },
         methods:{
 
@@ -986,13 +1522,16 @@
     })
     //购物车点击支付方法
     function pay() {
-        if(getCookie("user")==null ||getCookie("user")==""){
+        if(getCookie("auth")==null ||getCookie("auth")==""){
             alert("请登录!")
+
         }
-        //后台鉴权
         var shopCart = JSON.stringify(v.shopCart);
         setCookie("shopCart",shopCart);
         location.href = "order.html"
+
+        //后台鉴权
+
     }
     //购物车显示与隐藏
     function cartShow(){
@@ -1014,6 +1553,49 @@
         v.cartShow=0;
     }
 
+    var _ordertimer = null;
+    function leftTimer(enddate,id) {
+        var leftTime = (new Date(enddate)) - new Date(); //计算剩余的毫秒数
+        var days = parseInt(leftTime / 1000 / 60 / 60 / 24, 10); //计算剩余的天数
+        var hours = parseInt(leftTime / 1000 / 60 / 60 % 24, 10); //计算剩余的小时
+        var minutes = parseInt(leftTime / 1000 / 60 % 60, 10);//计算剩余的分钟
+        var seconds = parseInt(leftTime / 1000 % 60, 10);//计算剩余的秒数
+        days = checkTime(days);
+        hours = checkTime(hours);
+        minutes = checkTime(minutes);
+        seconds = checkTime(seconds);
+        if (days >= 0 || hours >= 0 || minutes >= 0 || seconds >= 0) {
+            $("#"+id).text("促销结束时间："+days + "天" + hours + "小时" + minutes + "分" + seconds + "秒");
+        }
+        if (days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0) {
+            window.clearInterval(_ordertimer);
+            _ordertimer = null;
+        }
+    }
+    function checkTime(i) { //将0-9的数字前面加上0，例1变为01
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+    function go(time,id){
+        var date1=new Date(),data2=new Date(time);
+        if(data2<date1)return;//设置的时间小于现在时间退出
+        _ordertimer = setInterval(function(){leftTimer(data2,id)}, 1000);
+    }
+    
+    function goCuXiao() {
+        v.show1=1;
+        var repertory = v.repertory;
+        for(var i = 0;i<repertory.length;i++){
+            go(repertory[i].expireTime,repertory[i].repId);
+        }
+    }
+
+
+
+
+
 
 </script>
 <script>
@@ -1028,5 +1610,6 @@
         $(this).children(".ibar_login_box").css("display","none");
     });
 </script>
+
 
 </html>
