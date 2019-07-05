@@ -22,4 +22,9 @@ public interface UserMapper {
      */
     void updateUserBalance(@Param("userId") String userId,@Param("balance") double balance);
 
+    /**
+     * 根据用户ID修改用户信息
+     * @param user
+     */
+    void updateUser(User user);
 }

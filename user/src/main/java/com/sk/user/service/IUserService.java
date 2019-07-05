@@ -19,4 +19,12 @@ public interface IUserService {
      * @param balance
      */
     void updateUserBalance( String userId, double balance) throws  Exception;
+
+
+    /**
+     * 根据用户ID修改用户信息
+     * @param user
+     * @return  返回修改后用户信息
+     */
+    User updateUser(User user) throws Exception;
 }

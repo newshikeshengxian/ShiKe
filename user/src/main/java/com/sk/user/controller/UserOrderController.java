@@ -3,7 +3,9 @@ package com.sk.user.controller;
 import com.google.gson.Gson;
 import com.sk.user.po.Indent;
 import com.sk.user.po.ReceiverAddr;
+import com.sk.user.po.User;
 import com.sk.user.service.impl.ReceiverAddrServiceImpl;
+import com.sk.user.service.impl.UserServiceImpl;
 import com.sk.user.vo.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,11 +27,15 @@ public class UserOrderController {
     private RestTemplate restTemplate;
     @Autowired
     private ReceiverAddrServiceImpl addrService;
+    @Autowired
+    private UserServiceImpl userService;
 
     @RequestMapping("/list")
     public JsonResult getIndent(@RequestBody Map map){
+
         //        Map map = new HashMap();
-//        map.put("token",userId);
+        String token = (String) map.get("token");
+//        map.put("token",token);
 //        JsonResult forObject =null;
 //        forObject = restTemplate.postForObject("http://auth-server/ifLogin",map,JsonResult.class);
 //        String userId =(String) forObject.getData();
@@ -75,4 +81,6 @@ public class UserOrderController {
 
 
     }
+
+
 }

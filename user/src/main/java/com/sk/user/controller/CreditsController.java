@@ -29,9 +29,9 @@ public class CreditsController {
      * 返回jsonresult
     */
     @RequestMapping("/list")
-    public JsonResult getCredits(String uid){
+    public JsonResult getCredits(String uid,String token){
 //        Map map = new HashMap();
-//        map.put("token","666");
+//        map.put("token",token);
 //        JsonResult forObject =null;
 //        forObject = restTemplate.postForObject("http://auth-server/ifLogin",map,JsonResult.class);
 //        String userId =(String) forObject.getData();
