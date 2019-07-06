@@ -8,6 +8,7 @@ public class AuthCenter {
   private String acPwd;
   private String userId;
   private String acPhone;
+  private String userName;
 
 
   public long getAcId() {
@@ -52,6 +53,15 @@ public class AuthCenter {
 
   public void setAcPhone(String acPhone) {
     this.acPhone = acPhone;
+  }
+
+
+  public String getUserName() {
+    return userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
   }
 
 }

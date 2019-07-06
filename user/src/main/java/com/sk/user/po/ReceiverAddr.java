@@ -10,7 +10,33 @@ public class ReceiverAddr {
   private String raAddr;
   private String raTel;
   private String zipCode;
+  private Long raState;
+  private String detailaddr;
+  private String defaultAddr;
 
+  public Long getRaState() {
+    return raState;
+  }
+
+  public void setRaState(Long raState) {
+    this.raState = raState;
+  }
+
+  public String getDetailaddr() {
+    return detailaddr;
+  }
+
+  public void setDetailaddr(String detailaddr) {
+    this.detailaddr = detailaddr;
+  }
+
+  public String getDefaultAddr() {
+    return defaultAddr;
+  }
+
+  public void setDefaultAddr(String defaultAddr) {
+    this.defaultAddr = defaultAddr;
+  }
 
   public String getRaId() {
     return raId;

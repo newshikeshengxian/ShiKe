@@ -37,8 +37,9 @@ public class RechargeController {
      */
     @RequestMapping("/recharge")
     public JsonResult toRecharge(@RequestBody Map map){
+        String token = (String) map.get("token");
         //        Map map = new HashMap();
-//        map.put("token","666");
+//        map.put("token",token);
 //        JsonResult forObject =null;
 //        forObject = restTemplate.postForObject("http://auth-server/ifLogin",map,JsonResult.class);
 //        String userId =(String) forObject.getData();

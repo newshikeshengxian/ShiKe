@@ -22,4 +22,43 @@
     <update id="updateUserBalance">
         update user set balance = balance+#{balance} where user_id = #{userId}
     </update>
+    <update id="updateUser">
+        update user u
+            <set>
+                <if test="userName != null and userName != '' ">
+                    u.user_name = #{userName},
+                </if>
+                <if test="phone != null and phone != ''">
+                    u.phone = #{phone},
+                </if>
+                <if test="userSex != null and userSex != ''">
+                    u.user_sex = #{userSex},
+                </if>
+                <if test="balance != null and balance != ''">
+                    u.balance = #{balance},
+                </if>
+                <if test="credits != null and credits != ''">
+                    u.credits = #{credits},
+                </if>
+                <if test="email != null and email != ''">
+                    u.email = #{email},
+                </if>
+                <if test="pic != null and pic != ''">
+                    u.pic = #{pic},
+                </if>
+                <if test="vipGrade != null and vipGrade != ''">
+                    u.vip_grade = #{vipGrade},
+                </if>
+                <if test="brith != null and brith != ''">
+                    u.brith = #{brith},
+                </if>
+                <if test="addr != null and addr != ''">
+                    u.addr = #{addr},
+                </if>
+                <if test="payPwd != null and payPwd != ''">
+                    u.pay_pwd = #{payPwd},
+                </if>
+            </set>
+            where  u.user_id = #{userId}
+    </update>
 </mapper>

@@ -15,7 +15,15 @@ public class User {
   private String brith;
   private String addr;
   private String payPwd;
+  private String token;
 
+  public String getToken() {
+    return token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
 
   public String getUserId() {
     return userId;

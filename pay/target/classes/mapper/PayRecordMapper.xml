@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sk.pay.mapper.PayRecordMapper">
+
+
+    <insert id="addPay">
+        insert into pay_record (pr_id, indent_id, pr_money, pr_mode, state) values (#{prId},#{indentId},#{prMoney},#{prMode},#{state})
+    </insert>
+
+    <update id="setPay">
+        update pay_record set (state=#{state}) where indent_id=#{indentId}
+    </update>
+
+
+</mapper>

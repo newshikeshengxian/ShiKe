@@ -9,7 +9,6 @@ import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.sk.auth.mapper.UserMapper;
-import com.sk.auth.po.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
@@ -29,7 +28,7 @@ public class Note {
     private UserMapper userMapper;
 
     public String note(String phone){
-        User user = userMapper.selectUser(phone);
+//        User user = userMapper.selectUser(phone);
 //        if(user == null){
             DefaultProfile profile = DefaultProfile.getProfile("default", "LTAIVzWPsZHhmUTm", "fcfDLta5wV9U03Y5gEObOesCYvnsEQ");
             IAcsClient client = new DefaultAcsClient(profile);
