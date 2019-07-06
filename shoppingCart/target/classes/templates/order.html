@@ -1012,49 +1012,33 @@
 		}
 	})
 
-
-	Cookie();
-	function Cookie() {
-		var cookie = getCookie("uid");
-		if(cookie == null || cookie == ""){
-			v.state = 1
-		}else {
-			var cookie = getCookie("auth");
-			var parse = JSON.parse(cookie);
-			var userName = parse.userName;
-			v.userName = userName
-			v.state = 0
-		}
-	}
-
-
-	$(function () {
-		if(getCookie("auth")==null || getCookie("auth")==""){
-			alert("请登录！")
-			location.href="login.html"
-		}
-        var s = getCookie("shopCart");
-        v.shopCart = JSON.parse(s);
-        var price = 0;
-        for(var i = 0;i<v.shopCart.length;i++){
-            price = price+v.shopCart[i].productPrice * v.shopCart[i].indentNum
-        }
-        v.shopPrice = price.toFixed(2);
-	    if(getCookie("order")==null || getCookie("order")==""){
-            v.products = v.shopCart
-            v.price = v.shopPrice
-            v.indentType=0;
-        }else {
-            v.order = JSON(getCookie("order"));
-            v.price = (v.order.productPrice * v.order.indentNum).toFixed(2);
-            v.indentType = v.order.state
-            v.realPay = v.price
-            v.show1=0;
-            v.show2=1;
-            v.show3=0;
-            v.sh2=1;
-        }
-	})
+	// $(function () {
+	// 	if(getCookie("auth")==null || getCookie("auth")==""){
+	// 		alert("请登录！")
+	// 		location.href="login.html"
+	// 	}
+    //     var s = getCookie("shopCart");
+    //     v.shopCart = JSON.parse(s);
+    //     var price = 0;
+    //     for(var i = 0;i<v.shopCart.length;i++){
+    //         price = price+v.shopCart[i].productPrice * v.shopCart[i].indentNum
+    //     }
+    //     v.shopPrice = price.toFixed(2);
+	//     if(getCookie("order")==null || getCookie("order")==""){
+    //         v.products = v.shopCart
+    //         v.price = v.shopPrice
+    //         v.indentType=0;
+    //     }else {
+    //         v.order = JSON(getCookie("order"));
+    //         v.price = (v.order.productPrice * v.order.indentNum).toFixed(2);
+    //         v.indentType = v.order.state
+    //         v.realPay = v.price
+    //         v.show1=0;
+    //         v.show2=1;
+    //         v.show3=0;
+    //         v.sh2=1;
+    //     }
+	// })
 	function deleteGoods() {
 		if(getCookie("auth")==null || getCookie("auth")==""){
 			alert("请登录！");
