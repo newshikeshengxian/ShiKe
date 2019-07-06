@@ -1,5 +1,6 @@
 package com.sk.shoppingCart.controller;
 
+import com.google.gson.Gson;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -106,6 +107,11 @@ public class OrderController {
         return jsonResult;
     }
 
+    /**
+     *
+     * @param map
+     * @return
+     */
     @RequestMapping("/updateOrderState")
     public JsonResult updateOrderState(@RequestBody Map map){
         JsonResult jsonResult = new JsonResult();
@@ -152,8 +158,9 @@ public class OrderController {
         List<Map> maps = null;
         try {
             maps = orderService.selectSales();
+            String json = new Gson().toJson(maps);
             jsonResult.setCode(0);
-            jsonResult.setData(maps);
+            jsonResult.setData(json);
         } catch (Exception e) {
             e.printStackTrace();
             jsonResult.setCode(1);

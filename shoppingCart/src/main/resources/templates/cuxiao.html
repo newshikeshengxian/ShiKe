@@ -391,15 +391,15 @@
                     <li v-for="good in repertory">
                         <a href="http://www.shikefood.com/j_seckill_goods.php?act=view&amp;id=463">
                             <div class="delivery-bottom" style="position:relative;">
-                                <span class="delivery-bottom-span1"><img :src="good.product.product_Pc1"></span>
-                                <p class="delivery-bottom-p1" style="font-size: 14px;">{{good.product.product_Name}}<span></span></p>
-                                <p class="delvery-bottom-p2"><b class="delver-bottom-b2"><span class="goods-price-b1">¥{{good.product.product_Price}}</span>
+                                <span class="delivery-bottom-span1"><img :src="good.product.productPc1"></span>
+                                <p class="delivery-bottom-p1" style="font-size: 14px;">{{good.product.productName}}<span></span></p>
+                                <p class="delvery-bottom-p2"><b class="delver-bottom-b2"><span class="goods-price-b1">¥{{good.product.productPrice}}</span>
                                 <span class="goods-price-span1">77</span> </b>
                                     <b class="delvery-bottom-b1">&nbsp;抢</b></p>
                             </div>
 
                         </a>
-                        <div  :id="good.prom_Id" class="endtime" style="color: rgb(97, 190, 22);"></div>
+                        <div  :id="good.promId" class="endtime" style="color: rgb(97, 190, 22);"></div>
                     </li>
                 </ul>
             </div>
@@ -661,8 +661,7 @@
             show1:0,
             cartShow:0,
             track:0,
-            shopCart:[{"productId":10001,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8,"indentNum":2},
-                {"productId":10001,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8,"indentNum":2}],
+            shopCart:[],
             shopPrice:0,
             repertory:[],
         },
@@ -739,11 +738,11 @@
                 var repertory = res.data.data;
                 v.repertory=repertory;
                 for(var i = 0;i<repertory.length;i++){
-                    var s = repertory[i].prom_Time
+                    var s = repertory[i].promTime
                     var str =  s.split(".");
                     var str2 = str[0].split("T");
                     var time = str2[0]+" "+str2[1]
-                    go(time,repertory[i].prom_Id);
+                    go(time,repertory[i].promId);
                 }
             }
 

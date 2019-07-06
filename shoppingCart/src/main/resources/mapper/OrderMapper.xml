@@ -107,7 +107,7 @@
     </select>
 
     <select id="selectSales" resultType="java.util.Map">
-        select product_id,count(indent_num) from ind_pro group by product_id order by count(indent_num) desc;
+        select product_id,product_name,count(indent_num) from ind_pro group by product_id order by count(indent_num) desc;
     </select>
 
 
