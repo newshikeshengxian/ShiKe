@@ -220,16 +220,29 @@
     <div id="site-nav">
         <div class="sn-container w1210">
             <font id="login-info" class="sn-login-info">
-                <em>您好，请</em>
-                <a class="sn-login main-color" href="user.php" target="_top">[登录]</a>
-                <a class="sn-register main-color" href="register.php" target="_top">[注册]</a>
-                <a class="sn-register" id="LocalCity" style="color:#61be16;" href="#" target="_top"></a>
+                 <span v-show="state == 1">
+                    <em>您好，请</em>
+                    <a class="sn-login main-color" href="http://localhost:8093/login.html" target="_top">[登录]</a>
+                    <a class="sn-register main-color" href="http://localhost:8093/userzhuce.html" target="_top">[注册]</a>
+                </span>
+                <span v-show="state == 0"> <em>您好亲爱的：</em>
+                    <span @click="personal()">{{userName}}</span>
+                     <a class="sn-register" id="LocalCity" style="color:#61be16;" href="#" target="_top"></a>
+                </span>
             </font>
             <ul class="sn-quick-menu">
                 <li class="sn-mytaobao menu-item">
                     <div class="sn-menu">
                         <a class="menu-hd" href="user.php" target="_top" rel="nofollow">会员中心<span id="gomessage" ></span><i class="sn-menu-icon1"></i></a>
-                        <div id="menu-2" class="menu-bd"></div>
+                        <div id="menu-2" class="menu-bd" >
+                            <div class="menu-bd-panel" id="turns"  v-show ="state == 0">
+                                <a href="javascript:void(0)" target="_top" rel="nofollow" @click="userNum(1)">我的订单</a>
+                                <a href="javascript:void(0)" target="_top" rel="nofollow" @click="userNum(4)">我的优惠券<b id="bonuscount" ssid="4927">3</b></a>
+                                <a href="javascript:void(0)" target="_top" rel="nofollow" @click="userNum(10)">我的收藏</a>
+                                <a href="javascript:void(0)" target="_top" rel="nofollow" @click="userNum(2)">立即充值</a>
+                                <a href="javascript:void(0)" target="_top" rel="nofollow" @click="userDelct()">立即退出</a>
+                            </div>
+                        </div>
                     </div>
                 </li>
 	            <li class="sn-separator"></li>
@@ -815,13 +828,33 @@
             ptId:"",
             arrcurIndex:["0001","0003","0005","0008","0011","0015"],
             products:[],
-
+            state:1,
             cartShow:0,
             track:0,
             shopCart:[],
             shopPrice:0,
+            userName:""
         },
         methods:{
+
+            userNum:function(type){
+                setCookie("userNum",type)
+                location.href="http://192.168.52.117/user.html"
+            },
+
+            userDelct:function(){
+                var cookie =  JSON.parse(getCookie("auth"));
+                var key = cookie.acPwd;
+                var map = {"key":key}
+                setCookie("auth",null)
+                axios.post("http://192.168.52.218/delectKey",map).then(function (res) {
+                    if(res.data.code == 0){
+                        location.href="http://localhost:8093/login.htnl"
+                    }
+                })
+            },
+
+
             goType1:function(id){
 
             },
@@ -911,6 +944,24 @@
             }
         });
     })
+
+    //判断是否登陆
+    Cookie();
+    function Cookie() {
+        var cookie = getCookie("uid");
+        if(cookie == null || cookie == ""){
+            v.state = 1
+        }else {
+            var cookie = getCookie("auth");
+            var parse = JSON.parse(cookie);
+            var userName = parse.userName;
+            v.userName = userName
+            v.state = 0
+        }
+    }
+
+
+
     //购物车点击支付方法
     function pay() {
         if(getCookie("auth")==null ||getCookie("auth")==""){
