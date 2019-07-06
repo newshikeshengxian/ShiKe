@@ -82,11 +82,9 @@
         _ordertimer = setInterval(function(){leftTimer(data2,id)}, 1000);
     }
 	function test() {
-        alert()
-		var repertory = v.repertory
-        for(var i = 0;i<repertory.length;i++){
-            go(repertory[i].expireTime,repertory[i].repId)
-        }
+       axios.get("order/selectSales").then(function(res){
+
+       })
 	}
 
 </script>

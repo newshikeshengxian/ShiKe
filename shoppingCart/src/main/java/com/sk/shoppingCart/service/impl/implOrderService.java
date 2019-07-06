@@ -66,15 +66,15 @@ public class implOrderService implements IOrder {
      */
     @Override
     @Transactional
-    public List<ShopCart> deleteShopCart(Map<String,String> map)throws Exception {
+    public List<ShopCart> deleteShopCart(Map map)throws Exception {
         List<ShopCart> shopCartList = null;
-        String token = map.get("token");
+        String token = (String) map.get("token");
         JsonResult jsonResult = auth(token);
         if(jsonResult.getCode()==0){
-            String id = map.get("id");
+            List<ShopCart> shopCarts = (List<ShopCart>) map.get("shopCart");
             Map<String,String> userMap = (Map)jsonResult.getData();
             String userId = userMap.get("userId");
-            orderDAO.deleteShopCart(id);
+            orderDAO.deleteShopCart(shopCarts);
             shopCartList = shopCartList(userId);
         }else {
             throw  new Exception();
@@ -95,8 +95,8 @@ public class implOrderService implements IOrder {
         JsonResult jsonResult = auth(token);
         if(jsonResult.getCode()==0){
             Random random = new Random();
-            Map<String,String> map = (Map)jsonResult.getData();
-            String userId = map.get("userId");
+            Map map = (Map)jsonResult.getData();
+            String userId =(String) map.get("userId");
             order.setUserId(userId);
             long time  = new Date().getTime();
             String orderId = time +random.nextInt(1000)+"";
@@ -116,6 +116,9 @@ public class implOrderService implements IOrder {
             orderDAO.deleteShopCarts(pros);
             jsonResult = pay(order);
             if(jsonResult.getCode()!=1){
+                List<ShopCart> shopCartList = orderDAO.ShopCartList(userId);
+                map = (Map) jsonResult.getData();
+                map.put("shopCart",shopCartList);
                 return jsonResult;
             }else{
                 throw new Exception();
@@ -158,6 +161,20 @@ public class implOrderService implements IOrder {
         orderDAO.updateOrderState(map);
     }
 
+    @Override
+    public List<ShopCart> findShopCartList(Map map) {
+        String token =(String) map.get("userId");
+        JsonResult jsonResult = auth(token);
+        Map<String,String> map1 = (Map)jsonResult.getData();
+        List<ShopCart> shopCartList = shopCartList(map1.get("userId"));
+        return shopCartList;
+    }
+
+    @Override
+    public List<Map> selectSales() throws Exception {
+        return orderDAO.selectSales();
+    }
+
 
     /**
      * 鉴权
@@ -167,7 +184,7 @@ public class implOrderService implements IOrder {
     public JsonResult auth(String token){
         Map map = new HashMap();
         map.put("token",token);
-        JsonResult jsonResult = restTemplate.postForObject("http://auth-server/testLogin",map,JsonResult.class);
+        JsonResult jsonResult = restTemplate.postForObject("http://auth-server/ifLogin",map,JsonResult.class);
         return jsonResult;
     }
 

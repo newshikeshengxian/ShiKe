@@ -26,28 +26,31 @@
         <result property="indentNum" column="indent_num"></result>
         <result property="productPrice" column="product_price"></result>
         <result property="productName" column="product_name"></result>
-        <result property="productPic" column="product_pic"></result>
+        <result property="productPc1" column="product_pc1"></result>
     </resultMap>
     <resultMap id="shopCartMap" type="com.sk.shoppingCart.po.ShopCart">
         <id property="spId" column="sp_id"></id>
         <result property="productId" column="product_id"></result>
         <result property="userId" column="user_id"></result>
-        <result property="productPic" column="product_pic"></result>
+        <result property="productPc1" column="product_pc1"></result>
         <result property="productPrice" column="product_price"></result>
         <result property="productName" column="product_name"></result>
         <result property="indentNum" column="indent_num"></result>
     </resultMap>
 
     <insert id="addShopCart">
-        insert into shop_cart(product_id, user_id, product_pic, product_price, product_name,indent_num) values
-        (#{productId},#{userId},#{productPic},#{productPrice},#{productName},#{indentNum})
+        insert into shop_cart(product_id, user_id, product_pc1, product_price, product_name,indent_num) values
+        (#{productId},#{userId},#{productPc1},#{productPrice},#{productName},#{indentNum})
     </insert>
 
     <select id="ShopCartList" resultMap="shopCartMap">
         select * from shop_cart where user_id = #{userId}
     </select>
     <delete id="deleteShopCart">
-        delete from shop_cart where sp_id = #{id}
+        delete from shop_cart where sp_id in
+        <foreach collection="shopCart" separator="," open="(" close=")" item="sp">
+            #{sp.spId}
+        </foreach>
     </delete>
     <delete id="deleteShopCarts">
         delete from shop_cart where sp_id in
@@ -63,9 +66,9 @@
 
     </insert>
     <insert id="addIndPro">
-        insert into ind_pro(indent_id, product_id, indent_num, product_price, product_name, product_pic) values
+        insert into ind_pro(indent_id, product_id, indent_num, product_price, product_name, product_pc1) values
         <foreach collection="indPros" separator="," item="pro">
-            (#{pro.indentId},#{pro.productId},#{pro.indentNum},#{pro.productPrice},#{pro.productName},#{pro.productPic})
+            (#{pro.indentId},#{pro.productId},#{pro.indentNum},#{pro.productPrice},#{pro.productName},#{pro.productPc1})
         </foreach>
     </insert>
 
@@ -100,11 +103,12 @@
 
     </select>
     <select id="findProduct" resultMap="proMap">
-        select product_id,indent_num,product_price,product_pic,product_name from ind_pro where indent_id =#{indentId};
+        select product_id,indent_num,product_price,product_pc1,product_name from ind_pro where indent_id =#{indentId};
     </select>
 
-
-
+    <select id="selectSales" resultType="java.util.Map">
+        select product_id,count(indent_num) from ind_pro group by product_id order by count(indent_num) desc;
+    </select>
 
 
 </mapper>

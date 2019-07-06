@@ -218,7 +218,7 @@
 											<td align="center" width="32%">
 								  		    	<div class="thumb_name">
 							              			<dl>
-							                			<dt> <a  target="_blank"><img  :src="product.productPic"  border="0" :title="product.productName" class="pic_img_10026"></a> </dt>
+							                			<dt> <a  target="_blank"><img  :src="product.productPc1"  border="0" :title="product.productName" class="pic_img_10026"></a> </dt>
 							                			<dd> 
 							                				<a  target="_blank" class="f6">
 							                	               	{{product.productName}}<br>
@@ -275,7 +275,7 @@
 					    <tr>
 						    <td width="80">
 						    </td>
-					       	<td align="right" width="120"><a href="javascript:void(0);" class="jmclear"><i class="icon-shanchu" ></i></a><span >删除选中的商品</span></td>
+					       	<td align="right" width="120"><a href="javascript:void(0);" onclick="deleteGoods()" class="jmclear">删除选中的商品</a></td>
 					       	<td align="right" width="150" id="coudan"><span>全场满99包邮费 <a >去凑单</a></span> </td>
 					        <td align="right" id="cart_money_info">应付总额：<span> {{price}}</span>，比市场价 ¥{{(price*market).toFixed(2)}} 节省了 ¥{{(price*(market-1)).toFixed(2)}} ({{((market-1)*100).toFixed(2)}}%)</td>
 					        <td align="right" width="150">
@@ -298,10 +298,10 @@
 					<!--猜您喜欢商品列表，最多共24个商品-->
 				    <ul class="curr clearfix" >
 				        <li id="like_0"  v-for="good,index in likeGood">
-				          <p class="pic"><a href="http://www.shikefood.com/goods-10028.html" target="_blank"><img :src="good.productPic"></a></p>
+				          <p class="pic"><a href="http://www.shikefood.com/goods-10028.html" target="_blank"><img :src="good.productPc1"></a></p>
 				          <p class="name"><a href="http://www.shikefood.com/goods-10028.html" target="_blank">{{good.productName}}</a></p>
 				          <p><font class="price">¥{{good.productPrice}}</font></p>
-				          <a class="j_AddCart" href="javascript:;" @click="addShopCart(index)">加入购物车</a>
+				          <a class="j_AddCart" href="javascript:;" @click="addShopCart(good)">加入购物车</a>
 				        </li>
 				    </ul>
 				</div>
@@ -442,7 +442,7 @@
 			              				<dl>
 			                				<dt>
 			                					<a  target="_blank">
-			                						<img :src="or.productPic" style="border:1px solid #eeeeee;" :title="productName">
+			                						<img :src="or.productPc1" style="border:1px solid #eeeeee;" :title="productName">
 			                					</a>
 			                				</dt>
 					                		<dd>
@@ -638,8 +638,8 @@
         						<table width="100%" align="left" cellpadding="0" cellspacing="0" bgcolor="#fff" style="border:1px solid #eeeeee;border-bottom:none">
                         			<tbody>
                         				<tr>
-              								<td style="border-bottom:1px solid #eeeeee;padding-left:15px;background:#FAFAFA; width:445px;" height="30">订单号：2019062978787</td>
-								            <td style="border-bottom:1px solid #eeeeee;background:#FAFAFA">微信支付：¥25.40</td>
+              								<td style="border-bottom:1px solid #eeeeee;padding-left:15px;background:#FAFAFA; width:445px;" height="30">订单号：{{indentId}}</td>
+								            <td style="border-bottom:1px solid #eeeeee;background:#FAFAFA">微信支付：¥{{realPay}}</td>
 								            <td style="border-bottom:1px solid #eeeeee;background:#FAFAFA">顺丰速运&nbsp;&nbsp;&nbsp;仅工作日送货</td>
             							</tr>
                                   </tbody>
@@ -647,15 +647,11 @@
         					</td>
         				</tr>
 	          			<tr>
-        					<td align="center" style="padding-bottom:30px;" id="zhifu">
-                	        	<img alt="扫描进行支付"><iframe src="" ></iframe>
+        					<td align="center" style="padding-bottom:30px;" >
+                	        	<img  :src="'order/qrcode?codeUrl='+erCode" alt="扫描进行支付">
                      		</td>
       					</tr>
-       					<tr style="display:none" id="up_jingdou_mobile">
-        					<td align="center" style="padding-bottom:30px;padding-top:45px;">
-        						<button style="width: 85px;height: 40px;background: #61be16;color: #fff;font-size:13px;border-radius: 5px;" onclick="javascript:up_jingdou_mobile()">确认</button>
-        					</td>
-      					</tr>
+
     				</tbody>
       			</table>
   			</div>
@@ -733,7 +729,7 @@
 			                        			<div class="item-goods" >
 			                            			<span class="p-img">
 			                            				<a href="http://www.shikefood.com/goods-10502.html">
-			                            					<img :src="product.productPic" width="50" height="50" :alt="product.productName">
+			                            					<img :src="product.productPc1" width="50" height="50" :alt="product.productName">
 			                            				</a>
 			                            			</span>
 			                        				<div class="p-name"><a href="http://www.shikefood.com/goods-10502.html" :title="product.productName">{{product.productName}}</a></div>
@@ -902,7 +898,7 @@
 			payOther:0,
 			payMent:"",
 			products:[],
-			price:29.60,
+			price:0,
 			conponId:null,
 			leaveWord:"111",
 			indentType:0,
@@ -916,12 +912,14 @@
 			balance:0,
 			shopCart:[],
 			shopPrice:0,
-			likeGood:[{"productId":10001,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8},
-				{"productId":10001,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8},
-				{"productId":10001,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8}
-				,{"productId":10001,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8},
-				{"productId":10001,"productName":"秘鲁红提 500g装","productPic":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8}],
+			likeGood:[{"productId":10001,"productName":"秘鲁红提 500g装","productPc1":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8},
+				{"productId":10001,"productName":"秘鲁红提 500g装","productPc1":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8},
+				{"productId":10001,"productName":"秘鲁红提 500g装","productPc1":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8}
+				,{"productId":10001,"productName":"秘鲁红提 500g装","productPc1":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8},
+				{"productId":10001,"productName":"秘鲁红提 500g装","productPc1":"/image/10026_thumb_G_1488937488931.jpg","productPrice":14.8}],
 			addrIndex:0,
+			erCode:"",
+			indentId:"",
 
 
 		},
@@ -934,31 +932,35 @@
 					v.products[index].indentNum = v.products[index].indentNum + num;
 				}
 			},
-			addShopCart:function(index) {
-				var shopCart = v.likeGood[index];
-				shopCart["indentNum"] = 1;
-				shopCart["userId"]  = "111"
-				axios.post("order/addShopCart",shopCart).then(function (res) {
-					if(res.data.code==0){
-						alert("添加购物车成功！")
-						var shopCart = JSON.stringify(res.data.data);
-						setCookie("shopCart",shopCart)
-						location.reload();
-					}
-				})
+			addShopCart:function(shopCart) {
+				if(getCookie("auth")==null || getCookie("auth")==""){
+					alert("请登录！")
+					location.href="login.html"
+				}else{
+					var user = JSON.parse(getCookie("auth"))
+					shopCart["indentNum"] = 1;
+					shopCart["userId"]  = user.acPwd;
+					axios.post("order/addShopCart",shopCart).then(function (res) {
+						if(res.data.code==0){
+							alert("添加购物车成功！")
+							var shopCart = JSON.stringify(res.data.data);
+							setCookie("shopCart",shopCart);
+							location.reload();
+						}
+					})
+				}
+
 
 			},
 			deleteShopCart: function (id) {
+				if(getCookie("auth")==null || getCookie("auth")==""){
+					alert("请登录！")
+					location.href="login.html"
+				}
 				if(confirm("确定删除吗？")){
-					var map = {"id":id,"token":"111"};
-					axios.post("order/deleteShopCart",map).then(function (res) {
-						if(res.data.code==0){
-							var shopCart = JSON.stringify(res.data.data);
-							setCookie("shopCart",shopCart)
-							v.shopCart = res.data.data;
-							v.products = v.shopCart;
-						}
-					})
+					var user = JSON.parse(getCookie("auth"))
+					var map = {"shopCart":[{"spId":id}],"token":user.acPwd};
+					deleteShop(map)
 				}
 			},
 			changeAddr:function (index) {
@@ -968,19 +970,23 @@
 	})
 
 	$(function () {
+		if(getCookie("auth")==null || getCookie("auth")==""){
+			alert("请登录！")
+			location.href="login.html"
+		}
         var s = getCookie("shopCart");
         v.shopCart = JSON.parse(s);
         var price = 0;
         for(var i = 0;i<v.shopCart.length;i++){
             price = price+v.shopCart[i].productPrice * v.shopCart[i].indentNum
         }
-        v.shopPrice  = price.toFixed(2);
+        v.shopPrice = price.toFixed(2);
 	    if(getCookie("order")==null || getCookie("order")==""){
             v.products = v.shopCart
-            v.price = v.shopCart
+            v.price = v.shopPrice
             v.indentType=0;
         }else {
-            v.order = getCookie("order");
+            v.order = JSON(getCookie("order"));
             v.price = (v.order.productPrice * v.order.indentNum).toFixed(2);
             v.indentType = v.order.state
             v.realPay = v.price
@@ -989,15 +995,41 @@
             v.show3=0;
             v.sh2=1;
         }
-
-
-
-
-
-
-
 	})
+	function deleteGoods() {
+		if(getCookie("auth")==null || getCookie("auth")==""){
+			alert("请登录！");
+			location.href="login.html";
+		}
+		if(confirm("确定删除吗？")) {
+			var user = JSON.parse(getCookie("auth"));
+			var shopCart = [];
+			var check = $("input[name='check']:checked");
+			var products = v.products;
+			for (var i = 0; i < check.length; i++) {
+				var product = products[check[i].id];
+				var index = shopCart.indexOf(product);
+				if (index == -1) {
+					var spId = {"spId":product.spId}
+					shopCart.push(spId)
+				}
+			}
+			var map = {"shopCart":shopCart,"token":user.acPwd};
+			deleteShop(map)
 
+		}
+
+	}
+	function deleteShop(map) {
+		axios.post("order/deleteShopCart",map).then(function (res) {
+			if(res.data.code==0){
+				alert("删除成功！")
+				var shopCart = JSON.stringify(res.data.data);
+				setCookie("shopCart",shopCart)
+				location.reload();
+			}
+		})
+	}
 	function goOrder() {
 		var order = {};
 		var user = JSON.parse(getCookie("auth"))
@@ -1014,6 +1046,11 @@
 		alert(JSON.stringify(v.order))
 		axios.post("order/addOrder",order).then(function (res) {
             if(res.data.code==3){
+            	v.erCode = res.data.data.code;
+            	v.indentId =res.data.data.indentId
+				var shopCart = res.data.data.shopCart
+				setCookie("shopCart",JSON.stringify(shopCart))
+				v.shopCart = shopCart;
                 v.show1=0;
                 v.show2=0;
                 v.show3=1;
@@ -1087,20 +1124,32 @@
 		v.sh2=0;
 		v.sh3=0;
 	}
-	function cartShow(){
-		var cartShow = v.cartShow;
-		if($("#shopCart").hasClass("right-sidebar-main-open") && cartShow==1){
-			$("#shopCart").removeClass("right-sidebar-main-open");
-			v.cartShow=0;
-		}else{
-			v.cartShow=1;
-			if(!$("#shopCart").hasClass("right-sidebar-main-open")){
-				$("#shopCart").addClass("right-sidebar-main-open");
+	function cartShow() {
+		if (getCookie("auth") == null || getCookie("auth") == "") {
+			alert("请登录!")
+			location.href = "login.html"
+		} else {
+			v.shopCart = JSON.parse(getCookie("shopCart"))
+			shopPrice();
+			var cartShow = v.cartShow;
+			if ($("#shopCart").hasClass("right-sidebar-main-open") && cartShow == 1) {
+				$("#shopCart").removeClass("right-sidebar-main-open");
+				v.cartShow = 0;
+			} else {
+				v.cartShow = 1;
+				if (!$("#shopCart").hasClass("right-sidebar-main-open")) {
+					$("#shopCart").addClass("right-sidebar-main-open");
+				}
 			}
-			
 		}
 	}
-
+	function shopPrice() {
+		var price = 0;
+		for (var i = 0; i < v.shopCart.length; i++) {
+			price = price + v.shopCart[i].productPrice * v.shopCart[i].indentNum
+		}
+		v.shopPrice = price.toFixed(2)
+	}
 	function showAddr() {
 		v.showAddr = 1;
 	}
@@ -1116,7 +1165,7 @@
 		v.realPay = v.price;
 		if(index!=-1){
 			var coupon = v.coupon[index].couponMoney
-			v.realPay = v.price - coupon;
+			v.realPay = (v.price - coupon).toFixed(2);
 			v.couponId = v.coupon[incex].couponId
 		}
 
@@ -1239,6 +1288,25 @@ $('.pop-login .item .text').focus(function(){
 
 
 		
-</script>	
+</script>
+<script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+<script type="text/javascript">
+	var goEasy = new GoEasy({
+		appkey: 'BC-3d44e1928491488599f4a35fd862c228'
+	});
+	//GoEasy-OTP可以对appkey进行有效保护，详情请参考：GoEasy-Reference
+
+	goEasy.subscribe({
+		channel:"shike/order/pay",
+		onMessage: function(message){
+			if(message.content==v.indentId){
+				alert("支付成功！")
+				location.href="http://192.168.52.117/user.html";
+			}
+
+		}
+	});
+</script>
+
 </body>
 </html>

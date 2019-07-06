@@ -10,7 +10,15 @@ public class IndPro {
   private long indentNum;
   private double productPrice;
   private String productName;
-  private String productPic;
+  private String productPc1;
+
+  public String getProductPc1() {
+    return productPc1;
+  }
+
+  public void setProductPc1(String productPc1) {
+    this.productPc1 = productPc1;
+  }
 
   public long getSpId() {
     return spId;
@@ -74,12 +82,6 @@ public class IndPro {
   }
 
 
-  public String getProductPic() {
-    return productPic;
-  }
 
-  public void setProductPic(String productPic) {
-    this.productPic = productPic;
-  }
 
 }

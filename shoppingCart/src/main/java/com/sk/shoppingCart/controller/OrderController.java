@@ -1,17 +1,28 @@
 package com.sk.shoppingCart.controller;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.sk.shoppingCart.po.Indent;
 import com.sk.shoppingCart.po.ShopCart;
 import com.sk.shoppingCart.service.IOrder;
 import com.sk.shoppingCart.vo.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+@CrossOrigin
 @RestController
 @RequestMapping("/order")
 public class OrderController {
@@ -47,8 +58,7 @@ public class OrderController {
     public JsonResult shopCartList(@RequestBody Map<String,String> map){
         JsonResult jsonResult = new JsonResult();
         try {
-            String userId = map.get("userId");
-            List<ShopCart> shopCartList = orderService.shopCartList(userId);
+            List<ShopCart> shopCartList = orderService.findShopCartList(map);
             jsonResult.setCode(0);
             jsonResult.setData(shopCartList);
         } catch (Exception e) {
@@ -64,7 +74,7 @@ public class OrderController {
      * @return
      */
     @RequestMapping("/deleteShopCart")
-    public JsonResult deleteShopCart(@RequestBody Map<String,String> map){
+    public JsonResult deleteShopCart(@RequestBody Map map){
         JsonResult jsonResult = new JsonResult();
         try {
             List<ShopCart> shopCartList = orderService.deleteShopCart(map);
@@ -134,6 +144,47 @@ public class OrderController {
         }
 
         return jsonResult;
+    }
+    @RequestMapping("/selectSales")
+    public JsonResult selectSales(){
+        JsonResult jsonResult = new JsonResult();
+
+        List<Map> maps = null;
+        try {
+            maps = orderService.selectSales();
+            jsonResult.setCode(0);
+            jsonResult.setData(maps);
+        } catch (Exception e) {
+            e.printStackTrace();
+            jsonResult.setCode(1);
+        }
+        return jsonResult;
+    }
+
+
+    /**
+     * 二维码生成
+     */
+    @RequestMapping("/qrcode")
+    public void qrcode(String codeUrl, HttpServletResponse response){
+        //-------------通过微信支付短链接生成二维码---------
+        HashMap<EncodeHintType, Object> hints = new HashMap<>();
+        hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
+        //二维码精度，M精度中等
+        hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.M);
+        hints.put(EncodeHintType.MARGIN, 2);
+        try {
+            //参数1:生成二维码的文本
+            //参数2：生成二维码类（也可以生成条形码）
+            //参数3：图片的长宽
+            BitMatrix bitMatrix = new MultiFormatWriter().encode(codeUrl, BarcodeFormat.QR_CODE, 200, 200, hints);
+            //将生成的图片流写入返回对象的输出流中
+            MatrixToImageWriter.writeToStream(bitMatrix, "PNG", response.getOutputStream());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //-------------通过微信支付短链接生成二维码---------
     }
 
 

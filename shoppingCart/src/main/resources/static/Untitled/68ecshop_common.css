@@ -955,7 +955,7 @@ i, cite,em, strong, th {
 .all-cat .list .cat .cat-name {
 	height: 32px;
 	line-height: 32px;
-	overflow: hidden;
+
 	position: absolute;
 	*position:static;
 	font-weight: 400;
@@ -3136,7 +3136,7 @@ transform:scale(0.7) translateX(270px)
 .all-cat-center{
 	width:1175px;
 	margin:0 auto;
-	display:none;
+
 	}
 .all-cat .list .cat .cat-name a{
 	color:#3b730e;

@@ -996,7 +996,6 @@ i, cite,em, strong, th {
 	top: -1px;
 	left: 209px;
 	background: #f9f9f9;
-	display: none;
 }
 .all-cat .list .categorys .item-left {
 	    width: 454px;
@@ -3136,7 +3135,6 @@ transform:scale(0.7) translateX(270px)
 .all-cat-center{
 	width:1175px;
 	margin:0 auto;
-	display:none;
 	}
 .all-cat .list .cat .cat-name a{
 	color:#3b730e;

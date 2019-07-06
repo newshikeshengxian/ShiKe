@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0037)http://www.shikefood.com/register.php -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>::-webkit-input-placeholder{text-overflow:ellipsis;overflow:hidden;cursor:text;color:gray;opacity:1;padding:0;border:0;}</style>
+<!--<base href="http://www.shikefood.com/">--><base href=".">
+<meta name="Generator" content="68ECSHOP v5_0">
+
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+<title>用户中心_食恪生鲜-全程冷链，鲜活天然，产地直采，一站式生鲜服务管家  </title>
+
+
+    <script type="text/javascript" src="/auth/vue.js"></script>
+    <script type="text/javascript" src="/auth/axios.min.js"></script>
+    <script type="text/javascript" src="/auth/mycookie.js"></script>
+    <link rel="shortcut icon" href="http://www.shikefood.com/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/auth/68ecshop_common.css">
+<link type="text/css" rel="stylesheet" href="/auth/passport.css">
+<link type="text/css" rel="stylesheet" href="/auth/main.css">
+<script src="/auth/hm.js"></script><script type="text/javascript" src="/auth/jquery_email.js"></script>
+<script type="text/javascript" src="/auth/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/auth/jquery.validate.js"></script>
+<script type="text/javascript" src="/auth/messages_zh.js"></script>
+<script type="text/javascript" src="/auth/placeholder.js"></script>
+<script type="text/javascript" src="/auth/jquery.json.js"></script>
+<!--    <script type="text/javascript" src="/auth/transport.auth"></script>-->
+ 
+<script type="text/javascript" src="/auth/common.js"></script>
+    <script type="text/javascript" src="/auth/register.js"></script>
+<!--    <script charset="UTF-8" src="/auth/bundle.auth"></script>-->
+<!--    <script charset="UTF-8" src="/auth/iframeWidget.auth"></script>-->
+</head><body onclick="ecshop68_onclick();" style="cursor: auto;">
+
+<div id="box">
+    <iframe id="sina_anywhere_iframe" style="display: none;" src="/auth/saved_resource.html"></iframe>
+    <script>
+        function erweima1(obj, sType) { var oDiv = document.getElementById(obj); if (sType == 'show') {oDiv.style.display = 'block';} if (sType == 'hide') {oDiv.style.display = 'none';} }
+    </script>
+    <div class="logo-r">
+        <link rel="stylesheet" type="text/css" href="/auth/68ecshop_common.css">
+        <script language="javascript">
+            <!--
+            /*屏蔽所有的js错误*/
+            function killerrors() {
+                return true;
+            }
+            window.onerror = killerrors;
+            //-->
+        </script>
+        <script type="text/javascript" src="/auth/page.js"></script>
+        <script type="text/javascript" src="/auth/bubbleup.js"></script>
+        <div class="header">
+            <div class="w1210">
+                <div class="mall-logo"> <a href="http://www.shikefood.com/"></a><a href="http://www.shikefood.com/"><img src="/auth/logo.png"></a> </div>
+                <!--<div class="mall-logo-right"> <a href="#" target="_blank"></a> </div>-->
+                <div class="mall-search"></div>
+                <!--<ul class="header-right">
+            <li> <a href="javascript:;"><img src="themes/68ecshopcom_360buy/images/common/7day.jpg"/></a></li>
+            <li> <a href="javascript:;"><img src="themes/68ecshopcom_360buy/images/common/guarantee.jpg"/></a></li>
+            <li> <a href="javascript:;"><img src="themes/68ecshopcom_360buy/images/common/delivery.jpg"/></a></li>
+        </ul> -->
+
+
+
+                <p style="float:right; color: #61be16; margin-right: 130px;"><i class="hd-b-r-icon1"></i>满99元包邮</p>
+                <p style="float:right; margin-top: -50px;">
+                    <a href="http://www.yygroup.net/" target="_blank">
+
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="all-nav">
+            <div class="main-nav"></div>
+        </div>
+        <script type="text/javascript">
+            //<![CDATA[
+
+            function checkSearchForm()
+            {
+                if(document.getElementById('keyword').value)
+                {
+                    var frm  = document.getElementById('searchForm');
+                    var type = parseInt(document.getElementById('searchtype').value);
+                    frm.action = type==0 ? 'search.php' : 'stores.php';
+                    return true;
+                }
+                else
+                {
+                    alert("请输入关键词！");
+                    return false;
+                }
+            }
+
+            function myValue1(){
+                document.getElementById('keyword').value = "请输入商品名称或编号...";
+            }
+
+            function myValue2(){
+                document.getElementById('keyword').value = "";
+            }
+
+            //]]>
+            $('.search-type li').click(function() {
+                $(this).addClass('cur').siblings().removeClass('cur');
+                $('#searchtype').val($(this).attr('num'));
+            });
+            $(function(){
+                //图片放大效果
+                $(".header-right img").bubbleup({scale:70});
+
+                //头部搜索
+                $('.search-type').hover(function(){
+                    $(this).css({"height":"auto","overflow":"visible"});
+                },function(){
+                    $(this).css({"height":32,"overflow":"hidden"});
+                });
+
+
+            });
+        </script>
+        <script type="text/javascript" src="/auth/nav.js"></script>
+    </div>
+    <div class="blank"></div>
+    <div class="blank"></div>
+    <div class="w990">
+
+        <script type="text/javascript" src="/auth/utils.js"></script>  <div id="regist">
+        <div class="register-con" style="height: 0px;">
+            <!--  <div class="box-pic-reg"></div> -->
+            <div class="uc-box-reg">
+                <!-- <form action="register.php" method="post" id="formRegister" name="formRegister">
+                  <input type="hidden" id="register_type" name="register_type" value="${register_type}" />
+                  <ul class="register-tab">
+                    <li id="li-register-type-mobile" class="tab-item fl" register_type="mobile">手机注册<span class="bg-ff"></span></li>
+                    <li id="li-register-type-email" class="tab-item cur fl" register_type="email">邮箱注册<span class="bg-ff"></span></li>
+                    <li class="have-account fr">已有账号！<a href="user.php?act=login">登录</a></li>
+                  </ul>
+                </form> -->
+                <form action="/phone" method="post"   id="formUser" name="formUser">
+                    <div class="form">
+                        <h3 class="form-h3">会员注册</h3>
+                        <input type="hidden" name="register_type" value="mobile">
+
+                        <div class="item">
+                            <span class="item-span1"><b style="color: #b80304; margin-right: 2px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</b>手机：</span><input name="phone" type="text" v-model="phone" id="mobile_phone" placeholder="手机"class="text">
+                            <div> <span class="label" id="mobile_phone_notice" style="margin-left: 10px;"></span> </div>
+                        </div>
+
+
+
+                        <div class="item">
+                            <span class="item-span1"><b style="color: #b80304; margin-right: 2px;">&nbsp;&nbsp;&nbsp;*</b>验证码：</span>
+                            <input id="mobile_code" class="text text-te fl  item-yanzhengma" v-model="code" type="text" placeholder="手机验证码" name="code">
+
+                            <input class="zphone"  type="button" value="获取手机验证码 " id="zphone" @click="yanzm()">
+
+
+                            <!-- <div> <span id="extend_field5i" class="label"></span> </div> -->
+                        </div>
+
+                        <div id="o-password">
+                            <div class="item">
+
+                                <span class="item-span1"><b style="color: #b80304; margin-right: 2px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</b>密码：</span>
+                                <input name="userPass" type="password" v-model="pass" id="password" placeholder="密码" class="text">
+
+                                <div id="pwd_notice" style=""> <span class="label" id="password_notice" style="color: rgb(227, 25, 57);">- 登录密码不能少于 6 个字符。</span> </div>
+                                <!--  <div id="pwd_intensity"> <span class="label">
+                                   <table width="295" height="25px" border="0" cellspacing="0" cellpadding="0" style="padding: 0px 0px 10px;">
+                                     <tr align="center">
+                                       <td width="33%" id="pwd_lower">弱</td>
+                                       <td width="33%" id="pwd_middle">中</td>
+                                       <td width="33%" id="pwd_high">强</td>
+                                     </tr>
+                                   </table>
+                                   </span> </div> -->
+                            </div>
+                            <div class="item">
+                                <span class="item-span1"><b style="color: #b80304; margin-right: 2px;">*</b>确认密码：</span>
+                                <input type="password" id="conform_password" v-model="pass1" name="confirm_password" class="text" placeholder="确认密码" onblur="check_conform_password(this.value);" autocomplete="off">
+                                <div> <span class="label" id="conform_password_notice"></span> </div>
+                            </div>
+                            <div class="item">
+                                <span class="item-span1"><b style="color: #b80304; margin-right: 2px;">&nbsp;</b>推荐人ID：</span>
+                                <input type="text" name="tuijian" placeholder="请输入推荐人ID" class="text">
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="safety">
+                            <input name="agreement" type="checkbox" value="1" checked="checked" class="checkbox" style="display: none;">
+                            <span id="tongyi"><i class="safety-icon2"></i><label for="remember" class="mar-b" id="tongyi">我已阅读并同意 <a>食恪网服务条款</a></label></span>
+                        </div>
+
+                        <div class="item">
+                            <input name="act" type="hidden" value="register">
+                            <input type="hidden" name="back_act" value="user.php">
+                            <input type="button"   value="立即注册"  @click="zhuce()" class="btn-img btn-regist">
+                        </div>
+                        <span class="from-sapn5">已注册？<a href="http://192.168.52.117/login.html">立即登录</a></span>
+                    </div>
+                </form>
+                <!--[if !ie]>form end<![endif]-->
+
+                <div class="register-main-t-right">
+
+                    <p class="regidter-t-right-p1">已经是会员：<span class="regidter-t-right-span1"><a href="http://192.168.52.117/login.html">直接登录</a></span></p>
+
+                    <span class="regidter-t-right-span2"><a href="http://www.shikefood.com/"><img src="/auth/1559500290334008946.jpg"></a></span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="pop-main" id="popfuc" style="display: none; top: 72.5px;position:fixed;left:50%;top:130px;margin-left:-462px"><div class="pop-header"> <span><h3>注册服务条款</h3></span><a class="pop-close" href="javascript:;" title="关闭"></a></div><div class="pop-con" style="height: 350px;overflow-x:hidden;overflow-y:auto;padding-right:15px"><div class="pop-con-tanchuang"> <p><span style="font-size: 12px;">本协议详述您在www.shikefood.com（"网站"）使用我们的服务所须遵守的条款和条件。如您有任何疑问，请及时联系我们。<br><br>您注册成为食恪网用户前，必须仔细阅读本用户协议和隐私声明，一旦您注册成为了食恪网用户即表示您已经阅读、同意并接受本用户协议和隐私声明中所含的所有条款和条件。如果我们对本声明进行了任何变更，我们会在食恪网网站页面上发布有关变更事项的通知，所有协议内容在发布之日后自动生效。如您不同意该修订，您必须终止您与食恪网的用户关系。<br><br>一、用户注册： <br>1、用户资格：<br>食恪网用户必须是适用法律下能够签订具有法律约束力的合同的个人。在不限制前述规定的前提下，我们的服务不向18周岁以下或被临时或无限期中止的食恪网用户提供。如您不合资格，请不要使用我们的服务。您的食恪网帐户不得向其他方转让或出售。食恪网保留根据其意愿中止或终止您的帐户的权利。<br>2、资料填写：<br>为确保交易的正常进行，用户必须向食恪网提供真实、有效的个人资料，如个人资料有任何变动，必须及时通知食恪网更新。<br>食恪用户同意接收来自食恪网或者食恪网合作伙伴发出的邮件、信息、短信。 <br><br>二、 隐私：<br>食恪网设有适用于所有用户并纳入用户协议的隐私声明。您应当在注册时阅读并接受隐私声明以使用食恪网网站，且您在作为食恪网用户期间将继续受其规定（及食恪网对隐私声明作出的任何修订）的约束。<br>1、个人数据资料。包括个人识别资料：如姓名、性别、年龄、出生日期、身份证号码(或护照号码)、电话、通信地址、住址、电子邮件地址等情况；个人背景：职业、教育程度、收入状况、婚姻、家庭状况。在未经您同意及确认之前，食恪网不会将您的资料用于其它目的。<br>2、使用非个人信息。食恪网将通过您的IP地址来收集非个人化的信息，包括您的浏览器性质、操作系统种类、给您提供接入服务的ISP的域名等，以优化在您计算机屏幕上显示的页面。通过收集上述信息，我们亦进行客流量统计，从而改进网站的管理和服务。<br>3、个人数据安全。食恪网采用安全性的服务器使用控制设备保护您的个人数据。<br>4、个人数据披露和限制利用。当国家机构依照法定程序要求食恪网披露个人资料时，食恪网将根据执法单位的要求或为公共安全目的提供个人资料。在此情况下披露的任何内容，食恪网不承担任何责任。食恪网在符合下列条件时，对个人资料进行必要范围以外利用：已取得您的书面同意；为免除您在生命、身体或财产方面之急迫危险；为防止他人权益之重大危害；为增进公共利益，且无害于您的重大利益。 <br><br>三、交易：<br>用户在食恪网进行物品购买时必须遵守以下条款： <br>1、您应就您使用食恪网的服务及对物品购买遵守所有适用的中国法律、法规、条例和地方性法律要求。您还必须确保您遵守本用户协议和隐私声明及纳入上述文件的所有其它条款和规则的所有规定。<br>2、如您在食恪网购买物品，您有义务完成与食恪网的交易，但法律或本用户协议禁止的交易除外。通过对一项物品的下订单，您同意受该物品描述所含的出售条件的约束，只要该等出售条件不违反本协议或不是非法的。<br>3、食恪网网站上的广告，价目表和声明并不构成要约。在食恪网向您发送电子邮件确认收到并接受了您的订单之前，您和食恪网之间不存在合同关系。食恪网有权在发现了食恪网网站上显现的产品及订单的明显错误或缺货的情况下，单方面撤回该信息或撤销合同。食恪网保留对产品订购的数量的限制权。在下订单的同时，您也同时承认了您已经达到购买这些产品的法定年龄，并将对您在订单中提供的所有信息的真实性负责。<br>4、产品价格和可获性都在网站上指明。这类信息将随时更改且不发任何通知。送货费将另外结算，费用根据您选择的送货时间不同而异。如果发生了意外情况，在确认了您的订单后，由于供应商提价，税额变化引起的价格变化，或是由于网站的错误等造成价格变化，食恪网会通过email或电话通知您，在食恪网没有取消订单的情况下，让您决定是否取消订单。 <br><br>四、物品质量与售后服务：<br>1、详见售后服务<br><br>五、网站安全： <br>您同意，未经食恪网明示书面准许，您不会为了任何目的使用任何机器人、蜘蛛软件、刷屏软件或其他自动方式进入网站。此外，您同意您将不会：<br>1、进行任何对食恪网网站造成或可能造成（按食恪网自行酌情确定）不合理或不合比例的重大负荷的行为；<br>2、未经食恪网事先明示书面准许，对网站的任何内容（除您的个人信息以外）制作拷贝、进行复制、修改、制作衍生作品、分发或公开展示；<br>3、干扰或试图干扰网站的正常工作或网站上进行的任何活动；<br>4、在网站中使用违反适用的法律法规下可能视为被禁止或可能被禁止的任何内容；<br>5、对网站使用包含可能破坏、改变、删除、不利影响、秘密截取、未经授权而接触或征用任何系统、数据或个人资料的任何病毒、特洛依木马、蠕虫、定时炸弹、删除蝇、复活节彩蛋、间谍软件或其他电脑程序。 <br><br>六、知识产权声明：<br>食恪网所提供的网络服务的相关著作权、专利权、商标、商业秘密及其它任何所有权或权利，均属食恪网所有。非经食恪网的同意，任何人或用户均不得擅自下载、复制、传输、改编、编辑，否则应负所有法律责任。食恪网拥有向用户提供网络服务过程中所产生并储存于食恪网服务器中的任何数据信息的所有权。<br><br>七、免责声明： <br>食恪网有义务在技术上确保网站的正常运行，尽力避免服务中断或将中断时间限制在最短时间内，保证用户网上交易活动的顺利进行。但如因不可抗力或其他食恪网无法控制的原因使食恪网网站崩溃或无法正常使用导致网上交易无法完成或丢失有关的信息、记录等，食恪网不承担责任；任何用户向食恪网提供错误、不完整、不实信息等造成不能正常使用食恪网服务或遭受任何其他损失，概与食恪网无关<br><br>八、其他：<br>本协议在所有方面均受中华人民共和国法律管辖。本网站所有用户均不可撤销地受食恪网持有人所在地的中国上海市浦东新区法院及上级法院的管辖。本协议的规定是可分割的，如本协议任何规定被裁定为无效或不可执行，该规定可被删除而其余条款应予以执行。您同意，在发生并购，本协议和所有纳入的协议可由食恪网自行酌情决定向第三方自动转让。标题仅为参考之用，在任何方面均不界定、限制、解释或描述该条的范围或限度。<br><br></span></p> <a class="pop-close-shike" href="javascript:;" title="关闭">同意条款</a></div></div></div>
+
+
+
+
+        <div class="blank"></div>
+    </div>
+    <div class="site-footer">
+        <div class="footer-related">
+
+            <div class="site-footer">
+                <div class="footer-service">
+                    <div class="w1210">
+                        <ul class="list-service clearfix">
+                            <li><a class="ic1" rel="nofollow" target="_blank"><i class="icon1 list-service-icon1"></i><p class="list-service-p1"><strong>基地直达</strong><span class="list-service-span1">全程参与 品质可控</span></p></a> </li>
+                            <li><a class="ic2" rel="nofollow" target="_blank"><i class="icon2 list-service-icon1"></i><p class="list-service-p1"><strong>冷链配送</strong><span class="list-service-span1">冷链直达 保证品质</span></p></a> </li>
+                            <li><a class="ic3" rel="nofollow" target="_blank"><i class="icon3 list-service-icon1"></i><p class="list-service-p1"><strong>产品多项检测</strong><span class="list-service-span1">确保食品安全</span></p></a> </li>
+                            <li><a class="ic4" rel="nofollow" target="_blank"><i class="icon4 list-service-icon1"></i><p class="list-service-p1"><strong>新鲜送达</strong><span class="list-service-span1">更多新鲜 及时送达</span></p></a> </li>
+                            <!--            <li><a class="ic5" rel="nofollow" href="" target="_blank"><i></i><strong>460余家售后网点</strong></a> </li>-->
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-related">
+                    <div class="w1210">
+                        <div class="footer-article">
+                            <div class="footer-b-l-top">
+                                <ul>
+                                    <li><a><img src="/auth/footer-img1.png"></a></li>
+                                    <li><a href="http://www.shikefood.com/bbs" target="_blank"><img src="/auth/footer-img2.png"></a></li>
+                                    <li><a><img src="/auth/footer-img3.png"></a></li>
+                                </ul>
+                            </div>
+                            <dl class="col-article col-article-first">
+                                <dt class="col-article-dt"><i class="col-article-icon1"></i>新手指南</dt>
+                                <div class="footer-article-bottom">
+                                    <dd><a rel="nofollow" href="http://www.shikefood.com/help.php?id=9" target="_blank">账号注册</a></dd>
+                                    <dd><a rel="nofollow" href="http://www.shikefood.com/help.php?id=10" target="_blank">购物流程</a></dd>
+                                    <dd><a rel="nofollow" href="http://www.shikefood.com/help.php?id=11" target="_blank">联系我们</a></dd>
+                                    <dd><a rel="nofollow" href="http://www.shikefood.com/help.php?id=149" target="_blank">会员政策</a></dd>
+                                </div>
+                            </dl>
+                            <dl class="col-article ">
+                                <dt class="col-article-dt"><i class="col-article-icon2"></i>配送方式 </dt>
+                                <div class="footer-article-bottom">
+                                    <dd><a rel="nofollow" href="http://www.shikefood.com/help.php?id=15" target="_blank">生鲜配送</a></dd>
+                                    <dd><a rel="nofollow" href="http://www.shikefood.com/help.php?id=16" target="_blank">配送费用</a></dd>
+                                    <dd><a rel="nofollow" href="http://www.shikefood.com/help.php?id=21" target="_blank">商品验货及签收</a></dd>
+                                </div>
+                            </dl>
+                            <dl class="col-article ">
+                                <dt class="col-article-dt"><i class="col-article-icon3"></i>支付方式</dt>
+                                <div class="footer-article-bottom">
+                                    <dd><a rel="nofollow" href="http://www.shikefood.com/help.php?id=18" target="_blank">发票制度</a></dd>
+                                    <dd><a rel="nofollow" href="http://www.shikefood.com/help.php?id=19" target="_blank">在线支付</a></dd>
+                                    <dd><a rel="nofollow" href="http://www.shikefood.com/help.php?id=146" target="_blank">充值说明</a></dd>
+                                    <dd><a rel="nofollow" href="http://www.shikefood.com/help.php?id=147" target="_blank">储值卡说明</a></dd>
+                                    <dd><a rel="nofollow" href="http://www.shikefood.com/help.php?id=148" target="_blank">优惠券说明</a></dd>
+                                </div>
+                            </dl>
+                            <dl class="col-article ">
+                                <dt class="col-article-dt"><i class="col-article-icon4"></i>售后服务</dt>
+                                <div class="footer-article-bottom">
+                                    <dd><a rel="nofollow" href="http://www.shikefood.com/help.php?id=23" target="_blank">常见问题</a></dd>
+                                    <dd><a rel="nofollow" href="http://www.shikefood.com/help.php?id=150" target="_blank">退换货政策</a></dd>
+                                </div>
+                            </dl>
+                            <!--       <dl class="col-article">
+                               <dt>服务支持</dt>
+                               <dd>售前咨询 400-078-5288</dd>
+                               <dd>售后咨询 400-078-5288</dd>
+                               <dd>客服 QQ 39035000</dd>
+                               <dd>工作时间 9：00-17：30</dd>
+                          </dl>-->
+                        </div>
+                        <div class="footer-b-r-top">
+                            <span class="menu-b-r-span1" style="margin-right:40px;"><img src="/auth/weixin2.jpg" style="width:120px;height:120px;">食恪生鲜官方微信</span>
+                            <span class="menu-b-r-span1" style="width:120px"><img src="/auth/weixin3.jpg" style="width:120px;height:120px;">食恪尝鲜官方微信</span>
+
+                            <p class="footer-b-t-top-p1" style="margin-top:170px;"><span class="footer-b-r-top-span1"><wb:follow-button uid="5838966503" type="red_1" width="67" height="24"><iframe src="/auth/followbutton.html" width="67" height="24" frameborder="0" scrolling="no" marginheight="0"></iframe></wb:follow-button></span><span class="footer-b-r-top-span2">食恪网</span></p>
+                        </div>
+                    </div>
+                    <div class="footer-info clearfix">
+                        <div class="info-text">
+
+                            <!--<a href="http://webscan.360.cn/index/checkwebsite/url/www.0838g.com"><img border="0" src="http://img.webscan.360.cn/status/pai/hash/0487b156a478cc1fe7440290b798ac39/?size=74x27"/></a>-->
+                            <p>
+                                <!--<a href="javascript:;">&copy; 2005-2019 食恪商城 版权所有，并保留所有权利。</a> <a href="javascript:;">上海市浦东新区金桥镇金高路2355号-2363号 </a>
+                                <a href="javascript:;">            Tel: 021-58590083            </a>
+                                <a href="javascript:;"></a>-->
+                                <span><i class="into-text-icon" style="margin-right: 10px;"></i>客服热线：021-58590083​​（周一至周日9:00 — 21:00）</span>
+                            </p>
+
+                            <p class="nav_bottom">
+                                <a href="http://www.shikefood.com/article.php?id=5" target="_blank">关于我们</a><em>|</em>
+                                <a href="http://www.shikefood.com/help.php?id=15">生鲜配送</a><em>|</em>
+                                <a href="http://www.shikefood.com/help.php">帮助中心</a><em>|</em>
+                                <a href="http://www.shikefood.com/message.php">留言板</a><em>|</em>
+                                <a href="http://www.shikefood.com/help.php?id=11">联系我们</a>
+                                <br>
+                                <a href="http://www.shikefood.com/catalog.php">生鲜购买导航</a><em>|</em>
+                                <a href="http://www.shikefood.com/fresh_knowledge.html">生鲜小知识</a>
+                                <em>|</em> <a href="http://www.shikefood.com/article-404.html">营业执照</a>
+                                <em>|</em> <a href="http://www.shikefood.com/article-405.html">食品流通许可证</a>
+                                <em>|</em> <a href="http://www.shikefood.com/article-406.html">酒类商品批发许可证</a>
+                            </p>
+                            <p>
+                                <!-- <a href="http://wpa.qq.com/msgrd?V=1&amp;uin=800007396&amp;Site=食恪商城&amp;Menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:800007396:4" height="16" border="0" alt="QQ" /> 800007396</a>-->
+                                <!-- <a href="http://wpa.qq.com/msgrd?V=1&amp;uin=1111111&amp;Site=食恪商城&amp;Menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:1111111:4" height="16" border="0" alt="QQ" /> 1111111</a>-->
+                                <!--<a href="http://amos1.taobao.com/msg.ww?v=2&uid=sssss&s=2" target="_blank"><img src="http://amos1.taobao.com/online.ww?v=2&uid=sssss&s=2" width="16" height="16" border="0" alt="淘宝旺旺" />sssss</a>-->
+                            </p>
+                            <p class="nav_bottom">COPYRIGHT © 2016-2017 食恪电子商务（上海）有限公司  沪ICP备16016317号-1</p>
+                            <!--<a href="http://webscan.360.cn/index/checkwebsite/url/www.shikefood.com"><img border="0" src="http://img.webscan.360.cn/status/pai/hash/ee9e1e165d1aa810c21aaada537a6678/?size=74x27"/></a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <img src="/auth/cron.php" alt="" style="width:0px;height:0px;">
+
+
+            <script type="text/javascript" src="/auth/jquery-lazyload.js"></script>
+            <script type="text/javascript" src="/auth/jquery-3.4.0.js"></script>
+            <script type="text/javascript">
+                Ajax.call('api/okgoods.php', '', '', 'GET', 'JSON');
+                $("img").lazyload({
+                    effect       : "fadeIn",
+                    skip_invisible : true,
+                    failure_limit : 20
+                });
+            </script>
+
+            <script type="text/javascript" src="/auth/base.js"></script>
+            <script src="/auth/wb.js" type="text/javascript" charset="utf-8"></script>
+
+
+
+
+            <script>
+                var _hmt = _hmt || [];
+                (function() {
+                    var hm = document.createElement("script");
+                    hm.src = "https://hm.baidu.com/hm.js?f84308146ad12f1098c0af9e25217e46";
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(hm, s);
+                })();
+            </script>  </div>
+    </div>
+    <script>
+        $('#btn_submit').click(function(){
+            var aa = $('#password').val().length;
+            if(aa>20){
+                alert("登录密码不能超过20位");
+                return false;
+            }
+        });
+
+    </script>
+    <script>
+        $('#tongyi i').click(function(){
+            var a = $(this).hasClass('safety-icon2');
+            if (a) {
+                $(this).removeClass('safety-icon2');
+                $(this).addClass('safety-icon1');
+            }else{
+                $(this).removeClass('safety-icon1');
+                $(this).addClass('safety-icon2');
+            }
+        });
+
+        $('#btn_submit').click(function(){
+            var a = $('#tongyi i').hasClass('safety-icon2');
+            if(a==false){
+                popup('注册提示','请阅读食恪网服务条款,并选择同意!');
+                return false;
+            }
+        });
+        $('#tongyi a').click(function(){
+            $('#popfuc').show();
+        });
+
+
+
+    </script>
+
+
+
+    <script type="text/javascript">
+        var process_request = "正在处理您的请求...";
+        var username_chana = "- 用户名不能有中文。";
+        var msg_uname_length = "- 用户名不能超过 20 个字符。";
+        var username_empty = "- 用户名不能为空。";
+        var username_shorter = "- 用户名长度不能少于 3 个字符。";
+        var username_invalid = "- 用户名只能是由字母数字以及下划线组成。";
+        var password_empty = "- 登录密码不能为空。";
+        var password_shorter = "- 登录密码不能少于 6 个字符。";
+        var confirm_password_invalid = "- 两次输入密码不一致";
+        var email_empty = "- Email 为空";
+        var email_invalid = "- Email 不是合法的地址";
+        var agreement = "- 您没有接受协议";
+        var msn_invalid = "- msn地址不是一个有效的邮件地址";
+        var qq_invalid = "- QQ号码不是一个有效的号码";
+        var home_phone_invalid = "- 家庭电话不是一个有效号码";
+        var office_phone_invalid = "- 办公电话不是一个有效号码";
+        var mobile_phone_invalid = "- 手机号码不是一个有效号码";
+        var msg_un_blank = "- 用户名不能为空";
+        var msg_un_chine = "- 用户名不能为中文";
+        var msg_un_length = "- 用户名不得超过14个字符";
+        var msg_un_format = "- 用户名含有非法字符";
+        var msg_un_registered = "- 用户名已经存在,请重新输入";
+        var msg_can_rg = "* 可以注册";
+        var msg_email_blank = "- 邮件地址不能为空";
+        var msg_email_registered = "- 邮箱已存在";
+        var msg_email_format = "- 邮件地址不合法";
+        var msg_mobile_phone_blank = "- 手机号码不能为空";
+        var msg_mobile_phone_registered = "- 手机号码已存在";
+        var msg_mobile_phone_format = "- 手机号码不是一个有效号码";
+        var msg_blank = "- 不能为空";
+        var no_select_question = "- 您没有完成密码提示问题的操作";
+        var passwd_balnk = "* 密码中不能包含空格";
+        var msg_email_code_blank = "- 邮箱验证码不能为空";
+        var msg_mobile_phone_code_blank = "- 手机验证码不能为空";
+        var msg_captcha_blank = "- 验证码不能为空";
+        var msg_register_type_blank = "- 注册类型不能为空";
+        var username_exist = "用户名 %s 已经存在1111";
+
+        $().ready(function(){
+            //设置高度
+            $(".register-con").height($(".uc-box-reg").height());
+
+            $("#formUser").submit(function(){
+                return register('mobile');
+            });
+
+            $("#zemail").click(function(){
+                $("#email").blur();
+                $("#password").blur();
+                $("#conform_password").blur();
+                if ($("#captcha").size() > 0 && $("#captcha").val().length == 0) {
+                    $("#captcha_notice").html(msg_captcha_blank);
+                    $("#captcha_notice").css({color: '#E31939'});
+                    return;
+                }
+                sendEmailCode($("#email"), $("#email_code"), $(this));
+            });
+
+
+
+
+            $(".register-tab").find(".cur").removeClass("cur");
+            $("#li-register-type-mobile").addClass("cur");
+            $(".tab-item").click(function(){
+                var register_type = $(this).attr("register_type");
+                $("#register_type").val(register_type);
+                $("#formRegister").submit();
+            });
+        });
+
+        $('.pop-close-shike').click(function(){
+            var a = $('#tongyi i').hasClass('safety-icon2');
+            if (!a) {
+                $('#tongyi i').removeClass('safety-icon1');
+                $('#tongyi i').addClass('safety-icon2');
+            }
+
+            $('.cencel-btn').addClass('none');
+            $(this).parents('.pop-main').hide();
+            $('.pop-mask').hide();
+
+        })
+    </script>
+
+
+</div>
+
+
+
+</body>
+
+<script>
+
+    var v = new Vue({
+        el:"#box",
+        data:{
+            phone:"",
+            pass:"",
+            code:"",
+            pass1:""
+        },
+        methods:{
+            yanzm:function () {
+            var phone = v.phone;
+            if(phone == null || phone == ""){
+                alert("手机号不能为空")
+            }else {
+                var map = {"phone":phone}
+                axios.post("http://192.168.52.218:8080/phone",map).then(function (res) {
+
+                })
+            }
+                
+
+
+    },
+
+            zhuce:function () {
+            var phone = v.phone;
+            var pass = v.pass;
+            var pass1 = v.pass1;
+            var code = v.code;
+            if(phone == null || phone == ""){
+                alert("手机号不能为空")
+            }else if (pass == null || pass == "" || pass1 == null || pass1 ==""){
+                alert("密码不能为空")
+            }else if (code == "" || code == null) {
+                alert("验证码不能为空")
+            }else if(pass == pass1){
+                var auth = {"phone":phone,"code":code,"userPass":pass}
+                axios.post("http://192.168.52.218:8080/addUser",auth).then(function (res) {
+                    if(res.data.code == 0){
+                        location.href="/login.html";
+                    }
+                })
+            }else {
+                    alert("两次密码不一致")
+            }
+
+            }
+        }
+    });
+
+
+</script>
+
+
+
+</html>

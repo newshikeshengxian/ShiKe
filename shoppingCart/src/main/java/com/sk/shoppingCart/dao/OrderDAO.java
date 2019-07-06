@@ -33,6 +33,7 @@ public interface OrderDAO {
 
     void addShopCart(ShopCart shopCart);
     List<ShopCart> ShopCartList(@Param("userId") String userId);
-    void deleteShopCart(@Param("id") String id);
+    void deleteShopCart(@Param("shopCart") List<ShopCart> shopCarts);
     void deleteShopCarts(@Param("shopCarts") List<IndPro> shopCarts);
+    List<Map> selectSales();
 }

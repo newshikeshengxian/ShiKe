@@ -6,7 +6,7 @@ public class ShopCart {
   private long spId;
   private String productId;
   private String userId;
-  private String productPic;
+  private String productPc1;
   private double productPrice;
   private String productName;
   private long indentNum;
@@ -38,15 +38,13 @@ public class ShopCart {
     this.userId = userId;
   }
 
-
-  public String getProductPic() {
-    return productPic;
+  public String getProductPc1() {
+    return productPc1;
   }
 
-  public void setProductPic(String productPic) {
-    this.productPic = productPic;
+  public void setProductPc1(String productPc1) {
+    this.productPc1 = productPc1;
   }
-
 
   public double getProductPrice() {
     return productPrice;
