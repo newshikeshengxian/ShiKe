@@ -1,5 +1,5 @@
 var domain_url = 'http://'+document.domain+'/';
-/* $Id : common.js 4865 2007-01-31 14:04:10Z paulgao $ */
+/* $Id : common.auth 4865 2007-01-31 14:04:10Z paulgao $ */
 /* JS代码增加_start  by grand */
 
 // 页面加载时加载图片方法

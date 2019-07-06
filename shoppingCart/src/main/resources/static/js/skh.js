@@ -1,4 +1,4 @@
-/* $Id : skh.js 4865 2017-01-13 18:00:00Z Jack Chen $ */
+/* $Id : skh.auth 4865 2017-01-13 18:00:00Z Jack Chen $ */
 //判断浏览器类型2017-1-13 
 function is_ios(){
   var ua = navigator.userAgent.toLowerCase();

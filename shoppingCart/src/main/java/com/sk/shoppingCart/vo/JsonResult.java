@@ -7,7 +7,7 @@ public class JsonResult implements Serializable {
     private String msg;
     private  Object data;
 
-    public int getCode() {
+    public Integer getCode() {
         return code;
     }
 

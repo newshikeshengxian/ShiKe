@@ -1,5 +1,5 @@
 /**
- * @file            transport.js
+ * @file            transport.auth
  * @description     用于支持AJAX的传输类。
  * @author          ECShop R&D Team ( http://www.ecshop.com/ )
  * @date            2007-03-08 Wednesday
@@ -452,7 +452,7 @@ var Ajax = Transport;
 Ajax.call = Transport.run;
 
 /*
-    json.js
+    json.auth
     2007-03-06
 
     Public Domain

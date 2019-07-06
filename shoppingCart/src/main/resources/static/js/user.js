@@ -6,7 +6,7 @@ var _CHECK_RESULT = {
 	mobile_phone: false
 };
 
-/* $Id : user.js 4865 2007-01-31 14:04:10Z paulgao $ */
+/* $Id : user.auth 4865 2007-01-31 14:04:10Z paulgao $ */
 
 function check_username(val) {
 	if (val == '') {
