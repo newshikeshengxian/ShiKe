@@ -531,12 +531,23 @@
 			                                    <input type="radio" onchange="payMent(this)" name="payment"  value="0" > 使用账户余额支付
 			                                </label>
 			                            </p>
-			                            <div id="allow_user_surplus" v-if="payBalan==1" style= "display: block">
-			                				<span class="surplus_desc">
-			                				<input name="surplus" type="text" class="surplus" >&nbsp;&nbsp;元</span>
-			                                                                                    您当前的可用余额为<span class="your_surplus" id="mk_yue">{{balance}}</span>
-			                                <span id="ECS_SURPLUS_NOTICE_0" class="notice"></span>
-			                                <input type="hidden" id="rec_id_list" name="sel_goods" value="367393">
+			                            <div id="allow_user_surplus" v-show="payBalan==1" style= "display: block">
+											<div v-show="balance>realPay">
+												<span class="surplus_desc" ></span>
+												可用余额:<span class="your_surplus" id="mk_yue">{{balance}}元</span>,
+												支付金额:<span class="your_surplus" id="mk_yue">{{realPay}}元</span>,
+												剩余余额:<span class="your_surplus" id="mk_yue">{{balance-realPay}}元</span>
+												<span id="ECS_SURPLUS_NOTICE_0" class="notice"></span>
+												<input type="hidden" id="rec_id_list" name="sel_goods" value="367393">
+											</div>
+											<div v-show="balance<realPay">
+												<span class="surplus_desc" ></span>
+												<span class="your_surplus" id="mk_yue">余额不足</span>,
+												可用余额：<span class="your_surplus" id="mk_yue">{{balance}}元</span>
+												<span id="ECS_SURPLUS_NOTICE_0" class="notice"></span>
+												<input type="hidden" id="rec_id_list" name="sel_goods" value="367393">
+											</div>
+
 			                            </div>
 			                        </div>
 			                    </td>
@@ -903,11 +914,10 @@
 			leaveWord:"111",
 			indentType:0,
 			market:1,
-			addr:[{"raId":"0001","userId":"0006","raName":"xgf","raPhone":"15959595599","raAddr":"湖北武汉","raTel":"123456","raCode":"437300"},
-				{"raId":"0001","userId":"0006","raName":"xgf","raPhone":"15959595599","raAddr":"湖北武汉","raTel":"123456","raCode":"437300"}],
+			addr:[],
 			deliveryTime:0,
 			order:[],
-			coupon:[{"couponId":"0001","endTime":"2019-09-01 09:37:28","couponMoney":10,"condition":"满50减10","ptId":"0001","beginTime":"2019-07-01 09:37:36","state":0,"userId":"0006","couponCondition":50}],
+			coupon:[],
 			realPay:0,
 			balance:0,
 			shopCart:[],
@@ -1067,25 +1077,45 @@
 	}
 
 	function goTwo(){
-		v.order = [];
-		var check = $("input[name='check']:checked");
-		var products = v.products;
-		for(var i = 0;i<check.length;i++){
-			var product = products[check[i].id];
-			var index = v.order.indexOf(product);
-			if(index == -1 && product.indentNum>0 ){
-				v.order.push(product)
+		if(getCookie("auth")==null || getCookie("auth")==""){
+			alert("请登录！");
+			location.href="login.html";
+		}else{
+			var user =JSON.parse(getCookie("auth")) ;
+			v.order = [];
+			var check = $("input[name='check']:checked");
+			var products = v.products;
+			for(var i = 0;i<check.length;i++){
+				var product = products[check[i].id];
+				var index = v.order.indexOf(product);
+				if(index == -1 && product.indentNum>0 ){
+					v.order.push(product)
+				}
+
 			}
 
+			if(v.price<99){
+				v.realPay = parseFloat(v.price)+5
+			}else{
+				v.realPay = v.price
+			}
+
+			var map = {"token":user.acPwd,"price":v.price};
+			axios.post("http://192.168.52.117:8080/user/forOrder",map,{dataType:"json"}).then(function (res) {
+				if(res.data.code==0){
+					var map = res.data.data;
+					v.addr  = map.addrs;
+					v.coupon = map.coupons;
+					v.balance = map.balance;
+					v.show1=0;
+					v.show2=1;
+					v.show3=0;
+					v.sh2=1;
+				}
+			})
+
 		}
-		v.realPay = v.price
-		// axios.post().then(function (res) {
-		//
-		// })
-		v.show1=0;
-		v.show2=1;
-		v.show3=0;
-		v.sh2=1;
+
 	}
 	var market = 1.05+Math.random()*0.15;
 	v.market = market
