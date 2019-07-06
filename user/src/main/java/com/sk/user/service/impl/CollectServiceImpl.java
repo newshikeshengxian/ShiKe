@@ -7,6 +7,7 @@ import com.sk.user.vo.CollectVO;
 import com.sk.user.vo.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
 import java.sql.Timestamp;
@@ -33,19 +34,25 @@ public class CollectServiceImpl implements ICollectService {
         List<CollectVO> list = new ArrayList<>();
         List<Collect> collects = collectMapper.queryAllCollects(userId);
         for (Collect collect :collects) {
-            JsonResult forObject = restTemplate.getForObject("http://store/product/products?productId=" + collect.getProductId(), JsonResult.class);
+            JsonResult forObject = restTemplate.getForObject("http://store/product/products?id=" + collect.getProductId(), JsonResult.class);
             Map map = (Map) forObject.getData();
             CollectVO collectVO = new CollectVO();
-            Timestamp date = (Timestamp) map.get("createTime");
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-            Date date1 = new Date(date.getTime());
-            String format1 = format.format(date1);
-            collectVO.setCreateTime(format1);
-            collectVO.setPrice((Double) map.get("productPrice"));
+            collectVO.setColId(collect.getColId());
+            collectVO.setCreateTime((String)map.get("productTime"));
+            collectVO.setPrice(Double.parseDouble((String) map.get("productPrice")));
             collectVO.setProductId((String)map.get("productId"));
             collectVO.setProductName((String)map.get("productName"));
+            collectVO.setProductPic((String)map.get("productPc1"));
             list.add(collectVO);
         }
+        return list;
+    }
+
+    @Transactional
+    @Override
+    public List<CollectVO> deleteCollect(String userId, String colId) throws Exception {
+        collectMapper.deleteCollect(colId);
+        List<CollectVO> list = queryAllCollect(userId);
         return list;
     }
 }

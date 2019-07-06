@@ -10,4 +10,8 @@
     <select id="queryAllCollects" resultMap="collectMap">
         select * from  collect where  user_id = #{userId}
     </select>
+    <delete id="deleteCollect">
+        delete from collect where col_id =#{colId}
+    </delete>
+
 </mapper>

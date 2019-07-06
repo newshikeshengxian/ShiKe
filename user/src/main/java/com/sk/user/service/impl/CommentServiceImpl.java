@@ -50,7 +50,7 @@ public class CommentServiceImpl implements ICommentService {
                         commentVO.setCreateTime(format1);
                         commentVO.setLeaveWord(indent.getLeaveWord());
                         commentVO.setProductName(indPro.getProductName());
-                        commentVO.setProductPic(indPro.getProductPic());
+                        commentVO.setProductPic(indPro.getProductPc1());
                         list.add(commentVO);
                     }
 

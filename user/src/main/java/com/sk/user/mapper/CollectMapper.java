@@ -15,4 +15,10 @@ public interface CollectMapper {
      * @return 收藏集合
      */
     List<Collect> queryAllCollects(String userId);
+
+    /**
+     * 根据收藏ID删除收藏记录
+     * @param colId
+     */
+    void deleteCollect(String colId);
 }

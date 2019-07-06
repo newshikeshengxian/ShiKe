@@ -9,8 +9,43 @@
         <result property="raAddr" column="ra_addr" />
         <result property="raTel" column="ra_tel" />
         <result property="zipCode" column="zip_code" />
+        <result property="raState" column="ra_state"/>
+        <result property="detailaddr" column="detailaddr"/>
     </resultMap>
     <select id="queryAddrById" resultMap="receiveMap">
         select * from receiver_addr where ra_id = #{RaId}
     </select>
+    <select id="queryAllAddr" resultMap="receiveMap">
+        select * from receiver_addr
+    </select>
+    <update id="updateAddr">
+        update receiver_addr ra
+        <set>
+            <if test="raName != null and raName != '' ">
+                ra.ra_name = #{raName},
+            </if>
+            <if test="raPhone != null and raPhone != ''">
+                ra.ra_phone = #{raPhone},
+            </if>
+            <if test="raAddr != null and raAddr != ''">
+                ra.ra_addr = #{raAddr},
+            </if>
+            <if test="raTel != null and raTel != ''">
+                ra.ra_tel = #{raTel},
+            </if>
+            <if test="zipCode != null and zipCode != '' ">
+                ra.zip_code = #{zipCode},
+            </if>
+            <if test="raState != null and raState != ''">
+                ra.ra_state = #{raState},
+            </if>
+            <if test="detailaddr != null and detailaddr != ''">
+                ra.ra_detailaddr = #{detailaddr},
+            </if>
+        </set>
+        where ra_id = #{raId}
+    </update>
+    <delete id="deleteAddr">
+        delete from receiver_addr where ra_id = #{raId}
+    </delete>
 </mapper>

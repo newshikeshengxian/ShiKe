@@ -9,7 +9,7 @@ public class IndPro {
   private long indentNum;
   private double productPrice;
   private String productName;
-  private String productPic;
+  private String productPc1;
 
 
   public long getIpId() {
@@ -66,12 +66,12 @@ public class IndPro {
   }
 
 
-  public String getProductPic() {
-    return productPic;
+  public String getProductPc1() {
+    return productPc1;
   }
 
-  public void setProductPic(String productPic) {
-    this.productPic = productPic;
+  public void setProductPc1(String productPic) {
+    this.productPc1 = productPc1;
   }
 
 }

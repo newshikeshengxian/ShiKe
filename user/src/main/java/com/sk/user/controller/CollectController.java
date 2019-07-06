@@ -42,4 +42,19 @@ public class CollectController {
 //        jsonResult.setCode(1);
 //        return jsonResult;
     }
+    @RequestMapping("/delete")
+    public JsonResult addCollect(String userId,String colId){
+        JsonResult jsonResult = new JsonResult();
+        try {
+            List<CollectVO> list = collectService.deleteCollect(userId, colId);
+            jsonResult.setCode(0);
+            jsonResult.setData(list);
+            return jsonResult;
+        }catch (Exception e){
+            e.printStackTrace();
+            jsonResult.setCode(1);
+            return jsonResult;
+        }
+
+    }
 }
